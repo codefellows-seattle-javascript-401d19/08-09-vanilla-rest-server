@@ -3,13 +3,13 @@
 const uuid = require('uuid/v1');
 
 class Mountain{
-  constructor(state,range,hiking,volcano){
+  constructor(name,state,hiking,range){
     this.id = uuid();
 
+    this.name = name;
     this.state = state;
-    this.range = range;
     this.hiking = hiking;
-    this.volcano = volcano;
+    this.range = range;
   }
 }
 
