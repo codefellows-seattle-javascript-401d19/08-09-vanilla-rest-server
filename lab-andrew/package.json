@@ -1,0 +1,39 @@
+{
+  "name": "lab-andrew",
+  "version": "1.0.0",
+  "description": "08-09-vanilla-rest-server",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest -i --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ALB37/08-09-vanilla-rest-server.git"
+  },
+  "keywords": [
+    "vanilla",
+    "rest",
+    "server",
+    "javascript",
+    "node"
+  ],
+  "author": "Andrew Bloom",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ALB37/08-09-vanilla-rest-server/issues"
+  },
+  "homepage": "https://github.com/ALB37/08-09-vanilla-rest-server#readme",
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "jest": "^21.2.1",
+    "superagent": "^3.8.1"
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "uuid": "^3.1.0",
+    "winston": "^2.4.0"
+  }
+}
