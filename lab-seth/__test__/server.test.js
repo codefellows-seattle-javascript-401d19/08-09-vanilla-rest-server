@@ -13,7 +13,7 @@ describe('/api/notes',() => {
       .send({
         title : 'cats',
         content : 'Gregor and The Hound',
-      })// vinicio - send returns a promise.
+      })//send returns a promise.
       .then(response => {
         expect(response.status).toEqual(200);
 

@@ -1,6 +1,6 @@
 'use strict';
 
-// vinicio - process.env will contain my .env variables
+//process.env will contain my .env variables
 require('dotenv').config();
 
 const server = require('./lib/server');
