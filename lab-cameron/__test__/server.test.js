@@ -4,10 +4,10 @@ const server = require('../lib/server');
 const superagent = require('superagent');
 const User = require('../model/user');
 
-// mo
-let test_users = [];
+// data for testing
+const test_users = [];
 test_users.push(new User('test_name_1', 'test_description_1'));
-test_users.push(new User('test_name_2', 'test_desrription_2'));
+test_users.push(new User('test_name_2', 'test_description_2'));
 
 describe('/api/users', () => {
   beforeAll(server.start);
@@ -34,7 +34,6 @@ describe('/api/users', () => {
           expect(response.status).toEqual(200);
           expect(response.body).toEqual(test_users[0]);
           expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
-          // expect(response.req.path).toEqual(`/api/users`);
         });
     });
   });

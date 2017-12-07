@@ -4,19 +4,19 @@ const User = require('../model/user');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
 
-let users = [];
+const users = [];
 // data for testing
 users.push(new User('test_name_1', 'test_description_1'));
 users.push(new User('test_name_2', 'test_description_2'));
 
-let sendStatus = (response, status, message) => {
+const sendStatus = (response, status, message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
 
   response.writeHead(status);
   response.end();
 };
 
-let sendJSON = (response, status, jsonData) => {
+const sendJSON = (response, status, jsonData) => {
   logger.log('info', `Responding with a ${status} code and the following data`);
   logger.log('info', jsonData);
   response.writeHead(status, {
@@ -28,7 +28,22 @@ let sendJSON = (response, status, jsonData) => {
   return;
 };
 
+const findUserWithId = querystring => {
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].getId() === querystring) {
+      return users[i];
+    } else {
+      return false;
+    }
+  }
+};
+
 router.get('/api/users', (request, response) => {
+  if (request.url.query.id) {
+    const foundUserWithId = findUserWithId(request.url.query.id);
+    sendJSON(response, 200, foundUserWithId);
+    return;
+  }
   request.body = users;
   sendJSON(response, 200, users);
 });
