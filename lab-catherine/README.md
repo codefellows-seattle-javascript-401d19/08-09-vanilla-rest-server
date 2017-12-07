@@ -1,7 +1,7 @@
 # Code Fellows: Seattle 401 JavaScript - 401d19
 
 
-##  Lab 08: REST API
+##  Lab 08: REST API / Lab 09: Persistence
 
 ### Author:
  Catherine Looper
@@ -67,8 +67,9 @@ Standard JavaScript with ES6
 
 * Step 1. Fork and Clone the Repository.
 * Step 2. ```npm install```.
-* Step 3. ```npm run start``` (to start the server).
-* Step 4. to test the API run the command ```npm run test```. (Make sure that a server is not already running)
+* Step 3. ```touch .env``` and add ```PORT=3000```
+* Step 4. ```npm run start``` (to start the server).
+* Step 5. to test the API run the command ```npm run test```. (Make sure that a server is not already running)
 
 #### Post Request
 
