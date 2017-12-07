@@ -2,14 +2,14 @@
 
 const uuid = require('uuid/v1');
 
-class Salmon{
+class Hero{
 
-  constructor(name, description){
+  constructor(name, superPower){
     this.id = uuid();
     this.timestamp = new Date();
     this.name = name;
-    this.description = description;
+    this.superPower = superPower;
   }
 }
 
-module.exports = Salmon;
+module.exports = Hero;
