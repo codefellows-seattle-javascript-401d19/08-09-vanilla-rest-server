@@ -37,29 +37,3 @@ requestParser.parse = (request) =>{
     });
   });
 };
-
-
-
-
-//     let sentText = '';
-//     request.on('data',(buffer) => {
-//       sentText += buffer.toString();
-//     });
-//
-//     request.on('end',() => {
-//       try{
-//         // vinicio - this is mutating the request object, and creating an
-//         //           body property
-//         //           Here, we were ASSUMING that  sentText is JSON
-//         if(request.headers['content-type'].indexOf('application/json') > -1){
-//           request.body = JSON.parse(sentText);
-//           return resolve(request);
-//         }else{
-//           return reject(request);
-//         }
-//       }catch(error){
-//         return reject(error);
-//       }
-//     });
-//   });
-// };
