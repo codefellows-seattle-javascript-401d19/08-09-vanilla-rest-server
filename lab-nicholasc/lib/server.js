@@ -23,7 +23,7 @@ server.start = () => {
       return reject(new Error('__SERVER_ERROR__ server is already running'));
     }
     if(!PORT){
-      logger.log('error', '__SERVER_ERROR__ PORT variable is  not configured');
+      logger.log('error', `__SERVER_ERROR__ PORT variable is  not configured, ${PORT}`);
       return reject(new Error('__SERVER_ERROR__ PORT variable is not configured'));
     }
     app.listen(PORT, error => {

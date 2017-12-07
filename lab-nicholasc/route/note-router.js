@@ -39,7 +39,7 @@ router.post('/api/notes', (request, response) => {
     return;
   }
 
-  let note = new Note(request.body.title, requst.body.content);
+  let note = new Note(request.body.title, request.body.content);
   notes.push(note);
   sendJSON(response, 200, notes);
 });

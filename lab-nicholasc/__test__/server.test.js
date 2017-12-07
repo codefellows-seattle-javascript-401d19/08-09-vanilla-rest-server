@@ -20,9 +20,6 @@ describe('api/notes', () => {
         expect(response.body.content).toEqual('Gregor and the hound');
         expect(response.body.timestamp).toBeTruthy();
         expect(response.body.id).toBeTruthy();
-
-
-
       });
   });
 });
