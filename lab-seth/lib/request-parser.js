@@ -22,9 +22,6 @@ requestParser.parse = (request) => {
 
     request.on('end',() => {
       try{
-        //This is mutating the request object, and creating an
-        //body property
-        //Here, we were ASSUMING that  sentText is JSON, so we must actually check that with this IF statement
         if(request.headers['content-type'].indexOf('application/json') > -1){
           request.body = JSON.parse(sentText);
           return resolve(request);

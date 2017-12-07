@@ -1,6 +1,6 @@
-# Vanilla HTTP Server
+# Vanilla HTTP REST Server
 
-This is a simple HTTP server that allows users to input a url to make a cow say something!
+This is a simple HTTP server which follows REST constraints nad that allows users to input a url to make a cow say something!
 
 ## Motivation
 
@@ -38,7 +38,8 @@ VScode
 
 ## Features
 
-It uses Winston Logger to keep track of logs.
+- It uses Winston Logger to keep track of logs.
+- GET, POST, DELETE routes for newly discovered exo-planets
 
 ## Code Example
 ```

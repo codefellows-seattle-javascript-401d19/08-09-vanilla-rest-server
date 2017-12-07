@@ -2,8 +2,6 @@
 
 const server = require('../lib/server');
 const superagent = require('superagent');
-const logger = require('../lib/logger');
-
 
 describe('/api/planet',() => {
   beforeAll(server.start);
@@ -20,7 +18,7 @@ describe('/api/planet',() => {
       .send({
         name: testName,
         content: testContent,
-      })//send returns a promise.
+      })
       .then(response => {
         expect(response.status).toEqual(200);
         expect(response.body.name).toEqual('BD032562b');
@@ -58,13 +56,28 @@ describe('/api/planet',() => {
     return superagent.get(`http://localhost:3000/api/planet?id=${testId}`)
       .then(response => {
         expect(response.status).toEqual(200);
-        console.log(response.body);
         expect(response.body.id).toEqual(testId);
       });
   });
 
   test('GET should respond with 404 status code if there are no errors', () => {
     return superagent.get(`http://localhost:3000/api/planet?id=${falseTestId}`)
+      .then(response => Promise.reject(response))
+      .catch(response => {
+        expect(response.status).toEqual(404);
+      });
+  });
+
+  test('DELETE should respond with 204 status code if there are no errors', () => {
+    return superagent.delete(`http://localhost:3000/api/planet?id=${testId}`)
+      .then(response => {
+        expect(response.status).toEqual(204);
+        expect(response.body).toBe('');
+      });
+  });
+
+  test('DELETE should respond with 404 status code if there are no errors', () => {
+    return superagent.delete(`http://localhost:3000/api/planet?id=${falseTestId}`)
       .then(response => Promise.reject(response))
       .catch(response => {
         expect(response.status).toEqual(404);
