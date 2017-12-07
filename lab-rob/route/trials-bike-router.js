@@ -75,7 +75,7 @@ router.get('/api/trials-bikes', (req, res) => {
     if(requestedBike)
       sendJSON(res, 200, requestedBike);
     else
-      sendBadStatus(res, 404, `No bike with id ${id}.`);
+      sendBadStatus(res, 404, `No bike with id "${id}".`);
   } else
     sendJSON(res, 200, trialsBikes);
 });

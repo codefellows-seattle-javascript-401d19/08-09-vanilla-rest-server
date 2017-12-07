@@ -103,9 +103,6 @@ describe('/api/trials-bikes', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .send({make: 1, model: 2, year: 3, displacement: 4})
-      .then(res => {
-        Promise.reject(res);      
-      })
       .catch(res => {
         expect(res.status).toEqual(400);
         expect(JSON.parse(res.response.res.text).error).toEqual('bad request, color not found!');
@@ -125,6 +122,14 @@ describe('/api/trials-bikes', () => {
       .then(res => {
         expect(res.status).toEqual(200);
         expect(res.body).toEqual(testArray[0]);
+      });
+  });
+
+  test('Get should respond with a 404 status code and an object with error property "No bike with id "<id>".', () => {
+    return superagent.get(`http://localhost:3000/api/trials-bikes?id=hamburger`)
+      .catch(res => {
+        expect(res.status).toEqual(404);
+        expect(JSON.parse(res.response.res.text).error).toEqual('No bike with id "hamburger".');
       });
   });
 });
