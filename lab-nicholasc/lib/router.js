@@ -43,7 +43,10 @@ router.route = (request, response) => {
   requestParser.parse(request)
     .then(request =>{
       //request is parsed now
+      console.log(request.method);
+      console.log(request.url.pathname);
       let handlerFound = routeHandlers[request.method][request.url.pathname];
+      console.log(handlerFound);
       logger.log('info', 'Found the following handler');
       logger.log('info', handlerFound.toString());
 

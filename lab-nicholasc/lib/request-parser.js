@@ -17,6 +17,7 @@ requestParser.parse = (request) =>{
 
     if(request.method !== 'POST' && request.method !== 'PUT')
       return resolve(request);
+      
     let sentText = '';
     request.on('data', (buffer) => {
       sentText += buffer.toString();

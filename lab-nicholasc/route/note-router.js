@@ -25,7 +25,7 @@ let sendJSON = (response, status, jsonData) => {
 };
 
 router.post('/api/notes', (request, response) => {
-  console.log('note-router.js line 29');
+  console.log('posting');
   if(!request.body){
     sendStatus(response, 400, 'body not found');
     return;
@@ -41,5 +41,11 @@ router.post('/api/notes', (request, response) => {
 
   let note = new Note(request.body.title, request.body.content);
   notes.push(note);
+  sendJSON(response, 200, notes);
+});
+
+router.get('/', (request, response) => {
+  console.log('getting all');
+  console.log(notes);
   sendJSON(response, 200, notes);
 });
