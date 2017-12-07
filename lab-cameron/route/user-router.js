@@ -4,7 +4,7 @@ const User = require('../model/user');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
 
-const users = [];
+let users = [];
 // data for testing
 users.push(new User('test_name_1', 'test_description_1'));
 users.push(new User('test_name_2', 'test_description_2'));
@@ -30,12 +30,12 @@ const sendJSON = (response, status, jsonData) => {
 
 const findUserWithId = querystring => {
   for (let i = 0; i < users.length; i++) {
+    console.log('one of these should match', users[i].getId(), querystring);
     if (users[i].getId() === querystring) {
       return users[i];
-    } else {
-      return false;
     }
   }
+  return [];
 };
 
 router.get('/api/users', (request, response) => {
@@ -64,4 +64,17 @@ router.post('/api/users', (request, response) => {
   let user = new User(request.body.name, request.body.description);
   users.push(user);
   sendJSON(response, 200, user);
+});
+
+router.delete('/api/users', (request, response) => {
+  if (request.url.query.id) {
+    const userToBeRemoved = findUserWithId(request.url.query.id);
+    const updatedUsers = users.filter(user => {
+      console.log(user.name, user.getId());
+      return userToBeRemoved.getId() === user.getId();
+    });
+    users = updatedUsers;
+    sendJSON(response, 204, users);
+    return;
+  }
 });

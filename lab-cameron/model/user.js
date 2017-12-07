@@ -4,18 +4,20 @@ const uuidv1 = require('uuid/v1');
 
 const User = (() => {
   // makes user id and timestamp private / only accessible via getters
-  const id = uuidv1();
-  const timestamp = new Date();
+  const id = new WeakMap();
+  const timestamp = new WeakMap();
   class User {
     constructor(name, description) {
       this.name = name;
       this.description = description;
+      id.set(this, uuidv1());
+      timestamp.set(this, new Date());
     }
     getId() {
-      return id;
+      return id.get(this);
     }
     getTimestamp() {
-      return timestamp;
+      return timestamp.get(this);
     }
   }
   return User;
