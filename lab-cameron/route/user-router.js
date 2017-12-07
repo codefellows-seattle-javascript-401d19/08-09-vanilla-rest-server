@@ -44,26 +44,24 @@ router.get('/api/users', (request, response) => {
     sendJSON(response, 200, foundUserWithId);
     return;
   }
-  request.body = users;
   sendJSON(response, 200, users);
 });
 
 router.post('/api/users', (request, response) => {
-  if(!request.body){
-    sendStatus(response,400,'body not found');
+  if (!request.body) {
+    sendStatus(response, 400, 'body not found');
     return;
   }
-  if(!request.body.name){
-    sendStatus(response,400,'title not found');
+  if (!request.body.name) {
+    sendStatus(response, 400, 'title not found');
     return;
   }
-  if(!request.body.description){
-    sendStatus(response,400,'content not found');
+  if (!request.body.description) {
+    sendStatus(response, 400, 'content not found');
     return;
   }
 
   let user = new User(request.body.name, request.body.description);
   users.push(user);
-  console.log(users);
   sendJSON(response, 200, user);
 });

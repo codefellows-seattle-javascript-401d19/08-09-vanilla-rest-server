@@ -2,8 +2,6 @@
 
 const uuidv1 = require('uuid/v1');
 
-console.log(uuidv1());
-
 const User = (() => {
   // makes user id and timestamp private / only accessible via getters
   const id = uuidv1();

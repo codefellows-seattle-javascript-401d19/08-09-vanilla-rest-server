@@ -58,8 +58,9 @@ router.route = (request, response) => {
     .catch(error => {
       logger.log('info', '__REQUEST_ERROR__');
       logger.log('info', error);
+      console.log(request.url.pathname);
 
-      response.writeHead(400);
+      response.writeHead(400, { 'Content-Type': 'application/json' });
       response.end();
       return;
     });

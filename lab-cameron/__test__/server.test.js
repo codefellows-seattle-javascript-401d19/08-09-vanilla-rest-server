@@ -36,6 +36,16 @@ describe('/api/users', () => {
           expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
         });
     });
+
+    test.only('GET should respond with a 404 if pathname requested is invalid', () => {
+      const url = 'http://localhost:3000/invalid/pathname';
+      return superagent.get(url)
+        .set({ 'content-type': 'application/json' })
+        .catch(response => {
+          expect(response.status).toEqual(400);
+        });
+
+    });
   });
 
   describe('POST requests', () => {
