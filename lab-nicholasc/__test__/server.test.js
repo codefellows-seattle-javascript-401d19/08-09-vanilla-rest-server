@@ -37,7 +37,7 @@ describe('/api/notes',() => {
       })// vinicio - send returns a promise.
       .then(response => {
         expect(response.status).toEqual(200);
-
+        console.log(response);
         expect(response.body.title).toEqual('cats');
         expect(response.body.content).toEqual('Gregor and The Hound');
 
