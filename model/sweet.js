@@ -2,7 +2,7 @@
 
 const uuid = require(`uuid/v1`);
 
-class Sweet{
+class Sweet {
 
   constructor(name, hasChocolate, temperature){
     this.id = uuid();
