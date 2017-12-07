@@ -57,4 +57,11 @@ describe('/api/cats', () => {
       });
   });
 
+  test('DELETE should respond with a 200 message if successful', () => {
+    return superagent.del(`http://localhost:${PORT}/api/cats?id=${catID}`)
+      .then(response => {
+        expect(response.status).toEqual(200);
+      });
+  });
+
 });
