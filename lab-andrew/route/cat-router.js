@@ -63,3 +63,27 @@ router.get('/api/cats', (request, response) => {
     sendJSON(response, 200, cats);
   }
 });
+
+router.delete('/api/cats', (request, response) => {
+  if (!request.url.query.id){
+    sendStatus(response, 400, 'no id supplied');
+    return;
+  }
+  let specificCat;
+  let catIndex;
+  for (let i in cats){
+    if (request.url.query.id === cats[i].id){
+      specificCat = cats[i];
+      catIndex = i;
+      break;
+    }
+  }
+  if (!specificCat){
+    sendStatus(response, 404, 'invalid id supplied');
+    return;
+  } else {
+    cats.splice(catIndex, 1);
+    sendStatus(response, 200, 'deletion successful');
+  }
+
+});

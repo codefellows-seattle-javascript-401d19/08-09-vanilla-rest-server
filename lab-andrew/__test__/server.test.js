@@ -57,6 +57,22 @@ describe('/api/cats', () => {
       });
   });
 
+  test('DELETE should respond with a 400 message if no id provided', () => {
+    return superagent.del(`http://localhost:${PORT}/api/cats`)
+      .then(response => Promise.reject(response))
+      .catch(response => {
+        expect(response.status).toEqual(400);
+      });
+  });
+
+  test('DELETE should respond with a 400 message if invalid id provided', () => {
+    return superagent.del(`http://localhost:${PORT}/api/cats?id=wrong`)
+      .then(response => Promise.reject(response))
+      .catch(response => {
+        expect(response.status).toEqual(404);
+      });
+  });
+
   test('DELETE should respond with a 200 message if successful', () => {
     return superagent.del(`http://localhost:${PORT}/api/cats?id=${catID}`)
       .then(response => {
