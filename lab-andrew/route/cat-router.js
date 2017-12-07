@@ -83,7 +83,7 @@ router.delete('/api/cats', (request, response) => {
     return;
   } else {
     cats.splice(catIndex, 1);
-    sendStatus(response, 200, 'deletion successful');
+    sendStatus(response, 204, 'deletion successful');
   }
 
 });
