@@ -22,6 +22,15 @@ The server module is creating an http server, defining route behavior and export
 
 The server module requires in http, winston, requestParser and cowsay. Inside requestParser.parse there is a .then promise that handles the 'GET' and 'POST' methods. There is also a .catch that contains error handling for when a POST request does not include a request.body, or request.body.text. There is also a general 400 error to catch other errors that may occur.
 
+#### Model Module
+
+The model module contains a book.js file containing a Book class constructor with the properties: id, timestamp, title, and author. The Book object is exported. 
+
+#### Route Module
+
+The route module requires in the Book object, router module, and the logger module. Inside the module, I declared a function for sendStatus and for sendJSON to be used as success/failure statuses. There are three router methods: ```router.post```, ```router.get``` and ```router.delete```. These methods each handle their corresponding method and send the appropriate response based on the input.
+
+
 ### Limitations
 
 The POST request is only visible in the command line - it does not post to the browser. 
