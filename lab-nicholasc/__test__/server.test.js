@@ -51,7 +51,7 @@ describe('api/notes', () => {
       });
   });
   //---------------------------------------errors
-//superagent is catching these errors
+  //superagent is catching these errors
   // test('post route should respond with a 400 status code on a bad request', () => {
   //   return superagent.post('http://localhost:3000/api/notes')
   //     .set('content-type', 'application/json')
@@ -65,10 +65,11 @@ describe('api/notes', () => {
   //     });
   // });
   test('get route /api/notes should respond with a 200 status code and notes if there is no error', () => {
-    expect(()=>{return superagent.get('http://localhost:3000/api/notes')
+    expect(()=>{return superagent.get('http://localhost:3000/api/noteadsfafd/asdf')
       .then(response => {
       });
     }).toThrow();
+  });
   // });
   // test('get route /api/notes?id should respond with a 200 status code and a note if there is no error', () => {
   //   return superagent.get(`http://localhost:3000/api/notes?id=${idToCheck}`)
