@@ -16,7 +16,6 @@ describe('/api/trials-bikes', () => {
     year: 2016,
   };
 
-
   test('POST should respond with a 200 status code and a body if there are no errors.', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')

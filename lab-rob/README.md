@@ -1,7 +1,7 @@
 # Code Fellows: Code 401d19: Full-Stack JavaScript
 
-## Lab 07: HTTP Server
-A basic HTTP server with GET and POST routes. Users can request cowified strings with the POST route, and can use query strings to access cowified ascii images in the browser.
+## Lab 08: RESTful HTTP Server
+A RESTful HTTP server with GET, POST, and DELETE routes. Users can POST trials bike objects to the server, GET trials bike objects back, and DELETE trials bike objects.
 
 ## Tech/frameworks/packages
 
@@ -13,11 +13,18 @@ A basic HTTP server with GET and POST routes. Users can request cowified strings
   - dotenv
   - winston
   - http
-  - cowsay
   - url
 
 ## Code Example
-`echo '{"text": "Get Cool Cow Text"}' | http post localhost:3000/api/cowsay`
+
+1. `POST`
+      `echo '{"make":"Scorpa","model":"Twenty","displacement":300,"color":"orange","year":2016}' | http post localhost:3000/api/trials-bikes`
+1. `GET`
+      `http get localhost:3000/api/trials-bikes`
+1. `GET` with id
+      `http get localhost:3000/api/trials-bikes?id=dc256e50-db1b-11e7-9f4a-2bb8540a5f`
+1. `DELETE`
+      `http delete localhost:3000/api/trials-bikes?id=dc256e50-db1b-11e7-9f4a-2bb8540a5f`
 ## Installation
 
 1. Fork and clone https://github.com/RobertMcReed/07-http-server to your computer.
