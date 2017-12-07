@@ -6,7 +6,7 @@ const router = require('./router');
 
 process.env.PORT = 3000;
 
-require('../route/note-router');
+require('../route/beer-router');
 
 const app = http.createServer(router.route);
 
