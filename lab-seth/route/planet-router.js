@@ -54,16 +54,19 @@ router.post('/api/planet', (request,response) => {
 //           URL           CALLBACK
 router.get('/api/planet', (request,response) => {
   // Here, I know that my request has been pre-parsed
-  if(!request.body.id){
-    // sendStatus(response,200,planets);
+  if(!request.url.query.id){
+    console.log('Hit .get at NO request.url.query.id');
+    // sendStatus(response, 200, planets);
     sendJSON(response,200,planets);
     return;
   }
   if(!planets.includes(request.body.id)){
+    console.log('Hit .get at specific request.body.id NOT in planets')
     // sendStatus(response,200,planets[request.id]);
     sendStatus(response, 404, 'Planet ID not found');
     return;
   } else { //if(request.body.id)
+    console.log('Hit .get at specific & correct request.body.id')
     // sendStatus(response,200,planets[request.id]);
     sendJSON(response, 200, planets[request.body.id]);
     return;

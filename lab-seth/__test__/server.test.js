@@ -6,6 +6,7 @@ const superagent = require('superagent');
 describe('/api/planet',() => {
   beforeAll(server.start);
   afterAll(server.stop);
+  let testId,testArray;
 
   test('should respond with 200 status code and a body if there are no errors', () => {
     return superagent.post('http://localhost:3000/api/planet')
@@ -22,6 +23,25 @@ describe('/api/planet',() => {
 
         expect(response.body.discoverDate).toBeTruthy();
         expect(response.body.id).toBeTruthy();
+        testId = response.body.id;
+        testArray = response.body;
+      });
+  });
+
+  test('should respond with 200 status code and an array of planets if there are no errors', () => {
+    return superagent.get('http://localhost:3000/api/planet')
+      // .set('Content-Type','application/json') //send returns a promise.
+      .then(response => {
+        // console.log('hit the get request');
+        expect(response.status).toEqual(200);
+        console.log(response.body)
+        expect(response.body[0].name).toEqual('BD032562b');
+        expect(response.body[0].id).toEqual(testId);
+        expect(response.body).toEqual(testArray);
+        // expect(response.body.content).toEqual('11h50m1555sDeclination02d45m365s');
+
+        // expect(response.body.discoverDate).toBeTruthy();
+        // expect(response.body.id).toBeTruthy();
       });
   });
 });
