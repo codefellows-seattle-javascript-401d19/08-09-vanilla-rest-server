@@ -21,7 +21,7 @@ reqParser.parse = req => {
 
     req.on('end', () => {
       try {
-        if(req.headers['content-type'].includes('application/json')) { // TODO: If broken, change back to original code
+        if(req.headers['content-type'].indexOf('application/json') > -1) {
           req.body = JSON.parse(sentText);
           return resolve(req);
         } else

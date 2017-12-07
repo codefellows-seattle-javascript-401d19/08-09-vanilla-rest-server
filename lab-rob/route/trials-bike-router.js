@@ -27,33 +27,28 @@ let sendJSON = (res, status, jsonData) => {
 };
 
 router.post('/api/trials-bikes', (req, res) => {
-  if(!req.body) {
-    sendBadStatus(res, 400, 'body not found!');
-    return;
-  }
-
   if(!req.body.make) {
-    sendBadStatus(res, 400, 'make not found!');
+    sendBadStatus(res, 400, 'bad request, make not found!');
     return;
   }
   
   if(!req.body.model) {
-    sendBadStatus(res, 400, 'model not found!');
+    sendBadStatus(res, 400, 'bad request, model not found!');
     return;
   }
 
   if(!req.body.year) {
-    sendBadStatus(res, 400, 'year not found!');
+    sendBadStatus(res, 400, 'bad request, year not found!');
     return;
   }
 
   if(!req.body.displacement) {
-    sendBadStatus(res, 400, 'displacement not found!');
+    sendBadStatus(res, 400, 'bad request, displacement not found!');
     return;
   }
 
   if(!req.body.color) {
-    sendBadStatus(res, 400, 'color not found!');
+    sendBadStatus(res, 400, 'bad request, color not found!');
     return;
   }
 

@@ -33,14 +33,80 @@ describe('/api/trials-bikes', () => {
       });
   });
 
-  test('Should respond with a 400 status code if no/invalid body.', () => {
+  test('Should respond with a 400 status code if no/invalid body, and an object with error property "bad request, no object sent."', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
+      .set('Content-Type', 'application/json')
       .then(res => {
         Promise.reject(res);      
       })
       .catch(res => {
         expect(res.status).toEqual(400);
-        expect(JSON.parse(res.response.res.text)).toEqual({error: 'bad request, no object sent.'});
+        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, no object sent.');
+      });
+  });
+
+  test('Should respond with a 400 status code if body has no make property, and an object with error property "bad request, make not found!"', () => {
+    return superagent.post('http://localhost:3000/api/trials-bikes')
+      .set('Content-Type', 'application/json')
+      .send({})
+      .then(res => {
+        Promise.reject(res);      
+      })
+      .catch(res => {
+        expect(res.status).toEqual(400);
+        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, make not found!');
+      });
+  });
+
+  test('Should respond with a 400 status code if body has no model property, and an object with error property "bad request, model not found!"', () => {
+    return superagent.post('http://localhost:3000/api/trials-bikes')
+      .set('Content-Type', 'application/json')
+      .send({make: 1})
+      .then(res => {
+        Promise.reject(res);      
+      })
+      .catch(res => {
+        expect(res.status).toEqual(400);
+        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, model not found!');
+      });
+  });
+
+  test('Should respond with a 400 status code if body has no year property, and an object with error property "bad request, year not found!"', () => {
+    return superagent.post('http://localhost:3000/api/trials-bikes')
+      .set('Content-Type', 'application/json')
+      .send({make: 1, model: 2})
+      .then(res => {
+        Promise.reject(res);      
+      })
+      .catch(res => {
+        expect(res.status).toEqual(400);
+        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, year not found!');
+      });
+  });
+
+  test('Should respond with a 400 status code if body has no displacement property, and an object with error property "bad request, displacement not found!"', () => {
+    return superagent.post('http://localhost:3000/api/trials-bikes')
+      .set('Content-Type', 'application/json')
+      .send({make: 1, model: 2, year: 3})
+      .then(res => {
+        Promise.reject(res);      
+      })
+      .catch(res => {
+        expect(res.status).toEqual(400);
+        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, displacement not found!');
+      });
+  });
+
+  test('Should respond with a 400 status code if body has no color property, and an object with error property "bad request, color not found!"', () => {
+    return superagent.post('http://localhost:3000/api/trials-bikes')
+      .set('Content-Type', 'application/json')
+      .send({make: 1, model: 2, year: 3, displacement: 4})
+      .then(res => {
+        Promise.reject(res);      
+      })
+      .catch(res => {
+        expect(res.status).toEqual(400);
+        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, color not found!');
       });
   });
 });
