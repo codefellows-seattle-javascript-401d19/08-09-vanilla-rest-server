@@ -7,8 +7,8 @@ describe('/api/teams',() => {
   beforeAll(server.start);
   afterAll(server.stop);
 
-  test('should respond with 200 status code and a body if there are no errors', () => {
-    return superagent.post('http://localhost:3000/api/teams')
+  test('POST should respond with 200 status code and a body if there are no errors', () => {
+    return superagent.post(`http://localhost:${process.env.PORT}/api/teams`)
       .set('Content-Type','application/json')
       .send({
         sport : 'hockey',
@@ -24,4 +24,36 @@ describe('/api/teams',() => {
         expect(response.body.id).toBeTruthy();
       });
   });
+  test('POST should respond with 400 status code if no body is sent', () => {
+    return superagent.post(`http://localhost:${process.env.PORT}/api/teams`)
+      .set('Content-Type','application/json')
+      .then(response => Promise.reject(response))
+      .catch(response => {
+        expect(response.status).toEqual(400);
+      });
+  });
+  test('POST should respond with 400 status code if one of the keys is not sent', () => {
+    return superagent.post(`http://localhost:${process.env.PORT}/api/teams`)
+      .set('Content-Type', 'application/json')
+      .send({
+        city : 'Detroit',
+        nickname: 'Red Wings',
+      })
+      .then(response => Promise.reject(response))
+      .catch(response => {
+        expect(response.status).toEqual(400);
+      });
+  });
+  test('GET should respond with 200', () => {
+    return superagent.get(`http://localhost:${process.env.PORT}/api/teams`)
+      .then(response => {
+        expect(response.status).toEqual(200);
+        expect(response.body[0].sport).toEqual('hockey');
+        expect(response.body[0].city).toEqual('Detroit');
+        expect(response.body[0].nickname).toEqual('Red Wings');
+        expect(response.body[0].id).toBeTruthy();
+      });
+  });
+
+
 });

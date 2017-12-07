@@ -30,7 +30,7 @@ server.start = () => {
       // vinicio - if we got here. Everything is ok
       isServerOn = true;
       logger.log('info',`Server is online on port ${process.env.PORT}`);
-      console.log('info',`Server is online on port ${process.env.PORT}`);
+      console.log(`Server is online on port ${process.env.PORT}`);
       return resolve();
     });
   });
