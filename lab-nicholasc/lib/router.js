@@ -38,15 +38,9 @@ router.post = (url, callback) => {
 
 router.route = (request, response) => {
   logger.log('info', 'Routing a Request');
-  logger.log('info', 'log the features here');//TODO: log features here
-  // console.log('router.js line 42', request);
   requestParser.parse(request)
     .then(request =>{
-      //request is parsed now
-      console.log(request.method);
-      console.log(request.url.pathname);
       let handlerFound = routeHandlers[request.method][request.url.pathname];
-      console.log(handlerFound);
       logger.log('info', 'Found the following handler');
       logger.log('info', handlerFound.toString());
 

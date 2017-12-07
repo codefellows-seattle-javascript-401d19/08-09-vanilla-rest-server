@@ -25,7 +25,6 @@ let sendJSON = (response, status, jsonData) => {
 };
 
 router.post('/api/notes', (request, response) => {
-  console.log('posting');
   if(!request.body){
     sendStatus(response, 400, 'body not found');
     return;
@@ -45,9 +44,7 @@ router.post('/api/notes', (request, response) => {
 });
 
 router.get('/api/notes', (request, response) => {
-  console.log('getting all');
-  console.log(notes);
-  if(request.url.query.text){
+  if(request.url.query.id){
     let note=[];
     for(let index of notes){
       if(index.id === request.url.query.id){
@@ -59,9 +56,20 @@ router.get('/api/notes', (request, response) => {
   }
   sendJSON(response, 200, notes);
 });
-
-// router.get('/', (request, response) => {
-//   console.log('getting all');
-//   console.log(notes);
-//   sendJSON(response, 200, notes);
-// });
+router.delete('/api/notes', (request, response) => {
+  if(request.url.query.id){
+    for(let i = 0; i< notes.length; i++){
+      if(notes[i].id === request.url.query.id){
+        notes.splice(i, 1);
+        response.writeHead(204, {'Content-Type' : 'text/plain'});
+        response.write('deleted');
+        response.end();
+        return;
+      }
+    }
+  }
+  response.writeHead(404, {'Content-Type' : 'text/plain'});
+  response.write('not found');
+  response.end();
+  return;
+});

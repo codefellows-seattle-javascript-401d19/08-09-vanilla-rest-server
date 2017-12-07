@@ -8,7 +8,7 @@ describe('api/notes', () => {
   afterAll(server.stop);
   let idToCheck;
 
-  test('should respond with a 200 status code and a body if there is no error', () => {
+  test('post route should respond with a 200 status code and a body if there is no error', () => {
     return superagent.post('http://localhost:3000/api/notes')
       .set('content-type', 'application/json')
       .send({
@@ -23,7 +23,7 @@ describe('api/notes', () => {
         expect(response.body[0].id).toBeTruthy();
       });
   });
-  test('should respond with a 200 status code and a note if there is no error', () => {
+  test('get route /api/notes should respond with a 200 status code and notes if there is no error', () => {
     return superagent.get('http://localhost:3000/api/notes')
       .then(response => {
         expect(response.status).toEqual(200);
@@ -34,7 +34,7 @@ describe('api/notes', () => {
         idToCheck = response.body[0].id;
       });
   });
-  test('should respond with a 200 status code and a note if there is no error', () => {
+  test('get route /api/notes?id should respond with a 200 status code and a note if there is no error', () => {
     return superagent.get(`http://localhost:3000/api/notes?id=${idToCheck}`)
       .then(response => {
         expect(response.status).toEqual(200);
@@ -44,11 +44,46 @@ describe('api/notes', () => {
         expect(response.body[0].id).toEqual(idToCheck);
       });
   });
-  test('should respond with a 200 status code and confirmation if there is no error', () => {
+  test('delete should respond with a 200 status code and confirmation if there is no error', () => {
     return superagent.delete(`http://localhost:3000/api/notes?id=${idToCheck}`)
       .then(response => {
         expect(response.status).toEqual(204);
       });
   });
-
+  //---------------------------------------errors
+//superagent is catching these errors
+  // test('post route should respond with a 400 status code on a bad request', () => {
+  //   return superagent.post('http://localhost:3000/api/notes')
+  //     .set('content-type', 'application/json')
+  //     .send({
+  //       title : '1',
+  //       content : 'a',
+  //     })
+  //     .then(response => {
+  //       console.log(response.status);
+  //       expect(response.status).toEqual(404);
+  //     });
+  // });
+  test('get route /api/notes should respond with a 200 status code and notes if there is no error', () => {
+    expect(()=>{return superagent.get('http://localhost:3000/api/notes')
+      .then(response => {
+      });
+    }).toThrow();
+  // });
+  // test('get route /api/notes?id should respond with a 200 status code and a note if there is no error', () => {
+  //   return superagent.get(`http://localhost:3000/api/notes?id=${idToCheck}`)
+  //     .then(response => {
+  //       expect(response.status).toEqual(200);
+  //       expect(response.body[0].title).toEqual('food that sounds yummy');
+  //       expect(response.body[0].content).toEqual('eggs and steak');
+  //       expect(response.body[0].timestamp).toBeTruthy();
+  //       expect(response.body[0].id).toEqual(idToCheck);
+  //     });
+  // });
+  // test('should respond with a 200 status code and confirmation if there is no error', () => {
+  //   return superagent.delete(`http://localhost:3000/api/notes?id=${idToCheck}`)
+  //     .then(response => {
+  //       expect(response.status).toEqual(204);
+  //     });
+  // });
 });
