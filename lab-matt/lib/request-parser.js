@@ -1,7 +1,7 @@
 'use strict';
 
 const urlModule = require('url');
-const logger = require('./logger');
+const log = require('./logger');
 // const queryString = require ('querystring');
 
 const requestParser = module.exports = {};

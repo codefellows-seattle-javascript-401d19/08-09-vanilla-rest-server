@@ -25,9 +25,9 @@ router.post('/api/notes', (request, response) => {
   let note = new Note(request.body.title, request.body.content);
   notes.push(note);
 
+  // log('info', ``);
   sendJSON(response, 200, note);
 });
-
 
 // =========== HELPER FUNCTIONS ===========
 let sendStatus = (response, status, message) => {

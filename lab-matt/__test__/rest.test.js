@@ -17,8 +17,8 @@ describe('/api/notes', () => {
       .send(note)
       .then(response => {
         expect(response.status).toEqual(200);
-        // expect(response.title).toEqual('my title');
-        // expect(response.content).toEqual('my content');
+        expect(response.body.title).toEqual('my title');
+        expect(response.body.content).toEqual('my content');
       });
   });
 });

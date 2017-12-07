@@ -5,6 +5,7 @@ const log = require('./lib/logger');
 const http = require('http');
 const router = require('./route/router');
 
+require('dotenv').config();
 require('./lib/note-router');
 
 // =========== SERVER ===========
