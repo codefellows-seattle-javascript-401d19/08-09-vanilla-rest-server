@@ -51,10 +51,6 @@ router.post('/api/mountains', (request, response) => {
   sendJSON(response, 200, mountain);
 });
 
-// router.get('/api/mountains', (request, response) => {
-//   sendJSON(response, 200, mountains);
-//   console.log('get', mountains);
-// });
 
 router.get('/api/mountains', (request, response) => {
   if(request.url.query.id) {
@@ -64,7 +60,28 @@ router.get('/api/mountains', (request, response) => {
         oneMountain = mountain;
         break;
     }
+    if (!request.url.query.id) {
+      sendStatus(response, 404, 'id not found')
+      return;
+    }
   }
   sendJSON(response, 200, mountains);
-  console.log('get', mountains);
+});
+
+router.delete('/api/mountains', (request, response) => {
+  if (request.url.query.id) {
+    let oneMountain;
+    for (let mountain of mountains) {
+      if (request.url.query.id === mountain.id)
+        oneMountain = mountain.id;
+      break;
+    }
+    if (!request.url.query.id) {
+      sendStatus(response, 404, 'id not found');
+      logger.log('info', `Deletion requested from database, but ${request.url.query.id} not found.`);
+      return;
+    }
+  }
+  sendStatus(response, 204, 'Deleted from database.');
+  logger.log('info', `User deleted ${request.url.query.id} from database.`);
 });

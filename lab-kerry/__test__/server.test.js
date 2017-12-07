@@ -19,7 +19,6 @@ describe('/api/mountains', () => {
       elevation: '14,235'
     }) // ** .send ** returns a promise
     .then(response => {
-      console.log(response.body.id);
       expect(response.status).toEqual(200);
       expect(response.body.name).toEqual('Mt. Evans');
       expect(response.body.location).toEqual('Colorado');
@@ -45,7 +44,6 @@ describe('/api/mountains', () => {
       .then(response => {
         tempMountain = response.body[0]
         let mountainId = response.body[0].id
-        console.log(response.body);
         expect(response.status).toEqual(200);
         expect(tempMountain.name).toEqual('Mt. Evans');
         expect(tempMountain.location).toEqual('Colorado');
@@ -54,19 +52,32 @@ describe('/api/mountains', () => {
       });
   });
 
-  
-  
+  test('should respond with 400 status code and bad request if no request body was provided or the body was invalid', () => {
+    return superagent.post('http://localhost:3000/api/mountains')
+      .set('Content-Type', 'application/json')
+      .then(response => {
+        Promise.reject(response)
+      })
+      .catch(response => {
+        expect(response.status).toEqual(400);
+      });
+  });
 
-  // test('should respond with 400 status code and bad request if no request body was provided or the body was invalid', () => {
-  //   return superagent.post('http://localhost:3000/api/mountains')
-  //     .set('Content-Type', 'application/json')
-  //     .send({
-      
-  //     }) // ** .send ** returns a promise
-  //     .then(response => {
-  //       expect(response.status).toEqual(400);
-  //       expect(response.body).toBe(null);
-  //       expect(response.badRequest).toEqual('Bad Request');
-  //     });
-  // });
+  test('should respond with 204 status code and should not contain a response body for a request made with a valid id', () => {
+    return superagent.delete('http://localhost:3000/api/mountains?id=${mountainId}')
+      .then(response => {
+        expect(response.status).toEqual(204);
+      });
+  });
+
+  test('should respond with 400 status code if no id was sent', () => {
+    return superagent.delete('http://localhost:3000/api/mountains')
+      .set('Content-Type', 'application/json')
+      .then(response => {
+        Promise.reject(response)
+      })
+      .catch(response => {
+        expect(response.status).toEqual(400);
+      });
+  });
 });
