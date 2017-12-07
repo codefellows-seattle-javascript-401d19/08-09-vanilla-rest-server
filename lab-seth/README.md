@@ -28,7 +28,6 @@ js-standard-style
 - dotenv
 - Winston
 - Faker
-- Cowsay
 - Javascript /ES6
 
 
@@ -43,96 +42,64 @@ VScode
 
 ## Code Example
 ```
-    requestParser.parse(request)
-    .then(request => {
-      if(request.method === 'GET' && request.url.pathname === '/'){
-        response.writeHead(200,{ 'Content-Type' : 'text/html' });
 
-        response.write(`<!DOCTYPE html>
-          <html>
-            <head>
-              <title> cowsay </title>  
-            </head>
-            <body>
-            <header>
-              <nav>
-                <ul> 
-                  <li><a href="/cowsay">cowsay</a></li>
-                </ul>
-              </nav>
-            <header>
-            <main>
-              <!-- project description -->
-            </main>
-            </body>
-          </html>`);
-        logger.log('info','Responding with a 200 status code');
-        response.end();
-        return;
+router.post('/api/planet', (request,response) => {
+  if(!request.body){
+    sendStatus(response,400,'body not found');
+    return;
+  }
+  if(!request.body.name){
+    sendStatus(response,400,'name not found');
+    return;
+  }
+  if(!request.body.content){
+    sendStatus(response,400,'content not found');
+    return;
+  }
+  let planet = new Planet(request.body.name,request.body.content);
+  planets.push(planet);
+  sendJSON(response,200,planet);
+});
 
-      } else if (request.method === 'GET' && request.url.pathname === '/cowsay') {
-        response.writeHead(200, { 'Content-Type': 'text/html' });
+router.get('/api/planet', (request,response) => {
+  if(!request.url.query.id){
+    sendJSON(response,200,planets);
+    return;
+  }
+  if (!(planets.find(planet => planet.id === request.url.query.id))) {
+    sendStatus(response, 404, 'Planet ID not found');
+    return;
+  } else {
+    sendJSON(response, 200, planets[0]);
+    return;
+  }
+});
 
-        logger.log('info', `Original URL: ${JSON.stringify(request.url)}`);
-        let message = cowsay.think({ text: 'I need something good to say!' });
+router.delete('/api/planet', (request, response) => {
+  if (!request.url.query.id) {
+    sendStatus(response, 400, 'NO request id found');
+    return;
+  }
+  if (!(planets.find(planet => planet.id === request.url.query.id))) {
+    sendStatus(response, 404, 'Planet not found in database');
+    return;
+  } else {
+    planets.filter(planet => planet.id !== request.url.query.id);
+    sendJSON(response, 204, 'Planet removed succesfully');
+    return;
+  }
+});
 
-        if(request.url.query.text) message = cowsay.think({text : request.url.query.text});          
-
-        response.write(`<!DOCTYPE html>
-          <html>
-            <head>
-              <title> cowsay </title>  
-            </head>
-            <body>
-              <h1> cowsay </h1>
-              <pre>${message}</pre>
-            </body>
-          </html>`);
-        logger.log('info', 'Responding with a 200 status code');
-        response.end();
-        return;
-
-      } else if (request.method === 'POST' && request.url.pathname === '/api/cowsay'){
-        response.writeHead(200,{ 'Content-Type' : 'application/json' });
-        response.write(JSON.stringify(request.body));
-        response.end();
-        return;
-      }
-      response.writeHead(404,{ 'Content-Type' : 'text/plain' });
-      response.write('Not Found');
-      logger.log('info','Responding with a 404 status code');
-      response.end(); 
-      return;
-    }).catch(error => {
-      logger.log('info','Answering with a 400 status code');
-      logger.log('info',error);
-      let errorMessage = null;
-
-      if (request.method === 'POST' && request.body === undefined) {
-        errorMessage = `{ "error": "invalidrequest: body required" }`;
-
-      } else if (request.method === 'POST' && request.body.text === undefined) {
-        errorMessage = `{ "error": "invalidrequest: text query required" }`;
-
-      } else {
-        errorMessage = 'Bad Request';
-      }
-      response.writeHead(400,{ 'Content-Type' : 'application/json' });
-      response.write(errorMessage);
-      response.end();
-      return;
-    });
 ```
 
 ## Installation
-1. ) Get source code from github (https://github.com/SethDonohue/07-http-server/tree/seth-lab-7)
+1. ) Get source code from github (https://github.com/SethDonohue/08-09-vanilla-rest-server/tree/seth-lab-8)
 2. ) In terminal navigate to 'lab-seth' folder and run following commands:
 ```
 npm init -y
 npm install
-npm install -D jest eslint 
-npm install -s winston 
-npm install -s dotenv
+npm install -D jest eslint superagent
+npm install -s winston faker dotenv
 ```
 
 <!-- Provide step by step series of examples and explanations about how to get a development env running. -->
@@ -146,20 +113,20 @@ Docs in Progress
 - Confirms a 200 status code on a proper POST request
 - Confirms a 400 status code when an improper POST request is made
 
+- Confirms a 200 status code on a proper GET request
+- Confirms a 400 status code when an improper GET request is made
+
+- Confirms a 200 status code on a proper DELETE request
+- Confirms a 400 status code when an improper DELETE request is made
+
 #### To Run Tests, run these commands in terminal from lab-seth folder
 
-1. ) npm start
-2. ) npm test
+1. ) npm run test
 
 ## How to use?
 
 1. ) In terminal navigate to lab-seth folder
-2. ) In terminal run 'npm start' to execute server startup script
-3. ) In your browser navigate to localhost:3000/cowsay?text=<your message here>
-  - <your message here> should contain anything you want the cow to say! Be sure to exclude the <>
-  - example url: 
-  ```localhost:3000/cowsay?text=mooooooooo```
-
+2. ) In terminal run 'npm run test' to test server routes
 <!-- If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project. -->
 
 ## Contribute
@@ -171,6 +138,9 @@ Docs in Progress
 - Winston
 - Node
 - dotenv
+- Faker
+- suepragent
+- jest
 - Classmates that helped me!
 <!-- Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project.
 
