@@ -43,10 +43,23 @@ router.post('/api/cats', (request, response) => {
   let cat = new Cat(request.body.name, request.body.says);
   cats.push(cat);
   sendJSON(response, 200, cat);
-  console.log('post', cats);
 });
 
 router.get('/api/cats', (request, response) => {
-  sendJSON(response, 200, cats);
-  console.log('get', cats);
+  if (request.url.query.id){
+    let specificCat;
+    for (let cat of cats){
+      if (request.url.query.id === cat.id){
+        specificCat = cat;
+        break;
+      }
+    }
+    if (!specificCat){
+      sendStatus(response, 404, 'id not found');
+      return;
+    }
+    sendJSON(response, 200, specificCat);
+  } else {
+    sendJSON(response, 200, cats);
+  }
 });
