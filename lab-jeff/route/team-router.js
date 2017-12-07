@@ -50,6 +50,15 @@ router.post('/api/teams', (request, response) => {
 });
 
 router.get('/api/teams', (request, response) => {
-  console.log(teams);
-  sendJSON(response, 200, teams);
+  console.log(request.url);
+  if(request.url.query.id) {
+    let teamById = teams.find(team => team.id === request.url.query.id);
+    if(teamById === undefined) {
+      sendStatus(response, 404, 'id not found');
+    } else {
+      sendJSON(response, 200, teamById);
+    }
+  } else {
+    sendJSON(response, 200, teams);
+  }
 });
