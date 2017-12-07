@@ -1,7 +1,7 @@
 'use strict';
 
-const requestParser = require('./requestParser');
-const logger = require('./logger');
+const requestParser = require('../lib/request-parser');
+const log = require('../lib/logger');
 
 let routeHandlers = {
   POST: {
@@ -11,20 +11,20 @@ let routeHandlers = {
 
   },
   DELETE: {
-    
+
   },
 
   // add routes
-  Put: {
+  PUT: {
 
   },
 };
 
 const router = module.exports = {};
 
-let logUrlAndCallback = (httpMethod, url, callback) => {
-  logger.log('info', `Adding a ${method} url and callback \nurl: ${url} \ncallback: ${callback.toString()}`);
-}
+let logUrlAndCallback = (method, url, callback) => {
+  log('info', `Adding a ${method} url and callback \nurl: ${url} \ncallback: ${callback.toString()}`);
+};
 // url will be something like 'api/notes'
 // callback = function(request, response){ }
 router.get = (url, callback) => {
@@ -48,28 +48,28 @@ router.delete = (url, callback) => {
 };
 
 router.route = (request, response) => {
-  logger.log('info', `Routing a request \n URL: ${request.url}`);
+  log('info', `Routing a request \n URL: ${request.url}`);
 
   requestParser.parse(request)
     .then(request => {
       let foundHandler = routeHandlers[request.method][request.url.pathname];
 
-      logger.info('Found the following handler');
-      logger.info(foundHandler.toString());
+      log('Found the following handler');
+      log(foundHandler.toString());
 
       if (foundHandler) {
         return foundHandler(request,response);
       }
-      
+
       response.writeHead(404);
       response.end();
       return;
     })
     .catch(error => {
-      logger.log('info', `__REQUEST_ERROR \n${error}`);
+      log('info', `__REQUEST_ERROR \n${error}`);
 
       response.writeHead(400);
       response.end();
       return;
     });
-}
+};

@@ -3,9 +3,9 @@
 // =========== REQUIRE ===========
 const log = require('./lib/logger');
 const http = require('http');
-// const router = require('router');
+const router = require('./route/router');
 
-// require('./lib/note-router');
+require('./lib/note-router');
 
 // =========== SERVER ===========
 const app = http.createServer(router.route);
@@ -27,8 +27,8 @@ server.start = () => {
       return reject(new Error('__SERVER_ERROR__ PORT is not defined'));
     }
 
-    app.listen(process.env.PORT, err => {
-      if (error) 
+    app.listen(process.env.PORT, error => {
+      if (error)
         return reject(error);
 
       isServerOn = true;
