@@ -26,4 +26,5 @@ describe('api/mountains',() => {
         expect(response.body.range).toEqual('Cascades');
       });
   });
+  //TODO : write more tests based on the assignment
 });

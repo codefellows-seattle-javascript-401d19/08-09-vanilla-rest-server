@@ -3,11 +3,20 @@
 const requestParser = require('./request-parser');
 const logger = require('./logger');
 
+//TODO:  built out the routes based on the YT video
 let routeHandlers = {
-  POST :{},
-  GET :{},
-  DELETE :{},
-  PUT :{},
+  POST :{
+    'api/mountains'
+  },
+  GET :{
+
+  },
+  DELETE :{
+
+  },
+  PUT :{
+
+  },
 };
 
 const router = module.exports = {};
