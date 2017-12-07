@@ -44,7 +44,6 @@ router.post('/api/books', (request, response) => {
 });
 
 router.get('/api/books', (request, response) => {
-  console.log(request.url.query.id);
   if(request.url.query.id) {
     let designatedBook;
     books.forEach((book) => {
@@ -53,6 +52,10 @@ router.get('/api/books', (request, response) => {
         return;
       }
     });
+    if(!designatedBook) {
+      sendStatus(response, 404, 'ID Not Found');
+      return;
+    }
     sendJSON(response, 200, designatedBook);
   } else {
     sendJSON(response, 200, books);

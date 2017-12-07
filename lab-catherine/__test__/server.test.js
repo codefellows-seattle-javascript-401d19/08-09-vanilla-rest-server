@@ -65,4 +65,12 @@ describe('/api/books',() => {
         expect(response.body['title']).toEqual('Harry Potter');
       });
   });
+
+  test('GET should respond with 404 not found status code for valid requests made with an id that was not found', () => {
+    return superagent.get(`http://localhost:${PORT}/api/books?id=invalid`)
+      .then(response => Promise.reject(response))
+      .catch(response => {
+        expect(response.status).toEqual(404);
+      });
+  });
 });
