@@ -2,14 +2,14 @@
 
 const server = require('../lib/server');
 const superagent = require('superagent');
-const PORT = process.env.PORT;
+
 
 describe('/api/beers', () => {
   beforeAll(server.start);
   afterAll(server.stop);
 
   test('should respond with 200 status code and a body if there are no errors', () => {
-    return superagent.post(`http://localhost:${PORT}/api/beers`)
+    return superagent.post('http://localhost:3000/api/beers')
       .set('Content-Type', 'application/json')
       .send({
         brewery : 'Rainier Beer',

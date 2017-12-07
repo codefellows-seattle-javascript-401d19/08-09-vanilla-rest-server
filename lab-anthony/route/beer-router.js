@@ -44,3 +44,15 @@ router.post('/api/beers', (request, response) => {
   beers.push(beer);
   sendJSON(response, 200, beer);
 });
+
+router.get('/api/beers', (request, response) => {
+  if(request.url.query.id){
+    let beerId;
+  }
+});
+
+router.delete('/api/beers', (request, response) => {
+  if(!req.url.query.id){
+    let beerID;
+  }
+});

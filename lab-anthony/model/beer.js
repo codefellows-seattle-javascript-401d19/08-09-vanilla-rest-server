@@ -2,7 +2,7 @@
 
 const uuid = require('uuid/v1');
 
-class Beer{
+class Beer {
   constructor(brewery, beerName, beerType){
     this.id = uuid();
     this.timestamp = new Date();
