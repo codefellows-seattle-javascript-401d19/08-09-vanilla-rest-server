@@ -26,6 +26,10 @@ let sendJSON = (res, status, jsonData) => {
   return;
 };
 
+let getBikeById = id => {
+  return trialsBikes.filter(trialsBike => trialsBike.id === id)[0];
+};
+
 router.post('/api/trials-bikes', (req, res) => {
   if(!req.body.make) {
     sendBadStatus(res, 400, 'bad request, make not found!');
@@ -65,6 +69,14 @@ router.post('/api/trials-bikes', (req, res) => {
 });
 
 router.get('/api/trials-bikes', (req, res) => {
-  sendJSON(res, 200, trialsBikes);
+  let id = req.url.query.id;
+  if(id) {
+    let requestedBike = getBikeById(id);
+    if(requestedBike)
+      sendJSON(res, 200, requestedBike);
+    else
+      sendBadStatus(res, 404, `No bike with id ${id}.`);
+  } else
+    sendJSON(res, 200, trialsBikes);
 });
 

@@ -7,8 +7,7 @@ describe('/api/trials-bikes', () => {
   beforeAll(server.start);
   afterAll(server.stop);
 
-  let testId;
-  let testArray;
+  let testId, testArray;
   let scorpa = {
     make: 'Scorpa',
     model: 'Twenty',
@@ -16,6 +15,7 @@ describe('/api/trials-bikes', () => {
     color: 'orange',
     year: 2016,
   };
+
 
   test('Post should respond with a 200 status code and a body if there are no errors.', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
@@ -124,7 +124,7 @@ describe('/api/trials-bikes', () => {
     return superagent.get(`http://localhost:3000/api/trials-bikes?id=${testId}`)
       .then(res => {
         expect(res.status).toEqual(200);
-        expect(res.body).toEqual(scorpa);
+        expect(res.body).toEqual(testArray[0]);
       });
   });
 });
