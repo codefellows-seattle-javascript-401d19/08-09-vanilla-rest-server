@@ -57,18 +57,19 @@ router.get('/api/planet', (request,response) => {
   if(!request.url.query.id){
     console.log('Hit .get at NO request.url.query.id');
     // sendStatus(response, 200, planets);
+    console.log(planets);
     sendJSON(response,200,planets);
     return;
   }
-  if(!planets.includes(request.body.id)){
-    console.log('Hit .get at specific request.body.id NOT in planets')
+  if (!planets.find(id => id === request.url.query.id)){
+    console.log('Hit .get at specific request.body.id NOT in planets');
     // sendStatus(response,200,planets[request.id]);
     sendStatus(response, 404, 'Planet ID not found');
     return;
   } else { //if(request.body.id)
-    console.log('Hit .get at specific & correct request.body.id')
+    console.log('Hit .get at specific & correct request.body.id');
     // sendStatus(response,200,planets[request.id]);
-    sendJSON(response, 200, planets[request.body.id]);
+    sendJSON(response, 200, planets[request.url.query.id]);
     return;
   }
 });

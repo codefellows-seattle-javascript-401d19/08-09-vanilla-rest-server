@@ -10,7 +10,7 @@ class Planet{
     this.id = uuid();
     this.discoverDate = faker.date.past();
 
-    //error checking could be here
+    //error/typechecking checking could be here
     this.name = name;
     this.content = content;
   }

@@ -4,9 +4,10 @@ const http = require('http');
 const logger = require('./logger');
 const router = require('./router');
 
-process.env.PORT = 3000;
-
+require('dotenv').config();
 require('../route/planet-router');
+
+const PORT = process.env.PORT;
 
 const app = http.createServer(router.route);
 
@@ -20,18 +21,18 @@ server.start = () => {
       logger.log('error','__SERVER_ERROR__ server is already running');
       return reject(new Error('__SERVER_ERROR__ server is already running'));
     }
-    if(!process.env.PORT){
+    if(!PORT){
       logger.log('error','__SERVER_ERROR__ PORT variable is not configured');
       return reject(new Error('__SERVER_ERROR__ PORT variable is not configured'));
     }
-    app.listen(process.env.PORT, error => {
+    app.listen(PORT, error => {
       if(error)
         return reject(error);
 
       //if we got here. Everything is ok
       isServerOn = true;
-      logger.log('info',`Server is online on port ${process.env.PORT}`);
-      console.log('info',`Server is online on port ${process.env.PORT}`);
+      logger.log('info',`Server is online on port ${PORT}`);
+      console.log('info',`Server is online on port ${PORT}`);
       return resolve();
     });
   });
