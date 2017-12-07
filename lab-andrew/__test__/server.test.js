@@ -4,11 +4,11 @@ const server = require('../lib/server');
 const superagent = require('superagent');
 const PORT = process.env.PORT;
 
-let catID;
-
 describe('/api/cats', () => {
   beforeAll(server.start);
   afterAll(server.stop);
+
+  let catID;
 
   test('POST should respond with 200 status code and a body if no errors', () => {
     return superagent.post(`http://localhost:${PORT}/api/cats`)
@@ -33,7 +33,7 @@ describe('/api/cats', () => {
       });
   });
 
-  test('GET should respond with 200 status code and a body if no errors', () => {
+  test('GET should respond with 200 status code and an array if no errors; checking that a known value that is expected is found in the array', () => {
     return superagent.get(`http://localhost:${PORT}/api/cats`)
       .then(response => {
         expect(response.status).toEqual(200);
@@ -41,7 +41,7 @@ describe('/api/cats', () => {
       });
   });
 
-  test('GET should respond with 200 if legitimate request with id is passed', () => {
+  test('GET should respond with 200 if a request with a valid id is passed; checking that expected value is found in the object returned', () => {
     return superagent.get(`http://localhost:${PORT}/api/cats?id=${catID}`)
       .then(response => {
         expect(response.status).toEqual(200);
@@ -49,7 +49,7 @@ describe('/api/cats', () => {
       });
   });
 
-  test('GET should respond with 404 if id does not exist', () => {
+  test('GET should respond with 404 if the id queried does not exist', () => {
     return superagent.get(`http://localhost:${PORT}/api/cats?id=wrong`)
       .then(response => Promise.reject(response))
       .catch(response => {

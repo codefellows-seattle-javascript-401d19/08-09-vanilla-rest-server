@@ -25,7 +25,6 @@ let sendJSON = (response, status, jsonData) => {
   return;
 };
 
-//           URL           CALLBACK
 router.post('/api/cats', (request, response) => {
 
   if(!request.body){
