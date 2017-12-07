@@ -8,11 +8,17 @@
   },
   "scripts": {
     "test": "jest -i --coverage",
-    "start": "node server.js"
+    "lint": "eslint ./"
   },
   "author": "Matthew LeBlanc",
   "license": "ISC",
   "dependencies": {
+    "http": "0.0.0",
+    "uuid": "^3.1.0",
     "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "jest": "^21.2.1"
   }
 }

@@ -1,10 +1,11 @@
 'use strict';
 
+// =========== REQUIRE ===========
 const log = require('./lib/logger');
 const http = require('http');
-const router = require('router');
+// const router = require('router');
 
-require('./lib/note-router');
+// require('./lib/note-router');
 
 // =========== SERVER ===========
 const app = http.createServer(router.route);
@@ -26,9 +27,33 @@ server.start = () => {
       return reject(new Error('__SERVER_ERROR__ PORT is not defined'));
     }
 
-    
+    app.listen(process.env.PORT, err => {
+      if (error) 
+        return reject(error);
+
+      isServerOn = true;
+      log('info', `Server is online on port ${process.env.PORT}`);
+      console.log('info', `Server is online on port ${process.env.PORT}`);
+      return resolve();
+    });
   });
-}
+};
 
+server.stop = () => {
+  return new Promise((resolve, reject) => {
+    if (!isServerOn) {
+      log('error', '__SERVER_ERROR__ server is already off');
+      return reject(new Error('__SERVER_ERROR__ server is already off'));
+    }
 
-// log('info', 'this has worked!');
+    app.close(error => {
+      if (error) {
+        log('error', '__SERVER_ERROR__ server cannot be shut down');
+        return reject(error);
+      }
+
+      isServerOn = false;
+      return resolve();
+    });
+  });
+};

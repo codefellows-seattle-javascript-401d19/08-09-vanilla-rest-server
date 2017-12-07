@@ -1,11 +1,11 @@
 'use strict';
 
-const note = require('../model/note');
+const Note = require('../model/note');
 const router = require('../route/router');
-const logger = require('./logger');
+const log = require('./logger');
 
+let notes = [];
 
-//              <url>       <callback>
 router.post('/api/notes', (request, response) => {
   if (!request.body) {
     sendStatus(response, 400, 'body not found');
@@ -29,16 +29,15 @@ router.post('/api/notes', (request, response) => {
 });
 
 
-
-// helper function -------
+// =========== HELPER FUNCTIONS ===========
 let sendStatus = (response, status, message) => {
-  logger.info(`Responding wih a ${status} code due to ${message}`);
+  log('info', `Responding wih a ${status} code due to ${message}`);
   response.writeHead(status);
   response.end();
 };
 
 let sendJSON = (response, status, jsonData) => {
-  logger.info(`Responding with a ${status} code and the following data \nData: ${jsonData}`);
+  log('info', `Responding with a ${status} code and the following data \nData: ${jsonData}`);
   response.writeHead(status, {'Content-Type': 'application/json'});
   response.write(JSON.stringify(jsonData));
   response.end();
