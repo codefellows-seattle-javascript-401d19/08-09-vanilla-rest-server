@@ -3,8 +3,7 @@
 const Book = require('../model/book');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
-
-let books = [];
+const storage = require('../lib/storage');
 
 let sendStatus = (response, status, message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
@@ -38,13 +37,19 @@ router.post('/api/books', (request, response) => {
     return;
   }
   let book = new Book(request.body.title, request.body.author);
-  books.push(book);
-  sendJSON(response, 200, book);
+  storage.addItem(book)
+    .then(() => {
+      sendJSON(response, 200, book);
+    })
+    .catch(error => {
+      sendStatus(response, 500, error);
+    });
 });
 
 router.get('/api/books', (request, response) => {
   if(request.url.query.id) {
     let designatedBook;
+    storage.fetchItem(book); 
     books.forEach((book) => {
       if(request.url.query.id === book['id']) {
         designatedBook = book;
@@ -57,7 +62,13 @@ router.get('/api/books', (request, response) => {
     }
     sendJSON(response, 200, designatedBook);
   } else {
-    sendJSON(response, 200, books);
+    storage.fetchAll()
+      .then((result) => {
+        sendJSON(response, 200, result);
+      })
+      .catch(error => {
+        sendStatus(response, 500, error);
+      });
   }
 });
 
