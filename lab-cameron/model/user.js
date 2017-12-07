@@ -1,10 +1,12 @@
 'use strict';
 
-const uuid = require('uuid/v1');
+const uuidv1 = require('uuid/v1');
+
+console.log(uuidv1());
 
 const User = (() => {
   // makes user id and timestamp private / only accessible via getters
-  const id = new uuid();
+  const id = uuidv1();
   const timestamp = new Date();
   class User {
     constructor(name, description) {

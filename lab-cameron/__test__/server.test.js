@@ -2,6 +2,12 @@
 
 const server = require('../lib/server');
 const superagent = require('superagent');
+const User = require('../model/user');
+
+// mo
+let test_users = [];
+test_users.push(new User('test_name_1', 'test_description_1'));
+test_users.push(new User('test_name_2', 'test_desrription_2'));
 
 describe('/api/users', () => {
   beforeAll(server.start);
@@ -13,7 +19,22 @@ describe('/api/users', () => {
       return superagent.get(url)
         .set('content-type', 'application/json')
         .then(response => {
-          expect(response.body[0].name).toBe('test_name_1');
+          expect(response.status).toEqual(200);
+          expect(response.body).toEqual(test_users);
+        });
+    });
+
+    test('GET should respond with a 200 status code an a single resource determined by uid', () => {
+      const querystring = test_users[0].getId();
+      const url = 'http://localhost:3000/api/users';
+      return superagent.get(url)
+        .set({ 'content-type': 'application/json' })
+        .query({ id: `${querystring}` })
+        .then(response => {
+          expect(response.status).toEqual(200);
+          expect(response.body).toEqual(test_users[0]);
+          expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
+          // expect(response.req.path).toEqual(`/api/users`);
         });
     });
   });
