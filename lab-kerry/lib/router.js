@@ -4,12 +4,9 @@ const requestParser = require('./request-parser');
 const logger = require('./logger');
 
 let routeHandlers = {
-  GET: {
-    //'api/notes': function ()
-  },
+  GET: {},
   PUT: {},
-  POST: {
-  },
+  POST: {},
   DELETE: {},
   //more methods could be added
 };

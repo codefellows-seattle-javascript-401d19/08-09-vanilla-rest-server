@@ -8,7 +8,7 @@ require('dotenv').config();
 //--------------------------------------------------------
 //  Registering Note Router
 //--------------------------------------------------------
-require('../route/note-router');
+require('../route/mountain-router');
 //--------------------------------------------------------
 
 const app = http.createServer(router.route);
@@ -20,7 +20,7 @@ const server = module.exports = {};
 server.start = () => {
   return new Promise((resolve, reject) => {
     if (isServerOn) {
-      logger.log('error', '__SERVER_ERROR__ Server is already running');
+      logger.log('error', '__SERVER_ERROR__ Se3rver is already running');
       return reject(new Error('__SERVER_ERROR__ Server is already running'));
     }
     if (!process.env.PORT) {
