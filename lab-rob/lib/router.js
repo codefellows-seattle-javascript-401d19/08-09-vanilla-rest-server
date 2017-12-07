@@ -57,7 +57,10 @@ router.route = (req, res) => {
     .catch(err => {
       logger.log('info', '__REQUEST_ERROR__');
       logger.log('info', err);
-      res.writeHead(400);
+      res.writeHead(400, {
+        'Content-Type': 'application/json',
+      });
+      res.write(JSON.stringify({error: 'bad request, no object sent.'}));
       res.end();
       return;
     });

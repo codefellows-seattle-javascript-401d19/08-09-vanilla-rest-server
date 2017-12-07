@@ -6,9 +6,12 @@ const logger = require('../lib/logger');
 
 let trialsBikes = [];
 
-let sendStatus = (res, status, message) => {
+let sendBadStatus = (res, status, message) => {
   logger.log('info', `Responding with a ${status} code due to ${message}.`);
-  res.writeHead(status);
+  res.writeHead(status, {
+    'Content-Type': 'application/json',
+  });
+  res.write(JSON.stringify({error: message}));
   res.end();
 };
 
@@ -25,32 +28,32 @@ let sendJSON = (res, status, jsonData) => {
 
 router.post('/api/trials-bikes', (req, res) => {
   if(!req.body) {
-    sendStatus(res, 400, 'body not found!');
+    sendBadStatus(res, 400, 'body not found!');
     return;
   }
 
   if(!req.body.make) {
-    sendStatus(res, 400, 'make not found!');
+    sendBadStatus(res, 400, 'make not found!');
     return;
   }
   
   if(!req.body.model) {
-    sendStatus(res, 400, 'model not found!');
+    sendBadStatus(res, 400, 'model not found!');
     return;
   }
 
   if(!req.body.year) {
-    sendStatus(res, 400, 'year not found!');
+    sendBadStatus(res, 400, 'year not found!');
     return;
   }
 
   if(!req.body.displacement) {
-    sendStatus(res, 400, 'displacement not found!');
+    sendBadStatus(res, 400, 'displacement not found!');
     return;
   }
 
   if(!req.body.color) {
-    sendStatus(res, 400, 'color not found!');
+    sendBadStatus(res, 400, 'color not found!');
     return;
   }
 
