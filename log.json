@@ -178,3 +178,25 @@
 {"level":"info","message":"Routing a GET request without query parameters","timestamp":"2017-12-07T06:19:00.463Z"}
 {"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T06:19:00.463Z"}
 {"level":"info","timestamp":"2017-12-07T06:19:00.463Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T17:07:45.330Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T17:07:45.380Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T17:07:45.388Z"}
+{"level":"info","message":"Routing a GET request without query parameters","timestamp":"2017-12-07T17:07:45.388Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T17:07:45.389Z"}
+{"level":"info","timestamp":"2017-12-07T17:07:45.389Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T17:11:21.202Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T17:11:21.255Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T17:11:21.266Z"}
+{"level":"info","message":"Routing a GET request without query parameters","timestamp":"2017-12-07T17:11:21.266Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T17:11:58.567Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T17:11:58.613Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T17:11:58.623Z"}
+{"level":"info","message":"Routing a GET request without query parameters","timestamp":"2017-12-07T17:11:58.623Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T17:11:58.623Z"}
+{"level":"info","timestamp":"2017-12-07T17:11:58.623Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T17:15:53.905Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T17:15:53.952Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T17:15:53.962Z"}
+{"level":"info","message":"Routing a GET request without query parameters","timestamp":"2017-12-07T17:15:53.962Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T17:15:53.962Z"}
+{"level":"info","timestamp":"2017-12-07T17:15:53.962Z"}
