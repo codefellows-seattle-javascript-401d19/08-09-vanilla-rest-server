@@ -1,6 +1,6 @@
 'use strict';
 
-const Note = require('..model/mountain');
+const Mountain = require('../model/mountain');
 const router = require('..lib/router');
 const logger = require('../lib/logger');
 
