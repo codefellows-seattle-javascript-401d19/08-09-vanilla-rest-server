@@ -62,6 +62,8 @@ Standard JavaScript with ES6
 * Superagent
 * uuid
 * dotenv
+* fs-extra
+* url
 
 ### How to use?
 
