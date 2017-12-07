@@ -1,7 +1,7 @@
 'use strict';
 
 const Mountain = require('../model/mountain');
-const router = require('..lib/router');
+const router = require('../lib/router');
 const logger = require('../lib/logger');
 
 let mountains = [];
@@ -42,7 +42,7 @@ let deleteMountainById = id => {
   }
 };
 
-router.post('api/mountains', (request, response) =>  {
+router.post('/api/mountains', (request, response) =>  {
   if(!request.body){
     sendStatus(response,400,'body not found');
     return;
@@ -112,8 +112,8 @@ router.delete('/api/mountains', (request, response) => {
   if(id) {
     let deletedMountain = deleteMountainById(id);
     if (deletedMountain) {
-      logger.log('info', `Mountain deleted, responding with a 200 code`);
-      response.writeHead(204);
+      logger.log('info', `Mountain deleted, responding with a 200 success code`);
+      response.writeHead(200);
       response.end();
     } else
       sendStatus(response, 404, `No mountain was found with an id ${id}`);

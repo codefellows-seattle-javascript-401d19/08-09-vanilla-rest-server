@@ -4,10 +4,9 @@ const http = require('http');
 const logger = require('./logger');
 const router = require('./router');
 
-process.env.PORT = 3000;
+require('dotenv').config();
 
-
-require('../route/mountain-router');
+require('../route/mountain-route');
 
 const app = http.createServer(router.route);
 
