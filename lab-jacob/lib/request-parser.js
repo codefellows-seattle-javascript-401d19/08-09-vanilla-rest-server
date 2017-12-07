@@ -8,22 +8,17 @@ const requestParser = module.exports = {};
 requestParser.parse = (request) => {
   return new Promise((resolve,reject) => {
 
-    logger.log('debug', `Original URL: ${JSON.stringify(request.url)}`);
     request.url = urlModule.parse(request.url,true);
     logger.log('debug', `Parsed URL: ${JSON.stringify(request.url)}`);
 
     if(request.method !== 'POST' && request.method !== 'PUT')
       return resolve(request);
-    //====================================================================
-    //====================================================================
-    //GOING TO NEED TO ADD GET REQUESTS
-    //====================================================================
-    //====================================================================
 
     let sentText = '';
     request.on('data',(buffer) => {
       sentText += buffer.toString();
     });
+    //POST REQUEST TO INPUT YOUR OWN STAR TREK INFO
 
     request.on('end',() => {
       try{
