@@ -2,7 +2,6 @@
 
 const urlModule = require('url');
 const logger = require('./logger');
-
 const requestParser = module.exports = {};
 
 requestParser.parse = (request) => {
@@ -13,13 +12,12 @@ requestParser.parse = (request) => {
 
     if(request.method !== 'POST' && request.method !== 'PUT')
       return resolve(request);
-
+  
     let sentText = '';
     request.on('data',(buffer) => {
       sentText += buffer.toString();
     });
-    //POST REQUEST TO INPUT YOUR OWN STAR TREK INFO
-
+  
     request.on('end',() => {
       try{
 

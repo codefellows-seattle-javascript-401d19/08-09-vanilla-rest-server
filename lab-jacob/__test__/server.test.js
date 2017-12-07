@@ -24,7 +24,7 @@ describe('/api/starTrekEpisodes',() => {
         expect(response.body.id).toBeTruthy();
       });
   });
-  test('Should update memory, respond with 200 and create new JSON object of a Star Trek info if there no errors ', () => {
+  test('Should update memory with POST, and check new JSON object of a Star Trek episode then respond with 200 if there no errors ', () => {
     return superagent.get('http://localhost:3000/api/starTrekEpisodes')
       .set('Content-Type','application/json')
       .send({
@@ -39,6 +39,23 @@ describe('/api/starTrekEpisodes',() => {
         expect(response.body.episodeDescription).toEqual(`The Enterprise crew tries to solve the riddle of Farpoint Station to avoid being condemned by Q's tribunal.`);
         expect(response.body.episode).toEqual('2');
         expect(response.body.id).toBeTruthy();
+      });
+  });
+  test('Should check for an instance of an Object and not find it if no errors', () => {
+    return superagent.delete('http://localhost:3000/api/starTrekEpisodes')
+      .set('Content-Type','application/json')
+      .send({
+        'episode' : '2',
+        'episodeTitle' : 'Encounter at Farpoint Part 2',
+        'episodeDescription' : `The Enterprise crew tries to solve the riddle of Farpoint Station to avoid being condemned by Q's tribunal.`,
+      })
+      .then(response => {
+        expect(response.status).toEqual(200);
+  
+        expect(response.body.episodeTitle).toEqual(null);
+        expect(response.body.episodeDescription).toEqual(null);
+        expect(response.body.episode).toEqual(null);
+        expect(response.body.id).toBeFalsey();
       });
   });
 });
