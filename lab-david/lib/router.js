@@ -3,10 +3,10 @@
 const requestParser = require('./request-parser');
 const logger = require('./logger');
 
-//TODO:  built out the routes based on the YT video
+//TODO:  build out the routes based on the YT video
 let routeHandlers = {
   POST :{
-    '/api/mountains'
+    '/api/mountains' : (resquest, response),
   },
   GET :{
     '/api/mountains'
