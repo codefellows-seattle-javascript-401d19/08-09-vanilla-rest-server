@@ -7,21 +7,32 @@ describe('/api/users', () => {
   beforeAll(server.start);
   afterAll(server.stop);
 
-  test('should respond with a 200 status code and a body if there are no errors', () => {
-    return superagent.post('http://localhost:3000/api/users')
-      .set('content-type', 'application/json')
-      .send({
-        name: 'name',
-        description: 'description',
-      })
-      .then(response => {
-        console.log(response.body);
-        expect(response.status).toEqual(200);
+  describe('GET requests', () => {
+    test('GET should respond with a 200 status code and an array all resources', () => {
+      const url = 'http://localhost:3000/api/users';
+      return superagent.get(url)
+        .set('content-type', 'application/json')
+        .then(response => {
+          expect(response.body[0].name).toBe('test_name_1');
+        });
+    });
+  });
 
-        expect(response.body.name).toEqual('name');
-        expect(response.body.description).toEqual('description');
+  describe('POST requests', () => {
+    test('POST should respond with a 200 status code and a body if there are no errors', () => {
+      const url = 'http://localhost:3000/api/users';
+      return superagent.post(url)
+        .set('content-type', 'application/json')
+        .send({
+          name: 'name',
+          description: 'description',
+        })
+        .then(response => {
+          expect(response.status).toEqual(200);
 
-        expect(response.body).toBeTruthy();
-      });
+          expect(response.body.name).toEqual('name');
+          expect(response.body.description).toEqual('description');
+        });
+    });
   });
 });

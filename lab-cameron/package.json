@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest -i --coverage",
     "lint": "eslint */.js */**.js",
-    "start": "node index.js",
+    "start": "node ndex.js",
     "startDev": "nodemon index.js --ignore 'log.json'"
   },
   "repository": {
