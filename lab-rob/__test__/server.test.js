@@ -140,4 +140,20 @@ describe('/api/trials-bikes', () => {
         expect(res.body).toEqual({});
       });
   });
+  
+  test('DELETE should respond with a 400 status code if no id is given.', () => {
+    return superagent.delete(`http://localhost:3000/api/trials-bikes`)
+      .catch(res => {
+        expect(res.status).toEqual(400);
+        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, no id.');
+      });
+  });
+  
+  // test('DELETE should respond with a 400 status code if no id is given.', () => {
+  //   return superagent.delete(`http://localhost:3000/api/trials-bikes?id=${testId}`)
+  //     .catch(res => {
+  //       expect(res.status).toEqual(400);
+  //       expect(JSON.parse(res.response.res.text).error).toEqual('bad request, no id.');
+  //     });
+  // });
 });
