@@ -8,7 +8,7 @@
 
 ### Motivation
 
-In this project, I built a (Hypertext Transfer Protocol) HTTP server. This server handles GET and POST requests/responses.
+In this project, I built a RESTful (Hypertext Transfer Protocol) HTTP server. This server handles GET, POST, and DELETE requests/responses.
 
 ### Build
 

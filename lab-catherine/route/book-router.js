@@ -25,7 +25,6 @@ let sendJSON = (response, status, JSONData) => {
 };
 
 router.post('/api/books', (request, response) => {
-  // Request has been pre-parsed
   if(!request.body){
     sendStatus(response, 400, 'body not found');
     return;
@@ -38,8 +37,18 @@ router.post('/api/books', (request, response) => {
     sendStatus(response, 400, 'author not found');
     return;
   }
-  // All tests pass, new book is created
   let book = new Book(request.body.title, request.body.author);
   books.push(book);
+  console.log(book);
   sendJSON(response, 200, book);
 });
+
+router.get('/api/books', (request, response) => {
+  // console.log(books);
+  sendJSON(response, 200, books);
+  return;
+});
+
+// router.get('/api/books?id=${id}', (request, response) => {
+//   sendJSON(request.body);
+// });

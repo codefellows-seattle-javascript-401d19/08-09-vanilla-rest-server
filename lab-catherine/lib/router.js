@@ -18,8 +18,6 @@ let logUrlAndCallback = (httpMethod,url,callback) => {
   logger.log('info',callback.toString());
 };
 
-// url will be something like 'api/notes'
-// callback will be a function with the signature (request,response) =>
 router.get = (url,callback) => {
   logUrlAndCallback('GET',url,callback);
   routeHandlers.GET[url] = callback;
