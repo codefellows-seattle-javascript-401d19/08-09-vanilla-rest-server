@@ -60,8 +60,16 @@ router.route = (request, response) => {
       logger.log('info', error);
       console.log(request.url.pathname);
 
-      response.writeHead(400, { 'Content-Type': 'application/json' });
-      response.end();
-      return;
+      if (request.method === 'GET') {
+        response.writeHead(404, { 'Content-Type': 'application/json' });
+        response.end();
+        return;
+      }
+      if (request.method === 'POST') {
+        response.writeHead(400, { 'Content-Type': 'application/json' });
+        response.end();
+        return;
+      }
+
     });
 };
