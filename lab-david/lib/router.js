@@ -6,16 +6,13 @@ const logger = require('./logger');
 //TODO:  built out the routes based on the YT video
 let routeHandlers = {
   POST :{
-    'api/mountains'
+    '/api/mountains'
   },
   GET :{
-
+    '/api/mountains'
   },
   DELETE :{
-
-  },
-  PUT :{
-
+    '/api/mountains?id=id'
   },
 };
 
@@ -35,11 +32,6 @@ router.get = (url,callback) => {
 router.post = (url,callback) => {
   logUrlAndCallback(`POST`,url,callback);
   routeHandlers.POST[url] = callback;
-};
-
-router.put = (url,callback) => {
-  logUrlAndCallback(`PUT`,url,callback);
-  routeHandlers.put[url] = callback;
 };
 
 router.delete = (url,callback) => {

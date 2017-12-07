@@ -39,13 +39,13 @@ server.start = () => {
 
 server.stop = () => {
   return new Promise((resolve,reject) => {
-    if(!ServerOne){
+    if(!isServerOn){
       logger.log('error', `---->SERVER_ERROR<---- server is already off dude. go chill`);
       return reject(new Error(`---->SERVER_ERROR<---- server is already off dude. go chill`));
     }
     app.close(error => {
       if(error){
-        logger.log(`error`, `---->SERVER_ERROR<---- server can't be shut down. just like skynet`);
+        logger.log(`error`, `---->SERVER_ERROR<---- server can't be shut down; just like skynet`);
         logger.log(`error`, error);
 
         return reject(error);
