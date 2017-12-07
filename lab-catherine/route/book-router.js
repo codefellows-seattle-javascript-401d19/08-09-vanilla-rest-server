@@ -5,6 +5,7 @@ const router = require('../lib/router');
 const logger = require('../lib/logger');
 
 let books = [];
+let useId;
 
 let sendStatus = (response, status, message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
@@ -39,16 +40,21 @@ router.post('/api/books', (request, response) => {
   }
   let book = new Book(request.body.title, request.body.author);
   books.push(book);
-  console.log(book);
   sendJSON(response, 200, book);
 });
 
 router.get('/api/books', (request, response) => {
-  // console.log(books);
-  sendJSON(response, 200, books);
-  return;
+  console.log(request.url.query.id);
+  if(request.url.query.id) {
+    let designatedBook;
+    books.forEach((book) => {
+      if(request.url.query.id === book['id']) {
+        designatedBook = book;
+        return;
+      }
+    });
+    sendJSON(response, 200, designatedBook);
+  } else {
+    sendJSON(response, 200, books);
+  }
 });
-
-// router.get('/api/books?id=${id}', (request, response) => {
-//   sendJSON(request.body);
-// });

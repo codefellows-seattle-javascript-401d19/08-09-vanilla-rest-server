@@ -3,6 +3,7 @@
 const server = require('../lib/server');
 const superagent = require('superagent');
 const PORT = process.env.PORT;
+let bookId;
 
 describe('/api/books',() => {
   beforeAll(server.start);
@@ -16,6 +17,8 @@ describe('/api/books',() => {
         author : 'J.K. Rowling',
       })
       .then(response => {
+        bookId = response.body.id;
+        console.log('book id', bookId);
         expect(response.status).toEqual(200);
 
         expect(response.body.title).toEqual('Harry Potter');
@@ -47,11 +50,19 @@ describe('/api/books',() => {
       });
   });
 
-  test('GET should respond with 200 status code and a body if there are no errors', () => {
+  test('GET should respond with 200 status code and a body if there are no errors and no id', () => {
     return superagent.get(`http://localhost:${PORT}/api/books`)
       .then(response => {
         expect(response.status).toEqual(200);
         expect(response.body[0]['title']).toEqual('Harry Potter');
+      });
+  });
+
+  test('GET should respond with 200 status code and a specific book if there are no errors and an id provided', () => {
+    return superagent.get(`http://localhost:${PORT}/api/books?id=${bookId}`)
+      .then(response => {
+        expect(response.status).toEqual(200);
+        expect(response.body['title']).toEqual('Harry Potter');
       });
   });
 });

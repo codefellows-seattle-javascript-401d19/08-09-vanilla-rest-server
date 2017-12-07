@@ -43,9 +43,7 @@ router.route = (request,response) => {
 
   requestParser.parse(request)
     .then(request => {
-      // in this line, the request has been parsed
       let handlerFound = routeHandlers[request.method][request.url.pathname];
-      // error checking could be expanded here
       logger.log('info', 'Found the following handler');
       logger.log('info', handlerFound.toString());
       if(handlerFound)
