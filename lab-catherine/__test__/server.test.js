@@ -18,7 +18,6 @@ describe('/api/books',() => {
       })
       .then(response => {
         bookId = response.body.id;
-        console.log('book id', bookId);
         expect(response.status).toEqual(200);
 
         expect(response.body.title).toEqual('Harry Potter');
@@ -71,6 +70,29 @@ describe('/api/books',() => {
       .then(response => Promise.reject(response))
       .catch(response => {
         expect(response.status).toEqual(404);
+      });
+  });
+
+  test('DELETE should respond with 204 status code with no content in the body if successfully deleted', () => {
+    return superagent.del(`http://localhost:${PORT}/api/books?id=${bookId}`)
+      .then(response => {
+        expect(response.status).toEqual(204);
+      });
+  });
+
+  test('DELETE should respond with 404 status code if id does not exist', () => {
+    return superagent.del(`http://localhost:${PORT}/api/books?id=invalid`)
+      .then(response => Promise.reject(response))
+      .catch(response => {
+        expect(response.status).toEqual(404);
+      });
+  });
+
+  test('DELETE should respond with 400 status code if id is not provided', () => {
+    return superagent.del(`http://localhost:${PORT}/api/books`)
+      .then(response => Promise.reject(response))
+      .catch(response => {
+        expect(response.status).toEqual(400);
       });
   });
 });
