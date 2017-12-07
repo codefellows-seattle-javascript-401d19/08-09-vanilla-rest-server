@@ -43,7 +43,7 @@ router.post('/api/starTrekEpisodes', (request,response) => {
     sendStatus(response,400,'content not found');
     return;
   }
-  // Here, I can create my note since all test pass
+
   let starTrekEpisodes = new StarTrek(request.body.episode,request.body.episodeTitle,request.body.episodeDescription);
   starTrekEpisodesArr.push(starTrekEpisodes);
   sendJSON(response,200,starTrekEpisodes);
