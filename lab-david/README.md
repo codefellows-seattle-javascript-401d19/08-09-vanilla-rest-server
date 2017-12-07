@@ -28,10 +28,10 @@ Once you install the dependencies you should be able to run `npm run test` to st
  
 
 ## Contribute
-
-If anyone wants to help me out, feel free to open a pull request and send it over. PRs will be answered in the order they are received. 
+If anyone wants to help, feel free to open a pull request and send it over. PRs will be answered in the order they are received. 
 
 ## Credits
+Initial codebase created by the Vinincio Vladimir Sanchez Trejo. 
 Mad props to anyone who helped me and my parents for birthing me.
 
 #### Anything else that seems useful
