@@ -76,5 +76,8 @@ router.delete('/api/users', (request, response) => {
     users = updatedUsers;
     sendJSON(response, 204, users);
     return;
+  } else {
+    sendStatus(response, 400, 'no id provided');
+    return;
   }
 });
