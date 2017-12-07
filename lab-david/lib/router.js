@@ -34,6 +34,11 @@ router.post = (url,callback) => {
   routeHandlers.POST[url] = callback;
 };
 
+router.put = (url,callback) => {
+  logUrlAndCallback(`PUT`,url,callback);
+  routeHandlers.PUT[url] = callback;
+};
+
 router.delete = (url,callback) => {
   logUrlAndCallback(`DELETE`,url,callback);
   routeHandlers.delete[url] = callback;
