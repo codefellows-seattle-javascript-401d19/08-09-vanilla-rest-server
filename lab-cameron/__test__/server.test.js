@@ -28,7 +28,7 @@ describe('/api/users', () => {
       const querystring = test_users[0].getId();
       const url = 'http://localhost:3000/api/users';
       return superagent.get(url)
-        .set({ 'content-type': 'application/json' })
+        .set('content-type', 'application/json')
         .query({ id: `${querystring}` })
         .then(response => {
           expect(response.status).toEqual(200);
@@ -40,7 +40,8 @@ describe('/api/users', () => {
     test('GET should respond with a 404 if pathname requested is invalid', () => {
       const url = 'http://localhost:3000/invalid/pathname';
       return superagent.get(url)
-        .set({ 'content-type': 'application/json' })
+        .set('content-type', 'application/json')
+        .then(response => Promise.reject(response))
         .catch(response => {
           expect(response.status).toEqual(404);
         });
@@ -58,11 +59,21 @@ describe('/api/users', () => {
         })
         .then(response => {
           expect(response.status).toEqual(200);
-
           expect(response.body.name).toEqual('name');
           expect(response.body.description).toEqual('description');
         });
     });
 
+    test('POST should respond with a 404 if there is any error in data being passed', () => {
+      const url = 'http://localhost:3000/api/users';
+      const invalidJSON = '{';
+      return superagent.post(url)
+        .set('content-type', 'application/json')
+        .send(invalidJSON)
+        .then(response => Promise.reject(response))
+        .catch(response => {
+          expect(response.status).toEqual(400);
+        });
+    });
   });
 });
