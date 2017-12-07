@@ -119,4 +119,12 @@ describe('/api/trials-bikes', () => {
         expect(res.body).toEqual(testArray);
       });
   });
+
+  test('Get should respond with a 200 status code and a single object when id is given.', () => {
+    return superagent.get(`http://localhost:3000/api/trials-bikes?id=${testId}`)
+      .then(res => {
+        expect(res.status).toEqual(200);
+        expect(res.body).toEqual(scorpa);
+      });
+  });
 });
