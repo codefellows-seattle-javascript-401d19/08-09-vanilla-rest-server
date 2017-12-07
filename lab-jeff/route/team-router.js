@@ -50,7 +50,6 @@ router.post('/api/teams', (request, response) => {
 });
 
 router.get('/api/teams', (request, response) => {
-  console.log(request.url);
   if(request.url.query.id) {
     let teamById = teams.find(team => team.id === request.url.query.id);
     if(teamById === undefined) {
@@ -60,5 +59,21 @@ router.get('/api/teams', (request, response) => {
     }
   } else {
     sendJSON(response, 200, teams);
+  }
+});
+
+router.delete('/api/teams', (request, response) => {
+  console.log(teams);
+  if(request.url.query.id){
+    let teamIndex= teams.findIndex(team => team.id === request.url.query.id);
+    if(teamIndex < 0) {
+      sendStatus(response, 404);
+    } else {
+      teams.splice(teamIndex, 1);
+      console.log(teams);
+      sendStatus(response, 204);
+    }
+  } else {
+    sendStatus(response, 400);
   }
 });
