@@ -64,12 +64,12 @@ describe('api/notes', () => {
   //       expect(response.status).toEqual(404);
   //     });
   // });
-  test('get route /api/notes should respond with a 200 status code and notes if there is no error', () => {
-    expect(()=>{return superagent.get('http://localhost:3000/api/noteadsfafd/asdf')
-      .then(response => {
-      });
-    }).toThrow();
-  });
+  // test('get route /api/notes should respond with a 200 status code and notes if there is no error', () => {
+  //   expect(()=>{return superagent.get('http://localhost:3000/api/noteadsfafd/asdf')
+  //     .then(response => {
+  //     });
+  //   }).toThrow();
+  // });
   // });
   // test('get route /api/notes?id should respond with a 200 status code and a note if there is no error', () => {
   //   return superagent.get(`http://localhost:3000/api/notes?id=${idToCheck}`)
