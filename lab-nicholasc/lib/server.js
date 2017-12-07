@@ -9,7 +9,7 @@ require('dotenv').config();
 const PORT = process.env.PORT;
 //------------------
 require('../route/note-router');
-
+//TODO: lets make our own constructor object
 const app = http.createServer(router.route);
 
 let isServerOn = false ;

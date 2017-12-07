@@ -3,13 +3,20 @@
 const server = require('../lib/server');
 const superagent = require('superagent');
 
+//----------------------------------
+require('dotenv').config();
+const PORT = process.env.PORT;
+const headUrl = `http://localhost:${PORT}/api`;
+//----------------------------------
+
+
 describe('api/notes', () => {
   beforeAll(server.start);
   afterAll(server.stop);
   let idToCheck;
 
   test('post route should respond with a 200 status code and a body if there is no error', () => {
-    return superagent.post('http://localhost:3000/api/notes')
+    return superagent.post(`${headUrl}/notes`)
       .set('content-type', 'application/json')
       .send({
         title : 'food that sounds yummy',
@@ -24,7 +31,7 @@ describe('api/notes', () => {
       });
   });
   test('get route /api/notes should respond with a 200 status code and notes if there is no error', () => {
-    return superagent.get('http://localhost:3000/api/notes')
+    return superagent.get(`${headUrl}/notes`)
       .then(response => {
         expect(response.status).toEqual(200);
         expect(response.body[0].title).toEqual('food that sounds yummy');
@@ -35,7 +42,7 @@ describe('api/notes', () => {
       });
   });
   test('get route /api/notes?id should respond with a 200 status code and a note if there is no error', () => {
-    return superagent.get(`http://localhost:3000/api/notes?id=${idToCheck}`)
+    return superagent.get(`${headUrl}/notes?id=${idToCheck}`)
       .then(response => {
         expect(response.status).toEqual(200);
         expect(response.body[0].title).toEqual('food that sounds yummy');
@@ -45,7 +52,7 @@ describe('api/notes', () => {
       });
   });
   test('delete should respond with a 200 status code and confirmation if there is no error', () => {
-    return superagent.delete(`http://localhost:3000/api/notes?id=${idToCheck}`)
+    return superagent.delete(`${headUrl}/notes?id=${idToCheck}`)
       .then(response => {
         expect(response.status).toEqual(204);
       });
