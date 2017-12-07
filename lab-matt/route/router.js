@@ -4,14 +4,10 @@ const requestParser = require('../lib/request-parser');
 const log = require('../lib/logger');
 
 let routeHandlers = {
-  POST: {
-  },
-  GET: {
-  },
-  DELETE: {
-  },
-  PUT: {
-  },
+  POST: { },
+  GET: { },
+  DELETE: { },
+  PUT: { },
 };
 
 const router = module.exports = {};
@@ -19,8 +15,7 @@ const router = module.exports = {};
 let logUrlAndCallback = (method, url, callback) => {
   log('info', `Adding a ${method} url and callback | url: ${url} | callback: ${callback.toString()}`);
 };
-// url will be something like 'api/notes'
-// callback = function(request, response){ }
+
 router.get = (url, callback) => {
   logUrlAndCallback('GET', url, callback);
   routeHandlers.GET[url] = callback;
@@ -46,7 +41,7 @@ router.route = (request, response) => {
 
   requestParser.parse(request)
     .then(request => {
-      console.log(`${request.method} | ${request.url.pathname}`);
+      log('info', `${request.method} | ${request.url.pathname}`);
   
       let foundHandler = routeHandlers[request.method][request.url.pathname];
 

@@ -25,13 +25,18 @@ router.post('/api/notes', (request, response) => {
   let note = new Note(request.body.title, request.body.content);
   notes.push(note);
 
-  // log('info', ``);
   sendJSON(response, 200, note);
+});
+
+router.get('/api/notes', (request, response) => {
+  response.body = 'I AM A TESTTTTTTTTTTTT';
+  sendStatus(response, 200, ' --------------------------- ');
+  return;
 });
 
 // =========== HELPER FUNCTIONS ===========
 let sendStatus = (response, status, message) => {
-  log('info', `Responding wih a ${status} code due to ${message}`);
+  log('info', `Responding with a ${status} code due to ${message}`);
   response.writeHead(status);
   response.end();
 };
