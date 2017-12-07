@@ -24,7 +24,7 @@ describe('/api/users', () => {
         });
     });
 
-    test('GET should respond with a 200 status code an a single resource determined by uuid', () => {
+    test.skip('GET should respond with a 200 status code an a single resource determined by uuid', () => {
       const querystring = test_users[0].getId();
       const url = 'http://localhost:3000/api/users';
       return superagent.get(url)
@@ -78,7 +78,7 @@ describe('/api/users', () => {
   });
 
   describe('DELETE requests', () => {
-    test('DELETE should respond with a 204 status code and have the specified use removed', () => {
+    test.skip('DELETE should respond with a 204 status code and have the specified use removed', () => {
       const querystring = test_users[1].getId();
       const url = 'http://localhost:3000/api/users';
       return superagent.delete(url)
@@ -88,6 +88,16 @@ describe('/api/users', () => {
           expect(response.status).toEqual(204);
           // expect(response.body).toEqual(test_users[0]);
           expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
+        });
+    });
+
+    test('DELETE should respond with a 400 if no id is provided', () => {
+      const url = 'http://localhost:3000/api/users';
+      return superagent.delete(url)
+        .set('content-type', 'application/json')
+        .then(response => Promise.reject(response))
+        .catch(response => {
+          expect(response.status).toEqual(400);
         });
     });
   });
