@@ -34,7 +34,7 @@ describe('/api/trials-bikes', () => {
       });
   });
 
-  test('POST should respond with a 400 status code if no/invalid body, and an object with error property "bad request, no object sent."', () => {
+  test('POST should respond with a 400 status code if no/invalid body, and an object with an error property.', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .catch(res => {
@@ -43,53 +43,53 @@ describe('/api/trials-bikes', () => {
       });
   });
 
-  test('POST should respond with a 400 status code if body has no make property, and an object with error property "bad request, make not found!"', () => {
+  test('POST should respond with a 400 status code if body has no make property, and an object with an error property.', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .send({})
       .catch(res => {
         expect(res.status).toEqual(400);
-        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, make not found!');
+        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, request property "make" must be of type string. You supplied type: undefined');
       });
   });
 
-  test('POST should respond with a 400 status code if body has no model property, and an object with error property "bad request, model not found!"', () => {
+  test('POST should respond with a 400 status code if body has no/invalid model property, and an object with an error property.', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
-      .send({make: 1})
+      .send({make: '', model: undefined})
       .catch(res => {
         expect(res.status).toEqual(400);
-        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, model not found!');
+        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, request property "model" must be of type string. You supplied type: undefined');
       });
   });
 
-  test('POST should respond with a 400 status code if body has no year property, and an object with error property "bad request, year not found!"', () => {
+  test('POST should respond with a 400 status code if body has no/invalid year property, and an object with an error property.', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
-      .send({make: 1, model: 2})
+      .send({make: '', model: '', year: true})
       .catch(res => {
         expect(res.status).toEqual(400);
-        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, year not found!');
+        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, request property "year" must be of type number. You supplied type: boolean');
       });
   });
 
-  test('POST should respond with a 400 status code if body has no displacement property, and an object with error property "bad request, displacement not found!"', () => {
+  test('POST should respond with a 400 status code if body has no/invalid displacement property, and an error object with error an property.', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
-      .send({make: 1, model: 2, year: 3})
+      .send({ make: '', model: '', year: 3, displacement: null })
       .catch(res => {
         expect(res.status).toEqual(400);
-        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, displacement not found!');
+        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, request property "displacement" must be of type number. You supplied type: object');
       });
   });
 
-  test('POST should respond with a 400 status code if body has no color property, and an object with error property "bad request, color not found!"', () => {
+  test('POST should respond with a 400 status code if body has no/invalid color property, and an object with an error property."', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
-      .send({make: 1, model: 2, year: 3, displacement: 4})
+      .send({make: '', model: '', year: 3, displacement: 4, color: 9})
       .catch(res => {
         expect(res.status).toEqual(400);
-        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, color not found!');
+        expect(JSON.parse(res.response.res.text).error).toEqual('bad request, request property "color" must be of type string. You supplied type: number');
       });
   });
 

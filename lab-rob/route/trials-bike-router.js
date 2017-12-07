@@ -44,28 +44,28 @@ let removeBikeById = id => {
 };
 
 router.post('/api/trials-bikes', (req, res) => {
-  if(!req.body.make) {
-    sendBadStatus(res, 400, 'bad request, make not found!');
+  if(!(typeof req.body.make === 'string')) {
+    sendBadStatus(res, 400, `bad request, request property "make" must be of type string. You supplied type: ${typeof req.body.make}`);
     return;
   }
   
-  if(!req.body.model) {
-    sendBadStatus(res, 400, 'bad request, model not found!');
+  if (!(typeof req.body.model === 'string')) {
+    sendBadStatus(res, 400, `bad request, request property "model" must be of type string. You supplied type: ${typeof req.body.model}`);
     return;
   }
 
-  if(!req.body.year) {
-    sendBadStatus(res, 400, 'bad request, year not found!');
+  if (!(typeof req.body.year === 'number')) {
+    sendBadStatus(res, 400, `bad request, request property "year" must be of type number. You supplied type: ${typeof req.body.year}`);
     return;
   }
 
-  if(!req.body.displacement) {
-    sendBadStatus(res, 400, 'bad request, displacement not found!');
+  if (!(typeof req.body.displacement === 'number')) {
+    sendBadStatus(res, 400, `bad request, request property "displacement" must be of type number. You supplied type: ${typeof req.body.displacement}`);
     return;
   }
 
-  if(!req.body.color) {
-    sendBadStatus(res, 400, 'bad request, color not found!');
+  if (!(typeof req.body.color === 'string')) {
+    sendBadStatus(res, 400, `bad request, request property "color" must be of type string. You supplied type: ${typeof req.body.color}`);
     return;
   }
 

@@ -14,6 +14,7 @@ A RESTful HTTP server with GET, POST, and DELETE routes. Users can POST trials b
   - winston
   - http
   - url
+  - fs-extra
 
 ## Code Example
 
@@ -29,7 +30,10 @@ A RESTful HTTP server with GET, POST, and DELETE routes. Users can POST trials b
 
 1. Fork and clone https://github.com/RobertMcReed/08-09-vanilla-rest-server to your computer.
 1. `cd` into `lab-rob/` and run `npm install`.
-1. `touch .env` and add `PORT=3000`.
+1. `touch .env` 
+      1. add `PORT=3000`
+      1. add `STORAGE_PATH=<the path to the directory where you would like to store the data>`
+            - If you do not add a `STORAGE_PATH` environment variable, it will default to the project root.
 
 ## Tests
 
