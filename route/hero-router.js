@@ -26,24 +26,73 @@ let sendJSON = (response, status, jsonData) => {
   return;
 };
 
-router.post('/api/notes', (request, response) => {
-  // Here my REQUEST has been pre-parsed
+  //-------- POST REQUEST ----------------
+
+router.post('/api/heroes', (request, response) => {
   if(!request.body){
-    sendStatus(response, 400, 'body not found');
+    sendStatus(response, 400, 'body of hero not found');
     return;
   }
   if(!request.body.name){
-    sendStatus(response, 400, 'hero not found');
+    sendStatus(response, 400, 'hero\'s name not found');
     return;
   }
   if(!request.body.superPower){
-    sendStatus(response, 400, 'hero superPower not found');
+    sendStatus(response, 400, 'hero\'s superPower not found');
     return;
   }
-
-  //here creating HERO since all test pass
 
   let hero = new Hero(request.body.name, request.body.superPower);
   heroes.push(hero);
   sendJSON(response, 200, hero);
+});
+
+//-------- GET REQUEST ----------------
+
+router.get('/api/heroes', (request, response) => {
+  if(request.url.query.id) {
+    let heroName;
+    heroes.forEach((hero) => {
+      if(request.url.query.id === hero['id']) {
+        heroName = hero;
+        return;
+      }
+    });
+
+    if(!heroName) {
+      sendStatus(response, 404, 'That hero is NOT available, hero ID not found');
+      return;
+    }
+    sendJSON(response, 200, heroName);
+  } else {
+    sendJSON(response, 200, heroes);
+  }
+});
+
+// -------- DELETE REQUEST ----------------
+
+router.delete('/api/heroes', (request, response) => {
+  if(!request.url.query.id) {   // edge case incomplete ID
+    sendStatus(response, 400, 'lack of ID in query');
+    return;
+  }
+  let heroName;
+  // let heroIndex;
+  heroes.forEach((hero) => {
+    if(request.url.query.id === hero['id']) {
+      heroName = hero;
+      return;
+    }
+  });
+  let heroIndex = heroes.indexOf(heroName);
+  // edge case lack of resources
+  if(!heroName) {
+    sendStatus(response, 404, 'This hero doesn\'t exist, hero ID not found');
+    return;
+  } else {
+    console.log(`inside DELETE with ${heroName}`);
+    heroes.splice(heroIndex, 1);
+    console.log(`This is my new array of heroes: ${heroes}`);
+    sendStatus(response, 204, 'SUCCESSFULLY__DELETING__A__HERO'); //succesful DELETION no body sent
+  }
 });
