@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest -i --coverage",
     "lint": "eslint .",
-    "start": "node index.js"
+    "start": "node lib/server.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "superagent": "^3.8.1"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "uuid": "^3.1.0",
     "winston": "^2.4.0"
   }

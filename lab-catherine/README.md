@@ -40,7 +40,8 @@ Standard JavaScript with ES6
 * Eslint
 * Winston
 * Superagent
-* Cowsay
+* uuid
+* dotenv
 
 ### How to use?
 
