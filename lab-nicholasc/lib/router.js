@@ -39,7 +39,7 @@ router.post = (url, callback) => {
 router.route = (request, response) => {
   logger.log('info', 'Routing a Request');
   logger.log('info', 'log the features here');//TODO: log features here
-
+  // console.log('router.js line 42', request);
   requestParser.parse(request)
     .then(request =>{
       //request is parsed now
