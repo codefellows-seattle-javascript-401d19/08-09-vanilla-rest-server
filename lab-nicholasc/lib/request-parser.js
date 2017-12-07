@@ -23,8 +23,6 @@ requestParser.parse = (request) =>{
     });
     request.on('end', () => {
       try{
-        //mutates the request object and creates a body property
-        //here we assume this is json
         if(request.headers['content-type'].indexOf('application/json') > -1){
           request.body = JSON.parse(sentText);
           return resolve(request); //passes new promise along .then chain
