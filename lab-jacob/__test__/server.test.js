@@ -7,7 +7,7 @@ describe('/api/notes',() => {
   beforeAll(server.start);
   afterAll(server.stop);
 
-  test('should respond with 200 status code and a body if there are no errors', () => {
+  test('should respond with status 200 code and a body if there are no errors', () => {
     return superagent.post('http://localhost:3000/api/notes')
       .set('Content-Type','application/json')
       .send({
