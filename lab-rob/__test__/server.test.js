@@ -136,8 +136,6 @@ describe('/api/trials-bikes', () => {
   test('DELETE should respond with a 404 status code if no bike with the given id is on the server.', () => {
     return superagent.delete(`http://localhost:3000/api/trials-bikes?id=hotdogs`)
       .catch(res => {
-        console.log(JSON.parse(res.response.res.text).error);
-        console.log(res);
         expect(res.status).toEqual(404);
         expect(JSON.parse(res.response.res.text).error).toEqual('No bike with id "hotdogs".');
       });

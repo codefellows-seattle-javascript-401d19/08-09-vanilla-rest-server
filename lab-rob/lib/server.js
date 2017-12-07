@@ -31,8 +31,7 @@ server.start = () => {
         return reject(err);
       serverOn = true;
       logger.log('info', `Server is up on port ${PORT}.`);
-      console.log(`Server is up on port ${PORT}.`);
-      return resolve();
+      return resolve(PORT);
     });
   });
 };
