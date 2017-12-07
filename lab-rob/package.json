@@ -14,6 +14,7 @@
   "author": "Robert Reed",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "uuid": "^3.1.0",
     "winston": "^2.4.0"
   },
