@@ -44,8 +44,24 @@ router.post('/api/notes', (request, response) => {
   sendJSON(response, 200, notes);
 });
 
-router.get('/', (request, response) => {
+router.get('/api/notes', (request, response) => {
   console.log('getting all');
   console.log(notes);
+  if(request.url.query.text){
+    let note=[];
+    for(let index of notes){
+      if(index.id === request.url.query.id){
+        note.push(index);
+        sendJSON(response, 200, note);
+        return;
+      }
+    }
+  }
   sendJSON(response, 200, notes);
 });
+
+// router.get('/', (request, response) => {
+//   console.log('getting all');
+//   console.log(notes);
+//   sendJSON(response, 200, notes);
+// });
