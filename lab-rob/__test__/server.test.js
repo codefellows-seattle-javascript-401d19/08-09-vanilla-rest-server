@@ -37,9 +37,6 @@ describe('/api/trials-bikes', () => {
   test('POST should respond with a 400 status code if no/invalid body, and an object with error property "bad request, no object sent."', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
-      .then(res => {
-        Promise.reject(res);      
-      })
       .catch(res => {
         expect(res.status).toEqual(400);
         expect(JSON.parse(res.response.res.text).error).toEqual('bad request, no object sent.');
@@ -50,9 +47,6 @@ describe('/api/trials-bikes', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .send({})
-      .then(res => {
-        Promise.reject(res);      
-      })
       .catch(res => {
         expect(res.status).toEqual(400);
         expect(JSON.parse(res.response.res.text).error).toEqual('bad request, make not found!');
@@ -63,9 +57,6 @@ describe('/api/trials-bikes', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .send({make: 1})
-      .then(res => {
-        Promise.reject(res);      
-      })
       .catch(res => {
         expect(res.status).toEqual(400);
         expect(JSON.parse(res.response.res.text).error).toEqual('bad request, model not found!');
@@ -76,9 +67,6 @@ describe('/api/trials-bikes', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .send({make: 1, model: 2})
-      .then(res => {
-        Promise.reject(res);      
-      })
       .catch(res => {
         expect(res.status).toEqual(400);
         expect(JSON.parse(res.response.res.text).error).toEqual('bad request, year not found!');
@@ -89,9 +77,6 @@ describe('/api/trials-bikes', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .send({make: 1, model: 2, year: 3})
-      .then(res => {
-        Promise.reject(res);      
-      })
       .catch(res => {
         expect(res.status).toEqual(400);
         expect(JSON.parse(res.response.res.text).error).toEqual('bad request, displacement not found!');
