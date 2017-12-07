@@ -23,7 +23,7 @@ let sendJSON = (res, status, jsonData) => {
   return;
 };
 
-router.post('/api/trialsBikes', (req, res) => {
+router.post('/api/trials-bikes', (req, res) => {
   if(!req.body) {
     sendStatus(res, 400, 'body not found!');
     return;
