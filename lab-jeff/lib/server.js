@@ -27,7 +27,6 @@ server.start = () => {
       if(error)
         return reject(error);
 
-      // vinicio - if we got here. Everything is ok
       isServerOn = true;
       logger.log('info',`Server is online on port ${process.env.PORT}`);
       console.log(`Server is online on port ${process.env.PORT}`);
@@ -45,7 +44,6 @@ server.stop = () => {
     app.close(error => {
       if(error){
         logger.log('error',`__SERVER_ERROR__ server can't be shut down`);
-        //! vinicio - lines like this will break if the object is too big
         logger.log('error',error);
 
         return reject(error);
