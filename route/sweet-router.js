@@ -1,6 +1,7 @@
 'use strict';
 
 const Sweet = require(`../model/sweet`);
+const router = require(`../lib/router`);
 const logger = require(`../lib/logger`);
 
 const lemon = new Sweet(`Lemon Meringue Pie`, false, `cold`);
