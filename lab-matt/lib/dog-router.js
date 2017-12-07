@@ -39,7 +39,7 @@ router.get('/api/dogs', (request, response) => {
     if(dogSearch.length > 0) {
       sendJSON(response, 200, dogSearch[0]);
     } else {
-      sendStatus(response, 400, `No dog with matching id: ${dogId}`);
+      sendStatus(response, 404, `no dog with matching id: ${dogId}`);
     }
   } else {
     sendJSON(response, 200, dogs);
@@ -49,7 +49,22 @@ router.get('/api/dogs', (request, response) => {
 
 // ---------------- DELETE ----------------
 router.delete('/api/dogs', (request, response) => {
+  let dogId = request.url.query.id;
+  if (dogId) {
+    let dogSearch = dogs.filter(dog => dog.id === dogId);
 
+    if(dogSearch.length > 0) {
+      let index = dogs.indexOf(dogSearch[0]);
+      dogs.splice(index, 1);
+      log('info', `dog array after splice: ${dogs}`);
+      response.writeHead(204);
+      response.end();   
+    } else {
+      sendStatus(response, 404, `no dog with matching id: ${dogId}`);
+    }
+  } else {
+    sendStatus(response, 400, `no id given`);
+  }
 });
 
 // =========== HELPER FUNCTIONS ===========
