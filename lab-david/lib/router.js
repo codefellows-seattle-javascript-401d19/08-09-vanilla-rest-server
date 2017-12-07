@@ -5,15 +5,10 @@ const logger = require('./logger');
 
 //TODO:  build out the routes based on the YT video
 let routeHandlers = {
-  POST :{
-    '/api/mountains' : (resquest, response),
-  },
-  GET :{
-    '/api/mountains'
-  },
-  DELETE :{
-    '/api/mountains?id=id'
-  },
+  POST :{},
+  GET :{},
+  PUT :{},
+  DELETE :{},
 };
 
 const router = module.exports = {};
