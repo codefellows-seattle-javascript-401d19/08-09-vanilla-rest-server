@@ -72,12 +72,11 @@ router.get('/api/heroes', (request, response) => {
 // -------- DELETE REQUEST ----------------
 
 router.delete('/api/heroes', (request, response) => {
-  if(!request.url.query.id) {   // edge case incomplete ID
+  if(!request.url.query.id) {  
     sendStatus(response, 400, 'lack of ID in query');
     return;
   }
   let heroName;
-  // let heroIndex;
   heroes.forEach((hero) => {
     if(request.url.query.id === hero['id']) {
       heroName = hero;
@@ -85,7 +84,6 @@ router.delete('/api/heroes', (request, response) => {
     }
   });
   let heroIndex = heroes.indexOf(heroName);
-  // edge case lack of resources
   if(!heroName) {
     sendStatus(response, 404, 'This hero doesn\'t exist, hero ID not found');
     return;
@@ -93,6 +91,6 @@ router.delete('/api/heroes', (request, response) => {
     console.log(`inside DELETE with ${heroName}`);
     heroes.splice(heroIndex, 1);
     console.log(`This is my new array of heroes: ${heroes}`);
-    sendStatus(response, 204, 'SUCCESSFULLY__DELETING__A__HERO'); //succesful DELETION no body sent
+    sendStatus(response, 204, 'SUCCESSFULLY__DELETING__A__HERO');
   }
 });
