@@ -5,9 +5,9 @@ const router = require('../lib/router');
 const logger = require('../lib/logger');
 
 let users = [];
-// mock data for testing
+// data for testing
 users.push(new User('test_name_1', 'test_description_1'));
-users.push(new User('test_name_2', 'test_desrription_2'));
+users.push(new User('test_name_2', 'test_description_2'));
 
 let sendStatus = (response, status, message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
