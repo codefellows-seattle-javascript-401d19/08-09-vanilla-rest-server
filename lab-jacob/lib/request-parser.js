@@ -14,8 +14,12 @@ requestParser.parse = (request) => {
 
     if(request.method !== 'POST' && request.method !== 'PUT')
       return resolve(request);
-  
+    //====================================================================
+    //====================================================================
     //GOING TO NEED TO ADD GET REQUESTS
+    //====================================================================
+    //====================================================================
+
     let sentText = '';
     request.on('data',(buffer) => {
       sentText += buffer.toString();
@@ -23,7 +27,7 @@ requestParser.parse = (request) => {
 
     request.on('end',() => {
       try{
-        
+
         if(request.headers['content-type'].indexOf('application/json') > -1){
           request.body = JSON.parse(sentText);
           return resolve(request);
