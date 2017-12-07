@@ -1,0 +1,27 @@
+{
+  "name": "08-09-vanilla-rest-server",
+  "version": "1.0.0",
+  "description": "Lab 08, REST",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest -i --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hazzed/08-09-vanilla-rest-server.git"
+  },
+  "author": "Dalton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hazzed/08-09-vanilla-rest-server/issues"
+  },
+  "homepage": "https://github.com/hazzed/08-09-vanilla-rest-server#readme",
+  "dependencies": {
+    "superagent": "^3.8.1",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1",
+    "winston": "^2.4.0"
+  }
+}
