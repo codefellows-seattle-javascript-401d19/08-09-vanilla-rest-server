@@ -16,7 +16,7 @@ describe('/api/trials-bikes', () => {
     year: 2016,
   };
 
-  test('Should respond with a 200 status code and a body if there are no errors.', () => {
+  test('Post should respond with a 200 status code and a body if there are no errors.', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .send(scorpa)
@@ -33,7 +33,7 @@ describe('/api/trials-bikes', () => {
       });
   });
 
-  test('Should respond with a 400 status code if no/invalid body, and an object with error property "bad request, no object sent."', () => {
+  test('Post should respond with a 400 status code if no/invalid body, and an object with error property "bad request, no object sent."', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .then(res => {
@@ -45,7 +45,7 @@ describe('/api/trials-bikes', () => {
       });
   });
 
-  test('Should respond with a 400 status code if body has no make property, and an object with error property "bad request, make not found!"', () => {
+  test('Post should respond with a 400 status code if body has no make property, and an object with error property "bad request, make not found!"', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .send({})
@@ -58,7 +58,7 @@ describe('/api/trials-bikes', () => {
       });
   });
 
-  test('Should respond with a 400 status code if body has no model property, and an object with error property "bad request, model not found!"', () => {
+  test('Post should respond with a 400 status code if body has no model property, and an object with error property "bad request, model not found!"', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .send({make: 1})
@@ -71,7 +71,7 @@ describe('/api/trials-bikes', () => {
       });
   });
 
-  test('Should respond with a 400 status code if body has no year property, and an object with error property "bad request, year not found!"', () => {
+  test('Post should respond with a 400 status code if body has no year property, and an object with error property "bad request, year not found!"', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .send({make: 1, model: 2})
@@ -84,7 +84,7 @@ describe('/api/trials-bikes', () => {
       });
   });
 
-  test('Should respond with a 400 status code if body has no displacement property, and an object with error property "bad request, displacement not found!"', () => {
+  test('Post should respond with a 400 status code if body has no displacement property, and an object with error property "bad request, displacement not found!"', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .send({make: 1, model: 2, year: 3})
@@ -97,7 +97,7 @@ describe('/api/trials-bikes', () => {
       });
   });
 
-  test('Should respond with a 400 status code if body has no color property, and an object with error property "bad request, color not found!"', () => {
+  test('Post should respond with a 400 status code if body has no color property, and an object with error property "bad request, color not found!"', () => {
     return superagent.post('http://localhost:3000/api/trials-bikes')
       .set('Content-Type', 'application/json')
       .send({make: 1, model: 2, year: 3, displacement: 4})
@@ -107,6 +107,13 @@ describe('/api/trials-bikes', () => {
       .catch(res => {
         expect(res.status).toEqual(400);
         expect(JSON.parse(res.response.res.text).error).toEqual('bad request, color not found!');
+      });
+  });
+
+  test('Get should respond with a 200 status code and an array of all objects if no id is given.', () => {
+    return superagent.get('http://localhost:3000/api/trials-bikes')
+      .then(res => {
+        expect(res.status).toEqual(200);
       });
   });
 });
