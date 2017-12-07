@@ -1,0 +1,15 @@
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T00:36:25.811Z"}
+{"level":"error","message":"Please configure the PORT variable before proceeding","timestamp":"2017-12-07T00:38:12.628Z"}
+{"level":"info","message":"The server is already off","timestamp":"2017-12-07T00:38:12.680Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T00:39:26.870Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T00:40:21.258Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T00:42:30.460Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T00:43:09.748Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T00:44:28.507Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T00:45:27.488Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T00:45:44.089Z"}
+{"level":"info","message":"The server is already off","timestamp":"2017-12-07T01:42:07.969Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T01:46:28.163Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T01:46:28.214Z"}
+{"level":"info","message":"The method found was: GET","timestamp":"2017-12-07T01:46:28.214Z"}
+{"level":"info","message":"The handler found from the request was: undefined","timestamp":"2017-12-07T01:46:28.214Z"}

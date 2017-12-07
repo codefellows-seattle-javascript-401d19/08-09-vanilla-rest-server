@@ -12,4 +12,4 @@ class Sweet{
   }
 }
 
-Sweet = module.exports;
+module.exports = Sweet;
