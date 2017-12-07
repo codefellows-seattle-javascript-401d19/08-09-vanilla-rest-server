@@ -6,7 +6,7 @@ const router = require('./router');
 
 process.env.PORT = 3000;
 
-require('../route/note-router');
+require('../route/planet-router');
 
 const app = http.createServer(router.route);
 
@@ -56,3 +56,17 @@ server.stop = () => {
     });
   });
 };
+
+// TODO:POST / api / <resource-name>
+//   pass data as stringifed JSON in the body of a POST request to create a new resource
+// on success respond with a 200 status code and the created planet
+// on failure due to a bad request send a 400 status code
+// TODO:GET /api/<resource-name> and GET /api/<resource-name>?id={id}
+//     with no id in the query string it should respond with an array of all of your resources
+// with an id in the query string it should respond with the details of a specifc resource (as JSON)
+// if the id is not found respond with a 404
+// TODO:DELETE /api/<resource-name?id={id}>
+// the route should delete a planet with the given id
+// on success this should return a 204 status code with no content in the body
+// on failure due to lack of id in the query respond with a 400 status code
+// on failure due to a resource with that id not existing respond with a 404 status code

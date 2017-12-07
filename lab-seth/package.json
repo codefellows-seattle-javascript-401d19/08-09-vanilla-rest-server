@@ -4,7 +4,9 @@
   "description": "This is a simple HTTP server that allows users to input a url to make a cow say something!",
   "main": "index.js",
   "scripts": {
-    "test": "jest -i --coverage"
+    "lint": "eslint .",
+    "test": "jest -i --coverage",
+    "start": "node lib/server.js"
   },
   "keywords": [],
   "author": "Seth Donohue",
@@ -16,6 +18,7 @@
   },
   "dependencies": {
     "dotenv": "^4.0.0",
+    "faker": "^4.1.0",
     "uuid": "^3.1.0",
     "winston": "^2.4.0"
   },

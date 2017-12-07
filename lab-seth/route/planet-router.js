@@ -1,10 +1,10 @@
 'use strict';
 
-const Note = require('../model/note');
+const Planet = require('../model/planet');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
 
-let notes = [];
+let planets = [];
 
 let sendStatus = (response,status,message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
@@ -26,22 +26,22 @@ let sendJSON = (response,status,jsonData) => {
 };
 
 //           URL           CALLBACK
-router.post('/api/notes', (request,response) => {
+router.post('/api/planet', (request,response) => {
   // Here, I know that my request has been pre-parsed
   if(!request.body){
     sendStatus(response,400,'body not found');
     return;
   }
-  if(!request.body.title){
-    sendStatus(response,400,'title not found');
+  if(!request.body.name){
+    sendStatus(response,400,'name not found');
     return;
   }
   if(!request.body.content){
     sendStatus(response,400,'content not found');
     return;
   }
-  // Here, I can create my note since all test pass
-  let note = new Note(request.body.title,request.body.content);
-  notes.push(note);
-  sendJSON(response,200,note);
+  //can create my planet since all test pass
+  let planet = new Planet(request.body.name,request.body.content);
+  planets.push(planet);
+  sendJSON(response,200,planet);
 });
