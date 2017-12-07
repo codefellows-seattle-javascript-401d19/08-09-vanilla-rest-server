@@ -30,6 +30,19 @@ let getBikeById = id => {
   return trialsBikes.filter(trialsBike => trialsBike.id === id)[0];
 };
 
+let removeBikeById = id => {
+  let indexOfId = trialsBikes
+    .map(bike => bike.id)
+    .indexOf(id);
+  
+  if(indexOfId < 0)
+    return false;
+  else {
+    trialsBikes = trialsBikes.splice(0, indexOfId).concat(trialsBikes.splice(indexOfId + 1));
+    return true;
+  }
+};
+
 router.post('/api/trials-bikes', (req, res) => {
   if(!req.body.make) {
     sendBadStatus(res, 400, 'bad request, make not found!');
@@ -78,5 +91,19 @@ router.get('/api/trials-bikes', (req, res) => {
       sendBadStatus(res, 404, `No bike with id "${id}".`);
   } else
     sendJSON(res, 200, trialsBikes);
+});
+
+router.delete('/api/trials-bikes', (req, res) => {
+  let id = req.url.query.id;
+  if(id) {
+    let removedBike = removeBikeById(id);
+    if (removedBike) {
+      logger.log('info', `Bike deleted, responding with a 204 code.`);
+      res.writeHead(204);
+      res.end();
+    } else
+      sendBadStatus(res, 404, `No bike with id "${id}".`);
+  } else
+    sendBadStatus(res, 400, `bad request, no id.`);
 });
 
