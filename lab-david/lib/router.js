@@ -35,7 +35,7 @@ router.put = (url,callback) => {
 
 router.delete = (url,callback) => {
   logUrlAndCallback(`DELETE`,url,callback);
-  routeHandlers.delete[url] = callback;
+  routeHandlers.DELETE[url] = callback;
 };
 
 router.route = (request,response) => {
