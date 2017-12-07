@@ -13,3 +13,23 @@
 {"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T01:46:28.214Z"}
 {"level":"info","message":"The method found was: GET","timestamp":"2017-12-07T01:46:28.214Z"}
 {"level":"info","message":"The handler found from the request was: undefined","timestamp":"2017-12-07T01:46:28.214Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T01:49:53.666Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T01:49:53.718Z"}
+{"level":"info","message":"The method found was: GET","timestamp":"2017-12-07T01:49:53.718Z"}
+{"level":"info","message":"The url pathname found was: //api/sweets","timestamp":"2017-12-07T01:49:53.718Z"}
+{"level":"info","message":"The handler found from the request was: undefined","timestamp":"2017-12-07T01:49:53.718Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T01:50:41.474Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T01:50:41.488Z"}
+{"level":"info","message":"The method found was: GET","timestamp":"2017-12-07T01:50:41.489Z"}
+{"level":"info","message":"The url pathname found was: /api/sweets","timestamp":"2017-12-07T01:50:41.489Z"}
+{"level":"info","message":"The handler found from the request was: undefined","timestamp":"2017-12-07T01:50:41.489Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T01:51:13.774Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T01:51:13.822Z"}
+{"level":"info","message":"The method found was: GET","timestamp":"2017-12-07T01:51:13.823Z"}
+{"level":"info","message":"The url pathname found was: /api/sweets","timestamp":"2017-12-07T01:51:13.823Z"}
+{"level":"info","message":"The handler found from the request was: (request, response) => {\n      // if()  // if there is no id query, respond with an array of all the sweets\n      // if()  // if there IS an id query, see if it matches the id of anything in the array\n      // if yes, respond with the details of the thing with that id\n      // if not, respond with a 404\n      /* istanbul ignore next */cov_2cwomrm8wl.f[0]++;}","timestamp":"2017-12-07T01:51:13.823Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T02:17:50.873Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T02:17:50.925Z"}
+{"level":"info","message":"The method found was: GET","timestamp":"2017-12-07T02:17:50.926Z"}
+{"level":"info","message":"The url pathname found was: /api/sweets","timestamp":"2017-12-07T02:17:50.926Z"}
+{"level":"info","message":"The handler found from the request was: (request, response) => {/* istanbul ignore next */cov_2cwomrm8wl.f[0]++;cov_2cwomrm8wl.s[4]++;\n      response.writeHead(200, {\n        'Content-Type': `text/html` }); /* istanbul ignore next */cov_2cwomrm8wl.s[5]++;\n\n\n      response.write(JSON.stringify(sweets)); /* istanbul ignore next */cov_2cwomrm8wl.s[6]++;\n      response.end();\n    }","timestamp":"2017-12-07T02:17:50.926Z"}

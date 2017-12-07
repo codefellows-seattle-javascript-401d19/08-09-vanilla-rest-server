@@ -1,7 +1,7 @@
 'use strict';
 
 const uuid = require(`uuid/v1`);
-//class Sweet must have 4 properties
+
 class Sweet{
 
   constructor(name, hasChocolate, temperature){
