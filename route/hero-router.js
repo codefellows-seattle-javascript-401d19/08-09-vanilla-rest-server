@@ -60,7 +60,7 @@ router.get('/api/heroes', (request, response) => {
     });
 
     if(!heroName) {
-      sendStatus(response, 404, 'That hero is NOT available, hero ID not found');
+      sendStatus(response, 404, '__HERO_ID_NOT_FOUND__');
       return;
     }
     sendJSON(response, 200, heroName);

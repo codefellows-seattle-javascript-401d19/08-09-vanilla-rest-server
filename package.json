@@ -4,7 +4,7 @@
   "description": "![cf](https://i.imgur.com/7v5ASc8.png) Lab 08: REST API ======",
   "main": "index.js",
   "scripts": {
-    "jest": "jest -i --coverage",
+    "test": "jest -i --coverage",
     "start": "node index.js",
     "lint": "eslint ."
   },
