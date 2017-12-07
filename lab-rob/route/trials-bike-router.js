@@ -64,3 +64,7 @@ router.post('/api/trials-bikes', (req, res) => {
   sendJSON(res, 200, trialsBike);
 });
 
+router.get('/api/trials-bikes', (req, res) => {
+  sendJSON(res, 200, trialsBikes);
+});
+
