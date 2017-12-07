@@ -27,7 +27,7 @@ let sendJSON = (response, status, jsonData) => {
 
 //           URL           CALLBACK
 router.post('/api/cats', (request, response) => {
-  // Here, I know that my request has been pre-parsed
+
   if(!request.body){
     sendStatus(response, 400, 'body not found');
     return;
@@ -40,8 +40,13 @@ router.post('/api/cats', (request, response) => {
     sendStatus(response, 400, 'says not found');
     return;
   }
-  // Here, I can create my cat since all test pass
-  let cat = new Cat(request.body.name,request.body.says);
+  let cat = new Cat(request.body.name, request.body.says);
   cats.push(cat);
   sendJSON(response, 200, cat);
+  console.log('post', cats);
+});
+
+router.get('/api/cats', (request, response) => {
+  sendJSON(response, 200, cats);
+  console.log('get', cats);
 });

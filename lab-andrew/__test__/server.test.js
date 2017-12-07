@@ -7,21 +7,25 @@ describe('/api/cats', () => {
   beforeAll(server.start);
   afterAll(server.stop);
 
-  test('should respond with 200 status code and a body if there are no errors', () => {
+  test('POST should respond with 200 status code and a body if no errors', () => {
     return superagent.post('http://localhost:3000/api/cats')
       .set('Content-Type', 'application/json')
-      .send({
-        title : 'cats',
-        content : 'meow',
-      })
+      .send({name : 'kitty', says : 'meow'})
       .then(response => {
         expect(response.status).toEqual(200);
-
-        expect(response.body.title).toEqual('cats');
-        expect(response.body.content).toEqual('meow');
-
-        expect(response.body.timestamp).toBeTruthy();
+        expect(response.body.name).toEqual('kitty');
+        expect(response.body.says).toEqual('meow');
+        expect(response.body.birthday).toBeTruthy();
         expect(response.body.id).toBeTruthy();
       });
   });
+
+  test('GET should respond with 200 status code and a body if no errors', () => {
+    return superagent.get('http://localhost:3000/api/cats')
+      .then(response => {
+        expect(response.status).toEqual(200);
+        expect(response.body[0].name).toEqual('kitty');
+      });
+  });
+
 });
