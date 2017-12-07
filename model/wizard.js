@@ -7,7 +7,6 @@ class Wizard {
         this.id = uuid();
         this.timestamp = new Date();
         this.name = name;
-        this.spells = [];
         this.origin = origin;
     }
 }

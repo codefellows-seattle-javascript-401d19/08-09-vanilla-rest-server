@@ -31,16 +31,16 @@ let sendStatus = (response,status,message) => {
       sendStatus(response,400,'body not found');
       return;
     }
-    if(!request.body.title){
+    if(!request.body.name){
       sendStatus(response,400,'title not found');
       return;
     }
-    if(!request.body.content){
+    if(!request.body.origin){
       sendStatus(response,400,'content not found');
       return;
     }
-    // Note created
-    let wizard = new Wizard(request.body.title,request.body.content);
-    wizards.push(note);
+    
+    let wizard = new Wizard(request.body.title, request.body.content);
+    wizards.push(wizard);
     sendJSON(response,200,wizard);
   });
