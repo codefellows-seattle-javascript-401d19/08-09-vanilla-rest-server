@@ -29,7 +29,6 @@ server.start = () => {
         return reject(error);
 
       isServerOn = true;
-      logger.log(`info`, `Server is online on port ${process.env.PORT}`);
       console.log(`info`, `server is online on port ${process.env.PORT}`);
       return resolve();
     });

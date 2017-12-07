@@ -7,8 +7,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "node ./lib/server.js",
-    "test": "jest -i --coverage"
+    "lint": "eslint",
+    "test": "jest -i --coverage",
+    "start": "jest -i --coverage"
   },
   "author": "",
   "license": "ISC",
