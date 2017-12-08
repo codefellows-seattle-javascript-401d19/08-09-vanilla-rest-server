@@ -36,6 +36,28 @@ const findUserWithId = (querystring, users) => {
 router.get('/api/users', (request, response) => {
   const userId = request.url.query.id;
 
+  if (userId) {
+    storage.fetchItem(userId)
+      .then(user => {
+        sendJSON(response, 200, user);
+        return;
+      })
+      .catch(error => {
+        sendStatus(response, 500, error);
+        return;
+      });
+  } else {
+    storage.fetchAll()
+      .then(users => {
+        sendJSON(response, 200, users);
+        return;
+      })
+      .catch(error => {
+        sendStatus(response, 500, error);
+        return;
+      });
+  }
+
   storage.fetchAll()
     .then(allUsers => {
       if (userId) {
@@ -54,8 +76,6 @@ router.get('/api/users', (request, response) => {
       sendStatus(response, 500, error);
       return;
     });
-
-
 });
 
 router.post('/api/users', (request, response) => {
@@ -84,22 +104,34 @@ router.post('/api/users', (request, response) => {
     });
 });
 
-router.delete('/api/users', (request, response) => {
-  if (request.url.query.id) {
-    const userToBeRemoved = findUserWithId(request.url.query.id);
-    if (userToBeRemoved) {
-      const updatedUsers = users.filter(user => {
-        console.log(userToBeRemoved.testId, user.testId);
-        return userToBeRemoved.testId === user.testId;
-      });
-      users = updatedUsers;
-      sendJSON(response, 204, users);
-      return;
-    } else {
-      sendStatus(response, 404, 'id does not exit');
-    }
-  } else {
-    sendStatus(response, 400, 'no id provided');
-    return;
-  }
-});
+// router.delete('/api/users', (request, response) => {
+//   const userId = request.url.query.id;
+//
+//   storage.fetchAll()
+//     .then(allUsers => {
+//       if (userId) {
+//         const foundUserWithId = findUserWithId(userId, allUsers);
+//
+//         foundUserWithId ?
+//
+//       }
+//   })
+//
+//   if (request.url.query.id) {
+//     const userToBeRemoved = findUserWithId(request.url.query.id);
+//     if (userToBeRemoved) {
+//       const updatedUsers = users.filter(user => {
+//         console.log(userToBeRemoved.testId, user.testId);
+//         return userToBeRemoved.testId === user.testId;
+//       });
+//       users = updatedUsers;
+//       sendJSON(response, 204, users);
+//       return;
+//     } else {
+//       sendStatus(response, 404, 'id does not exit');
+//     }
+//   } else {
+//     sendStatus(response, 400, 'no id provided');
+//     return;
+//   }
+// });

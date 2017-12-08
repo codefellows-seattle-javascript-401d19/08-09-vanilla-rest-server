@@ -67,13 +67,13 @@ describe('/api/users', () => {
         });
     });
 
-    test('GET should respond with a 404 if id is not found', () => {
+    test('GET should respond with a 500 if id is not found', () => {
       const url = 'http://localhost:3000/api/users?id=notexisting';
       return superagent.get(url)
         .set('content-type', 'application/json')
         .then(response => Promise.reject(response))
         .catch(response => {
-          expect(response.status).toEqual(404);
+          expect(response.status).toEqual(500);
         });
     });
   });
