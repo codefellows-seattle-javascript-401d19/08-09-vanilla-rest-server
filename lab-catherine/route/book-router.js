@@ -48,19 +48,14 @@ router.post('/api/books', (request, response) => {
 
 router.get('/api/books', (request, response) => {
   if(request.url.query.id) {
-    let designatedBook;
-    storage.fetchItem(book); 
-    books.forEach((book) => {
-      if(request.url.query.id === book['id']) {
-        designatedBook = book;
-        return;
-      }
-    });
-    if(!designatedBook) {
-      sendStatus(response, 404, 'ID Not Found');
-      return;
-    }
-    sendJSON(response, 200, designatedBook);
+    storage.fetchItem(request.url.query.id)
+      .then((result) => {
+        sendJSON(response, 200, result);
+      })
+      .catch(error => {
+        sendStatus(response, 404, error);
+      });
+ 
   } else {
     storage.fetchAll()
       .then((result) => {
