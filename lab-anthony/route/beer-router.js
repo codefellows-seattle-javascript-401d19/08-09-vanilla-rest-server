@@ -3,6 +3,7 @@
 const Beer = require('../model/beer.js');
 const router = require('../lib/router.js');
 const logger = require('../lib/logger.js');
+const storage = require('../lib/storage');
 
 let beers = [];
 
@@ -41,39 +42,49 @@ router.post('/api/beers', (request, response) => {
     return;
   }
   let beer = new Beer(request.body.brewery, request.body.beerName, request.body.beerType);
-  beers.push(beer);
-  sendJSON(response, 200, beer);
+  storage.addItem(beer)
+    .then(() => {
+      sendJSON(response, 200, beer);
+    })
+    .catch(error => {
+      sendStatus(response, 500, error);
+    });
 });
 
 router.get('/api/beers', (request, response) => {
   if(request.url.query.id){
-    let findBeerById = beers.find(beer => beer.id === request.url.query.id);
-    if (findBeerById) {
-      sendJSON(response, 200, findBeerById);
-      return;
-    } else {
-      sendStatus(response, 404, 'beer not found');
-      return;
-    }
+    storage.fetchItem(request.url.query.id)
+      .then(beer => sendJSON(response, 200, beer))
+      .catch(err => {
+        if(err.message.indexOf('not found') > -1)
+          return sendStatus(response, 404);
+        sendStatus(500);
+      });
   } else {
-    sendJSON(response, 200, beers);
-    return;
+    storage.fetchAll()
+      .then(beers => sendJSON(response, 200, beers))
+      .catch(err => {
+        console.error(err);
+        sendStatus(response, 500);
+      });
   }
 });
-
+//
 router.delete('/api/beers', (request, response) => {
-  if(request.url.query.id){
-    let filterBeerById = beers.filter(beer => beer.id !== request.url.query.id);
-    if (filterBeerById) {
-      beers = filterBeerById;
-      sendJSON(response, 200, beers);
-      return;
-    } else {
-      sendStatus(response, 400, 'beer not found');
-      return;
-    }
+  if(!request.url.query.id){
+    return sendStatus(response, 400);
   } else {
-    sendJSON(response, 200, beers);
-    return;
+    storage.fetchItem(request.url.query.id)
+      .then(beer => {
+        return storage.deleteItem(beer.id);
+      })
+      .then(() => {
+        sendStatus(response, 204);
+      })
+      .catch(err => {
+        if(err.message.indexOf('not found') > -1)
+          return sendStatus(response, 404);
+        sendStatus(response, 500);
+      });
   }
 });

@@ -38,50 +38,58 @@ describe('/api/beers', () => {
       });
   });
 
-  test('GET should respond with 200 status code and an array of beer objects', () => {
-    return superagent.get('http://localhost:3000/api/beers')
-      .then(response => {
-        expect(response.status).toEqual(200);
-      });
-  });
-
-  test('GET should respond with 200 status code when a valid id is requested', () => {
+  test('POST should respond with 400 status code if the post does not include a beerName', () => {
     return superagent.post('http://localhost:3000/api/beers')
       .set('Content-Type', 'application/json')
       .send({
-        brewery : 'Lagunitas',
-        beerName : 'daytime ale',
-        beerType : 'session ale',
+        brewery : 'Rainier Beer',
+        beerName : '',
+        beerType : 'lager',
       })
-      .then(response => {
-        return superagent.get('http://localhost:3000/api/beers').query({id: response.body.id});
-      })
-      .then(response => {
-        expect(response.status).toEqual(200);
+      .catch(response => {
+        expect(response.status).toEqual(400);
       });
   });
 
-  test('GET should respond with 404 status code when an invalid id is passed in', () => {
-    return superagent.get('http://localhost:3000/api/beers').query({id: '12312313'})
-      .then(response => Promise.reject(response))
+  test('POST should respond with 400 status code if the post does not include a beerType', () => {
+    return superagent.post('http://localhost:3000/api/beers')
+      .set('Content-Type', 'application/json')
+      .send({
+        brewery : 'Rainier Beer',
+        beerName : 'Rainier',
+        beerType : '',
+      })
+      .catch(response => {
+        expect(response.status).toEqual(400);
+      });
+  });
+
+  test('GET should return a 200 status and and array if no id is passed in', () => {
+    return superagent.get('http://localhost:3000/api/beers?id=')
+      .then(response => {
+        console.log(response.body);
+        expect(response.status).toEqual(200);
+        expect(response.body).toBeInstanceOf(Array);
+      });
+  });
+
+  test('GET should return a 200 status and a beer associated with a valid id', () => {
+    return superagent.get('http://localhost:3000/api/beers?id=918fa210-dbc1-11e7-aba8-572e42a10810')
+      .then(response => {
+        console.log(response.body);
+        expect(response.status).toEqual(200);
+        expect(response.body).toBeInstanceOf(Object);
+      });
+  });
+
+  test('GET should respond with 404 status code if an invalid id is entered', () => {
+    return superagent.get('http://localhost:3000/api/beers?id=12345')
       .catch(response => {
         expect(response.status).toEqual(404);
       });
   });
 
-  test('DELETE should respond with 200 status code and an array of beer objects', () => {
-    return superagent.post('http://localhost:3000/api/beers')
-      .set('Content-Type', 'application/json')
-      .send({
-        brewery : 'Lagunitas',
-        beerName : 'daytime ale',
-        beerType : 'session ale',
-      })
-      .then(response => {
-        return superagent.delete('http://localhost:3000/api/beers').query({id: response.body.id});
-      })
-      .then(response => {
-        expect(response.status).toEqual(200);
-      });
-  });
+  // EXTRA CREDIT
+  // test('DELETE should respond with a 204 status code if a valid id is passed in')
+
 });
