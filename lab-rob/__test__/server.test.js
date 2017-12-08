@@ -10,7 +10,7 @@ describe('/api/trials-bikes', () => {
   beforeAll(server.start);
   afterAll(server.stop);
 
-  let testId, testArray;
+  let testId, testObject;
   let scorpa = {
     make: 'Scorpa',
     model: 'Twenty',
@@ -25,7 +25,7 @@ describe('/api/trials-bikes', () => {
       .send(scorpa)
       .then(res => {
         testId = res.body.id;
-        testArray = [res.body];
+        testObject = res.body;
         expect(res.status).toEqual(200);
         expect(res.body.make).toEqual('Scorpa');
         expect(res.body.model).toEqual('Twenty');
@@ -108,7 +108,7 @@ describe('/api/trials-bikes', () => {
     return superagent.get(`http://localhost:${PORT}/api/trials-bikes?id=${testId}`)
       .then(res => {
         expect(res.status).toEqual(200);
-        expect(res.body).toEqual(testArray[0]);
+        expect(res.body).toEqual(testObject);
       });
   });
 
