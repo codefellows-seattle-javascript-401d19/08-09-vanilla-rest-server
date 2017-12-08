@@ -3,11 +3,7 @@
 const User = require('../model/user');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
-
-let users = [];
-// data for testing
-users.push(new User('test_name_1', 'test_description_1'));
-users.push(new User('test_name_2', 'test_description_2'));
+const storage = require('../lib/storage');
 
 const sendStatus = (response, status, message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
@@ -28,23 +24,30 @@ const sendJSON = (response, status, jsonData) => {
   return;
 };
 
-const findUserWithId = querystring => {
-  for (let i = 0; i < users.length; i++) {
-    console.log('one of these should match', users[i].getId(), querystring);
-    if (users[i].getId() === querystring) {
-      return users[i];
-    }
-  }
-  return [];
-};
-
 router.get('/api/users', (request, response) => {
-  if (request.url.query.id) {
-    const foundUserWithId = findUserWithId(request.url.query.id);
-    sendJSON(response, 200, foundUserWithId);
-    return;
+  const userId = request.url.query.id;
+
+  if (userId) {
+    storage.fetchItem(userId)
+      .then(user => {
+        sendJSON(response, 200, user);
+        return;
+      })
+      .catch(error => {
+        sendStatus(response, 404, error);
+        return;
+      });
+  } else {
+    storage.fetchAll()
+      .then(users => {
+        sendJSON(response, 200, users);
+        return;
+      })
+      .catch(error => {
+        sendStatus(response, 404, error);
+        return;
+      });
   }
-  sendJSON(response, 200, users);
 });
 
 router.post('/api/users', (request, response) => {
@@ -62,22 +65,29 @@ router.post('/api/users', (request, response) => {
   }
 
   let user = new User(request.body.name, request.body.description);
-  users.push(user);
-  sendJSON(response, 200, user);
+  storage.addItem(user)
+    .then(() => {
+      sendJSON(response, 200, user);
+      return;
+    })
+    .catch(error => {
+      sendStatus(response, 500, error);
+      return;
+    });
 });
 
 router.delete('/api/users', (request, response) => {
-  if (request.url.query.id) {
-    const userToBeRemoved = findUserWithId(request.url.query.id);
-    const updatedUsers = users.filter(user => {
-      console.log(user.name, user.getId());
-      return userToBeRemoved.getId() === user.getId();
-    });
-    users = updatedUsers;
-    sendJSON(response, 204, users);
-    return;
+  const userId = request.url.query.id;
+
+  if (userId) {
+    storage.deleteItem(userId)
+      .then(() => {
+        sendStatus(response, 204, 'user removed');
+      })
+      .catch(() => {
+        sendStatus(response, 400, 'no user found');
+      });
   } else {
-    sendStatus(response, 400, 'no id provided');
-    return;
+    sendStatus(response, 404, 'no id provided');
   }
 });

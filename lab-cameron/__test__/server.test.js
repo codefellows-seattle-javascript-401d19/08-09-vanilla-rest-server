@@ -2,12 +2,9 @@
 
 const server = require('../lib/server');
 const superagent = require('superagent');
-const User = require('../model/user');
 
 // data for testing
-const test_users = [];
-test_users.push(new User('test_name_1', 'test_description_1'));
-test_users.push(new User('test_name_2', 'test_description_2'));
+const testUserData = { name: 'name', description: 'description' };
 
 describe('/api/users', () => {
   beforeAll(server.start);
@@ -16,29 +13,62 @@ describe('/api/users', () => {
   describe('GET requests', () => {
     test('GET should respond with a 200 status code and an array all resources', () => {
       const url = 'http://localhost:3000/api/users';
-      return superagent.get(url)
+
+      // POST request for mock data
+      return superagent.post(url)
         .set('content-type', 'application/json')
-        .then(response => {
-          expect(response.status).toEqual(200);
-          expect(response.body).toEqual(test_users);
+        .send(testUserData)
+        .then(() => {
+          return superagent.post(url)
+            .set('content-type', 'application/json')
+            .send(testUserData)
+            .then(() => {
+              return superagent.get(url)
+                .set('content-type', 'application/json')
+                .then(response => {
+                  expect(response.status).toEqual(200);
+                  expect(response.body[0].name).toEqual(testUserData.name);
+                  expect(response.body[0].description).toEqual(testUserData.description);
+                  expect(response.body[1].name).toEqual(testUserData.name);
+                  expect(response.body[1].description).toEqual(testUserData.description);
+                });
+            });
         });
     });
 
-    test.skip('GET should respond with a 200 status code an a single resource determined by uuid', () => {
-      const querystring = test_users[0].getId();
+    test('GET should respond with a 200 status code an a single resource determined by uuid', () => {
       const url = 'http://localhost:3000/api/users';
-      return superagent.get(url)
+
+      // POST request for mock data
+      return superagent.post(url)
         .set('content-type', 'application/json')
-        .query({ id: `${querystring}` })
+        .send(testUserData)
         .then(response => {
-          expect(response.status).toEqual(200);
-          expect(response.body).toEqual(test_users[0]);
-          expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
+          const querystring = response.body.testId;
+          return superagent.get(url)
+            .set('content-type', 'application/json')
+            .query({ id: `${querystring}` })
+            .then(response => {
+              expect(response.status).toEqual(200);
+              expect(response.body.name).toEqual(testUserData.name);
+              expect(response.body.description).toEqual(testUserData.description);
+              expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
+            });
         });
     });
 
     test('GET should respond with a 404 if pathname requested is invalid', () => {
       const url = 'http://localhost:3000/invalid/pathname';
+      return superagent.get(url)
+        .set('content-type', 'application/json')
+        .then(response => Promise.reject(response))
+        .catch(response => {
+          expect(response.status).toEqual(404);
+        });
+    });
+
+    test('GET should respond with a 404 if id is not found', () => {
+      const url = 'http://localhost:3000/api/users?id=notexisting';
       return superagent.get(url)
         .set('content-type', 'application/json')
         .then(response => Promise.reject(response))
@@ -53,10 +83,7 @@ describe('/api/users', () => {
       const url = 'http://localhost:3000/api/users';
       return superagent.post(url)
         .set('content-type', 'application/json')
-        .send({
-          name: 'name',
-          description: 'description',
-        })
+        .send(testUserData)
         .then(response => {
           expect(response.status).toEqual(200);
           expect(response.body.name).toEqual('name');
@@ -78,16 +105,40 @@ describe('/api/users', () => {
   });
 
   describe('DELETE requests', () => {
-    test.skip('DELETE should respond with a 204 status code and have the specified use removed', () => {
-      const querystring = test_users[1].getId();
+    test('DELETE should respond with a 204 status code and have the specified user removed', () => {
       const url = 'http://localhost:3000/api/users';
-      return superagent.delete(url)
+
+      // POST requests for mock data
+      return superagent.post(url)
         .set('content-type', 'application/json')
-        .query({ id: `${querystring}` })
+        .send(testUserData)
         .then(response => {
-          expect(response.status).toEqual(204);
-          // expect(response.body).toEqual(test_users[0]);
-          expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
+          const querystring = response.body.testId;
+          return superagent.delete(url)
+            .set('content-type', 'application/json')
+            .query({ id: `${querystring}` })
+            .then(response => {
+              expect(response.status).toEqual(204);
+              expect(response.body).toEqual({});
+              expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
+            });
+        });
+    });
+
+    test('DELETE should respond with a 400 if id does not exist', () => {
+      const url = 'http://localhost:3000/api/users?id=notexisting';
+
+      // POST requests for mock data
+      return superagent.post(url)
+        .set('content-type', 'application/json')
+        .send(testUserData)
+        .then(() => {
+          return superagent.delete(url)
+            .set('content-type', 'application/json')
+            .then(response => Promise.reject(response))
+            .catch(response => {
+              expect(response.status).toEqual(400);
+            });
         });
     });
 
@@ -97,7 +148,7 @@ describe('/api/users', () => {
         .set('content-type', 'application/json')
         .then(response => Promise.reject(response))
         .catch(response => {
-          expect(response.status).toEqual(400);
+          expect(response.status).toEqual(404);
         });
     });
   });
