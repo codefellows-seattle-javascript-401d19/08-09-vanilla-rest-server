@@ -28,7 +28,7 @@ storage.addItem = (mountain) => {
     .then(database => {
       return fsExtra.writeJSON(process.env.STORAGE_PATH,[...database,note]);
     });
-;
+};
 
 storage.fetchItem = (id) => {
   logger.log('verbose',`STORAGE - fetching an item with id ${id}`);
@@ -43,6 +43,14 @@ storage.fetchItem = (id) => {
     });
 };
 
-storage.deleteItem = () => {
-
+storage.deleteItem = (id) => {
+  logger.log('verbose',`STORAGE - deleting an item with id ${id}`);
+  
+  return storage.fetchAll()
+    .then(database => {
+      return database.filter(item => item.id !== item);
+    })
+    .then(filteredItems => {
+      fsExtra.writeJSON(process.env.STORAGE_PATH,filteredItems);
+    });
 };

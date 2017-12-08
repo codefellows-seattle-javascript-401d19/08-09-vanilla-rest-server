@@ -4,7 +4,7 @@ const Mountain = require('../model/mountain');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
 
-let mountains = [];
+const storage = require('../lib/storage');
 
 let sendStatus = (response,status,message) => {
   logger.log('info', `Responding with a ${status} code due to ${message}`);
@@ -26,11 +26,11 @@ let sendJSON = (response,status,jsonData) => {
 };
 
 let getMountainById = id => {
-  return mountains.filter(mountains => mountains.id === id)[0];
+  return storage.filter(mountains => mountains.id === id)[0];
 };
 
 let deleteMountainById = id => {
-  let indexOfId = mountains
+  let indexOfId = storage
     .map(mountain => mountain.id)
     .indexOf(id);
 
@@ -70,8 +70,14 @@ router.post('/api/mountains', (request, response) =>  {
     request.body.range
   );
 
-  mountains.push(mountain);
-  sendJSON(response,200,mountain);
+  storage.addItem(mountain)
+    .then(() => {
+      sendJSON(response,200,mountain);
+    })
+    .catch(error => {
+      sendStatus(response,500,error);
+    });
+
 });
 
 router.get('/api/mountains', (request, response) =>  {
@@ -84,7 +90,7 @@ router.get('/api/mountains', (request, response) =>  {
     } else
       sendStatus(response, 404, `no mountain found with the id of ${id}`);
   } else
-    sendJSON(response, 200, mountains);
+    sendJSON(response, 200, storage);
 });
 
 router.delete('/api/mountains', (request, response) => {
