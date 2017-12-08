@@ -1,6 +1,6 @@
 # Vanilla HTTP REST Server
 
-This is a simple HTTP server which follows REST constraints nad that allows users to input a url to make a cow say something!
+This is a simple HTTP server which follows REST constraints nad that allows users to input a url find a plane, put a planet or get all the planets!
 
 ## Motivation
 
