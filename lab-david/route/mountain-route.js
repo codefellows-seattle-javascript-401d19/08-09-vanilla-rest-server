@@ -79,9 +79,9 @@ router.get('/api/mountains', (request, response) =>  {
 
   if(id) {
     let requestMountain = getMountainById(id);
-    if(requestMountain)
-      sendJSON(request, 200, requestMountain);
-    else
+    if(requestMountain){
+      sendJSON(response, 200, requestMountain);
+    } else
       sendStatus(response, 404, `no mountain found with the id of ${id}`);
   } else
     sendJSON(response, 200, mountains);
