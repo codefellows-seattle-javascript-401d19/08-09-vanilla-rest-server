@@ -13,7 +13,36 @@ fsExtra.pathExists(process.env.STORAGE_PATH)
     }
   });
 
-storage.fetchAll = () => {};
-storage.addItem = () => {};
-storage.fetchItem = () => {};
-storage.deleteItem = () => {};
+storage.fetchAll = () => {
+  logger.log('verbose','STORAGE - fetching all files');
+  return fsExtra.readJSON(process.env.STORAGE_PATH);
+};
+storage.addItem = (mountain) => {
+  logger.log('verbose','STORAGE - adding the following item');
+  logger.log('verbose', mountain);
+  
+  if(!mountain.id)
+    return Promise.reject(new Error('---->STORAGE_ERROR<---- item must have an id'));
+  
+  return storage.fetchAll()
+    .then(database => {
+      return fsExtra.writeJSON(process.env.STORAGE_PATH,[...database,note]);
+    });
+;
+
+storage.fetchItem = (id) => {
+  logger.log('verbose',`STORAGE - fetching an item with id ${id}`);
+  return storage.fetchAll()
+    .then( database => {
+      return database.find(mountain => mountain.id === id);
+    })
+    .then(mountain => {
+      if(mountain === undefined)
+        throw new Error(`---->STORAGE_ERROR<---- item not found`);
+      return mountain;
+    });
+};
+
+storage.deleteItem = () => {
+
+};
