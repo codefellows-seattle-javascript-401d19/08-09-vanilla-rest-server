@@ -17,8 +17,7 @@ let logUrlAndCallback = (httpMethod, url, callback)=>{
   logger.log('info', url);
   logger.log('info', callback.toString());
 };
-//url is like api/notes
-// callback will be a function with (request, response)
+
 router.get = (url, callback) => {
   logUrlAndCallback('GET', url, callback);
   routeHandlers.GET[url] = callback;

@@ -68,15 +68,13 @@ describe('api/notes', () => {
         expect(response.status).toEqual(400);
       });
   });
-
-
   test('get route /api/notes should respond with a 400 status code if there is a bad route', () => {
     return superagent.get(`${headUrl}/badroute`)
       .catch(response => {
         expect(response.status).toEqual(400);
       });
   });
-  test('get route /api/notes?id should  respond with a 500 status code if there is a bad id', () => {
+  test('get route /api/notes?id should respond with a 500 status code if there is a bad id', () => {
     return superagent.get(`${headUrl}/notes?id=badid`)
       .catch(response => {
         expect(response.status).toEqual(500);

@@ -17,7 +17,7 @@ requestParser.parse = (request) =>{
 
     if(request.method !== 'POST' && request.method !== 'PUT')
       return resolve(request);
-      
+
     let sentText = '';
     request.on('data', (buffer) => {
       sentText += buffer.toString();
@@ -28,6 +28,7 @@ requestParser.parse = (request) =>{
           request.body = JSON.parse(sentText);
           return resolve(request); //passes new promise along .then chain
         }else{
+          console.log('rejecting parse request');
           return reject(request);
         }
       }catch(error){

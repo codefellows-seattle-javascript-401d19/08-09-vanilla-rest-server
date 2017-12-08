@@ -24,13 +24,10 @@ let sendJSON = (response, status, jsonData) => {
 };
 
 router.post('/api/notes', (request, response) => {
-//TODO: run console.trace(); track what happens
   if(!request.body){
     sendStatus(response, 400, 'body not found');
     return;
   }
-  // checking if values are present- instead we should check if values match type
-  // if typeof
   if(typeof request.body.title !== 'string'){
     sendStatus(response, 400, 'title must be a string');
     return;
