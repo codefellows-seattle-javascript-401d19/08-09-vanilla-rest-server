@@ -61,7 +61,7 @@ describe('/api/dogs', () => {
       });
   });
 
-  test('GET should return 400 status code if the id does not match', () => {
+  test('GET should return 404 status code if the id does not match', () => {
     return superagent.get(`http://localhost:${PORT}/api/dogs?id=1234`)
       .then(response => {
         console.log('this should not show', response.status);
