@@ -1,6 +1,3 @@
-// import { loadavg } from 'os';
-// import { log } from 'util';
-
 'use strict';
 
 const server = require('../lib/server');
@@ -53,12 +50,6 @@ describe('api/mountains',() => {
       .set('Content-Type','application/json')
       .then(response => {
         expect(response.status).toEqual(200);
-        // expect(response.body.id).toBe('daa80490-dbb4-11e7-9993-cdb4030ee8f3');
-        
-        // expect(response.body.name).toEqual('Shuksan');
-        // expect(response.body.state).toEqual('Washington');
-        // expect(response.body.hiking).toEqual('Yes');
-        // expect(response.body.range).toEqual('Cascades');
         console.log('id', `${dummyData.id}`);
       });
   });
