@@ -117,6 +117,8 @@ describe('/api/users', () => {
   describe('DELETE requests', () => {
     test('DELETE should respond with a 204 status code and have the specified user removed', () => {
       const url = 'http://localhost:3000/api/users';
+
+      // POST requests for mock data
       return superagent.post(url)
         .set('content-type', 'application/json')
         .send(testUserData)
@@ -139,6 +141,8 @@ describe('/api/users', () => {
 
     test('DELETE should respond with a 400 if id does not exit', () => {
       const url = 'http://localhost:3000/api/users?id=notexisting';
+      
+      // POST requests for mock data
       return superagent.post(url)
         .set('content-type', 'application/json')
         .send(testUserData)
