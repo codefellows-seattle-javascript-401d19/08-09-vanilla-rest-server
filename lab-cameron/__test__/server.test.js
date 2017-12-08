@@ -18,22 +18,15 @@ describe('/api/users', () => {
       return superagent.post(url)
         .set('content-type', 'application/json')
         .send(testUserData)
-        .then(response => {
-          expect(response.status).toEqual(200);
-          expect(response.body.name).toEqual('name');
-          expect(response.body.description).toEqual('description');
+        .then(() => {
           return superagent.post(url)
             .set('content-type', 'application/json')
             .send(testUserData)
-            .then(response => {
-              expect(response.status).toEqual(200);
-              expect(response.body.name).toEqual('name');
-              expect(response.body.description).toEqual('description');
+            .then(() => {
               return superagent.get(url)
                 .set('content-type', 'application/json')
                 .then(response => {
                   expect(response.status).toEqual(200);
-                  console.log(response.body);
                   expect(response.body[0].name).toEqual(testUserData.name);
                   expect(response.body[0].description).toEqual(testUserData.description);
                   expect(response.body[1].name).toEqual(testUserData.name);
