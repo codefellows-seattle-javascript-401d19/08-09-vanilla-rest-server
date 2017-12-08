@@ -3,8 +3,7 @@
 const Planet = require('../model/planet');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
-
-let planets = [];
+const storage = require('../lib/storage');
 
 let sendStatus = (response,status,message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
@@ -25,7 +24,6 @@ let sendJSON = (response,status,jsonData) => {
   return;
 };
 
-//           URL           CALLBACK
 router.post('/api/planet', (request,response) => {
   if(!request.body){
     sendStatus(response,400,'body not found');
@@ -40,8 +38,13 @@ router.post('/api/planet', (request,response) => {
     return;
   }
   let planet = new Planet(request.body.name,request.body.content);
-  planets.push(planet);
-  sendJSON(response,200,planet);
+  storage.addItem(planet)
+    .then(() => {
+      sendJSON(response, 200, planet);
+    })
+    .catch(error => {
+      sendStatus(response, 500, error);
+    });
 });
 
 router.get('/api/planet', (request,response) => {
