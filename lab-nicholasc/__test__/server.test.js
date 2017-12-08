@@ -23,7 +23,6 @@ describe('api/notes', () => {
         content : 'eggs and steak',
       })
       .then(response => {
-        console.log(response.body);
         expect(response.status).toEqual(200);
         expect(response.body.title).toEqual('food that sounds yummy');
         expect(response.body.content).toEqual('eggs and steak');
@@ -34,7 +33,6 @@ describe('api/notes', () => {
   test('get route /api/notes should respond with a 200 status code and notes if there is no error', () => {
     return superagent.get(`${headUrl}/notes`)
       .then(response => {
-        console.log(response.body);
         expect(response.status).toEqual(200);
         expect(response.body[0].title).toEqual('food that sounds yummy');
         expect(response.body[0].content).toEqual('eggs and steak');
@@ -60,19 +58,18 @@ describe('api/notes', () => {
       });
   });
   //---------------------------------------errors
-  //superagent is catching these errors
-  // test('post route should respond with a 400 status code on a bad request', () => {
-  //   return superagent.post('http://localhost:3000/api/notes')
-  //     .set('content-type', 'application/json')
-  //     .send({
-  //       title : '1',
-  //       content : 'a',
-  //     })
-  //     .then(response => {
-  //       console.log(response.status);
-  //       expect(response.status).toEqual(404);
-  //     });
-  // });
+  // superagent is catching these errors
+  test('post route should respond with a 400 status code on a bad request', () => {
+    return superagent.post('http://localhost:3000/api/notes')
+      .set('content-type', 'application/json')
+      .send()
+      .catch(response => {
+        console.log(response.status);
+        expect(response.status).toEqual(400);
+      });
+  });
+
+  //
   // test('get route /api/notes should respond with a 200 status code and notes if there is no error', () => {
   //   expect(()=>{return superagent.get('http://localhost:3000/api/noteadsfafd/asdf')
   //     .then(response => {
