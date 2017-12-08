@@ -47,12 +47,33 @@ router.post('/api/beers', (request, response) => {
 
 router.get('/api/beers', (request, response) => {
   if(request.url.query.id){
-    let beerId;
+    let findBeerById = beers.find(beer => beer.id === request.url.query.id);
+    if (findBeerById) {
+      sendJSON(response, 200, findBeerById);
+      return;
+    } else {
+      sendStatus(response, 404, 'beer not found');
+      return;
+    }
+  } else {
+    sendJSON(response, 200, beers);
+    return;
   }
 });
 
 router.delete('/api/beers', (request, response) => {
-  if(!req.url.query.id){
-    let beerID;
+  if(request.url.query.id){
+    let filterBeerById = beers.filter(beer => beer.id !== request.url.query.id);
+    if (filterBeerById) {
+      beers = filterBeerById;
+      sendJSON(response, 200, beers);
+      return;
+    } else {
+      sendStatus(response, 400, 'beer not found');
+      return;
+    }
+  } else {
+    sendJSON(response, 200, beers);
+    return;
   }
 });
