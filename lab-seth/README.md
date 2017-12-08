@@ -17,9 +17,15 @@ Document all of your server endpoints. Explain expected HTTP request input and t
     - Server response: _404 error_
 #### POST: 
   - If a valid **id** is given:
-    - Server response: _stores the new Planet in the database and a 200 status code_
+    - Server response: _stores the new Planet in the database and sends a 200 status code_
   - If the **_id is incorrect or was not given_**:
     - Server response: _400 error_
+    - Server response: _404 error_
+#### DELETE: 
+  - If a valid **id** is given:
+    - Server response: _deletes the planet from the database and sneds a 200 status_
+  - If the **_id is incorrect or was not given_**:
+    - Server response: _404 error_ Item Not Found
 
 
 
