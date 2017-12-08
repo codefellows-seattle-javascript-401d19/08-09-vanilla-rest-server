@@ -23,16 +23,18 @@ describe('api/notes', () => {
         content : 'eggs and steak',
       })
       .then(response => {
+        console.log(response.body);
         expect(response.status).toEqual(200);
-        expect(response.body[0].title).toEqual('food that sounds yummy');
-        expect(response.body[0].content).toEqual('eggs and steak');
-        expect(response.body[0].timestamp).toBeTruthy();
-        expect(response.body[0].id).toBeTruthy();
+        expect(response.body.title).toEqual('food that sounds yummy');
+        expect(response.body.content).toEqual('eggs and steak');
+        expect(response.body.timestamp).toBeTruthy();
+        expect(response.body.id).toBeTruthy();
       });
   });
   test('get route /api/notes should respond with a 200 status code and notes if there is no error', () => {
     return superagent.get(`${headUrl}/notes`)
       .then(response => {
+        console.log(response.body);
         expect(response.status).toEqual(200);
         expect(response.body[0].title).toEqual('food that sounds yummy');
         expect(response.body[0].content).toEqual('eggs and steak');
@@ -45,10 +47,10 @@ describe('api/notes', () => {
     return superagent.get(`${headUrl}/notes?id=${idToCheck}`)
       .then(response => {
         expect(response.status).toEqual(200);
-        expect(response.body[0].title).toEqual('food that sounds yummy');
-        expect(response.body[0].content).toEqual('eggs and steak');
-        expect(response.body[0].timestamp).toBeTruthy();
-        expect(response.body[0].id).toEqual(idToCheck);
+        expect(response.body.title).toEqual('food that sounds yummy');
+        expect(response.body.content).toEqual('eggs and steak');
+        expect(response.body.timestamp).toBeTruthy();
+        expect(response.body.id).toEqual(idToCheck);
       });
   });
   test('delete should respond with a 200 status code and confirmation if there is no error', () => {
