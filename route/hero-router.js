@@ -53,6 +53,8 @@ router.post('/api/heroes', (request, response) => {
 
 //-------- GET REQUEST ----------------
 
+// ========= OLD WAY =============
+
 router.get('/api/heroes', (request, response) => {
   if(request.url.query.id) {
     let heroName;
@@ -70,6 +72,38 @@ router.get('/api/heroes', (request, response) => {
     sendJSON(response, 200, heroName);
   } else {
     sendJSON(response, 200, heroes);
+  }
+});
+
+// ========= NEW WAY ============
+
+router.get('/api/heroes', (request, response) => {
+
+  // return storage.fetchI
+
+
+  if(request.url.query.id) {
+    let heroName;
+    heroes.forEach((hero) => {
+      if(request.url.query.id === hero['id']) {
+        heroName = hero;
+        return;
+      }
+    });
+
+    if(!heroName) {
+      sendStatus(response, 404, '__HERO_ID_NOT_FOUND__');
+      return;
+    }
+    sendJSON(response, 200, heroName);
+  } else {
+    storage.fetchAll()
+      .then((result) => {
+        sendJSON(response, 200, result);
+      })
+      .catch(error => {
+        sendStatus(response, 404, error);
+      });
   }
 });
 
