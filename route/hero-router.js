@@ -3,8 +3,7 @@
 const Hero = require('../model/hero.js');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
-
-let heroes = [];
+const storage = require('../lib/storage');
 
 let sendStatus = (response, status, message) => {
   logger.log('info', `Responding with a ${status} code due to the ${message}`);
@@ -43,8 +42,13 @@ router.post('/api/heroes', (request, response) => {
   }
 
   let hero = new Hero(request.body.name, request.body.superPower);
-  heroes.push(hero);
-  sendJSON(response, 200, hero);
+  storage.addItem(hero)
+    .then(() => {
+      sendJSON(response, 200, hero);
+    })
+    .catch(error => {
+      sendStatus(response, 500, error);
+    });
 });
 
 //-------- GET REQUEST ----------------
@@ -72,7 +76,7 @@ router.get('/api/heroes', (request, response) => {
 // -------- DELETE REQUEST ----------------
 
 router.delete('/api/heroes', (request, response) => {
-  if(!request.url.query.id) {  
+  if(!request.url.query.id) {
     sendStatus(response, 400, 'lack of ID in query');
     return;
   }
