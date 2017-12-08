@@ -5,8 +5,6 @@ const router = require('../lib/router');
 const logger = require('../lib/logger');
 const storage = require('../lib/storage');
 
-//! let users = [];
-
 const sendStatus = (response, status, message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
 
@@ -26,7 +24,7 @@ const sendJSON = (response, status, jsonData) => {
   return;
 };
 
-const findUserWithId = querystring => {
+const findUserWithId = (querystring, users) => {
   for (let i = 0; i < users.length; i++) {
     if (users[i].testId === querystring) {
       return users[i];
@@ -36,17 +34,28 @@ const findUserWithId = querystring => {
 };
 
 router.get('/api/users', (request, response) => {
-  if (request.url.query.id) {
-    console.log(request.url.query.id);
-    const foundUserWithId = findUserWithId(request.url.query.id);
-    if (foundUserWithId) {
-      sendJSON(response, 200, foundUserWithId);
+  const userId = request.url.query.id;
+  
+  storage.fetchAll()
+    .then(allUsers => {
+      if (userId) {
+        const foundUserWithId = findUserWithId(userId, allUsers);
+
+        foundUserWithId ?
+          sendJSON(response, 200, foundUserWithId) :
+          sendStatus(response, 404, 'id not found');
+
+        return;
+      }
+      sendJSON(response, 200, allUsers);
       return;
-    }
-    sendStatus(response, 404, 'id not found');
-    return;
-  }
-  sendJSON(response, 200, users);
+    })
+    .catch(error => {
+      sendStatus(response, 500, error);
+      return;
+    });
+
+
 });
 
 router.post('/api/users', (request, response) => {
@@ -67,13 +76,12 @@ router.post('/api/users', (request, response) => {
   storage.addItem(user)
     .then(() => {
       sendJSON(response, 200, user);
+      return;
     })
     .catch(error => {
-      console.log(error);
       sendStatus(response, 500, error);
+      return;
     });
-  //! users.push(user);
-  //! sendJSON(response, 200, user);
 });
 
 router.delete('/api/users', (request, response) => {

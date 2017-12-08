@@ -14,7 +14,6 @@ fsExtra.pathExists(process.env.STORAGE_PATH)
   });
 
 storage.fetchAll = () => {
-  console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
   logger.log('verbose', 'STORAGE - fetching all files');
   return fsExtra.readJSON(process.env.STORAGE_PATH);
 };
