@@ -35,7 +35,7 @@ const findUserWithId = (querystring, users) => {
 
 router.get('/api/users', (request, response) => {
   const userId = request.url.query.id;
-  
+
   storage.fetchAll()
     .then(allUsers => {
       if (userId) {

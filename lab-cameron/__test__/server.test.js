@@ -11,7 +11,7 @@ describe('/api/users', () => {
   afterAll(server.stop);
 
   describe('GET requests', () => {
-    test.only('GET should respond with a 200 status code and an array all resources', () => {
+    test('GET should respond with a 200 status code and an array all resources', () => {
       const url = 'http://localhost:3000/api/users';
 
       // POST request for mock data
@@ -44,20 +44,16 @@ describe('/api/users', () => {
         .set('content-type', 'application/json')
         .send(testUserData)
         .then(response => {
-          expect(response.status).toEqual(200);
-          expect(response.body.name).toEqual('name');
-          expect(response.body.description).toEqual('description');
           const querystring = response.body.testId;
-          console.log(response.body);
-          // return superagent.get(url)
-          //   .set('content-type', 'application/json')
-          //   .query({ id: `${querystring}` })
-          //   .then(response => {
-          //     expect(response.status).toEqual(200);
-          //     expect(response.body.name).toEqual(testUserData.name);
-          //     expect(response.body.description).toEqual(testUserData.description);
-          //     expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
-          //   });
+          return superagent.get(url)
+            .set('content-type', 'application/json')
+            .query({ id: `${querystring}` })
+            .then(response => {
+              expect(response.status).toEqual(200);
+              expect(response.body.name).toEqual(testUserData.name);
+              expect(response.body.description).toEqual(testUserData.description);
+              expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
+            });
         });
     });
 
@@ -117,10 +113,6 @@ describe('/api/users', () => {
         .set('content-type', 'application/json')
         .send(testUserData)
         .then(response => {
-          expect(response.status).toEqual(200);
-          expect(response.body.name).toEqual('name');
-          expect(response.body.description).toEqual('description');
-          console.log(response.body);
           const querystring = response.body.testId;
           return superagent.delete(url)
             .set('content-type', 'application/json')
@@ -141,10 +133,7 @@ describe('/api/users', () => {
       return superagent.post(url)
         .set('content-type', 'application/json')
         .send(testUserData)
-        .then(response => {
-          expect(response.status).toEqual(200);
-          expect(response.body.name).toEqual('name');
-          expect(response.body.description).toEqual('description');
+        .then(() => {
           return superagent.delete(url)
             .set('content-type', 'application/json')
             .then(response => Promise.reject(response))
