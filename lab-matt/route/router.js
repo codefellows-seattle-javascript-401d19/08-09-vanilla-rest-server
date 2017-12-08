@@ -13,7 +13,7 @@ let routeHandlers = {
 const router = module.exports = {};
 
 let logUrlAndCallback = (method, url, callback) => {
-  log('info', `Adding a ${method} url and callback | url: ${url} | callback: ${callback.toString()}`);
+  log('router', `Adding a ${method} url and callback | url: ${url} | callback: ${callback.toString()}`);
 };
 
 router.get = (url, callback) => {
@@ -37,16 +37,16 @@ router.delete = (url, callback) => {
 };
 
 router.route = (request, response) => {
-  log('info', `Routing a request |  URL: ${request.url}`);
+  log('router', `Routing a request |  URL: ${request.url}`);
 
   requestParser.parse(request)
     .then(request => {
-      log('info', `${request.method} | ${request.url.pathname}`);
+      log('router', `${request.method} | ${request.url.pathname}`);
   
       let foundHandler = routeHandlers[request.method][request.url.pathname];
 
-      log('info', 'Found the following handler');
-      log('info', `${foundHandler}`);
+      log('router', 'Found the following handler');
+      log('router', `${foundHandler}`);
 
       if (foundHandler) {
         return foundHandler(request,response);
