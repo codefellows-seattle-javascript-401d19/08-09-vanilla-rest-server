@@ -1,0 +1,33 @@
+{
+  "name": "lab-kerry",
+  "version": "1.0.0",
+  "description": "Vanilla JS REST server with CRUD ops",
+  "main": "./lib/server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest -i --coverage",
+    "start": "node ./lib/server.js"
+  },
+  "keywords": [
+    "REST",
+    "Vanilla-JS",
+    "REST-server",
+    "CRUD"
+  ],
+  "author": "Kerry Nordstrom",
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "eslint": "^4.12.1",
+    "jest": "^21.2.1",
+    "superagent": "^3.8.1"
+  },
+  "dependencies": {
+    "fs-extra": "^4.0.3",
+    "uuid": "^3.1.0",
+    "winston": "^2.4.0"
+  }
+}
