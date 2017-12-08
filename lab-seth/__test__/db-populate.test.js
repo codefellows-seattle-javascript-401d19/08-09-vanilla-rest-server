@@ -4,6 +4,8 @@ const server = require('../lib/server');
 const superagent = require('superagent');
 const faker = require('faker');
 
+//-----Test Popuates Databse------
+
 describe('/api/planet',() => {
   beforeAll(server.start);
   afterAll(server.stop);
@@ -24,8 +26,8 @@ describe('/api/planet',() => {
         })
         .then(response => {
           expect(response.status).toEqual(200);
-          expect(response.body.name).toEqual(testName);
           expect(response.body.content).toEqual(testContent);
+          expect(response.body.name).toEqual(testName);
           expect(response.body.discoverDate).toBeTruthy();
           expect(response.body.id).toBeTruthy();
         });

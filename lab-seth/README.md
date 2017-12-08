@@ -1,10 +1,27 @@
 # Vanilla HTTP REST Server
 
-This is a simple HTTP server which follows REST constraints nad that allows users to input a url to make a cow say something!
+This is a simple HTTP server which follows REST constraints, that allows users to input a url to GET, PUT, or DELETE a planet form a  local json database! It contains tests to make sure that the RESTful operations worked properly.
 
-## Motivation
+## Routes Explanation
 
-FUN! and Classwork :)
+Document all of your server endpoints. Explain expected HTTP request input and the corresponding server responses. Also explain server responses for bad requests and server errors.
+
+### URL: /api/planet?id={**_id_**}
+
+#### GET: 
+  - If a valid **id** is given:
+    - Server response: _object with that Planet's properties as key:value pairs from the database and a 200 status code_
+  - If **_NO id_** is given:
+    - Server response: _array of all the Planets in the database and a 200 status code_
+  - If the **_id is incorrect or does not exist_** in the database:
+    - Server response: _404 error_
+#### POST: 
+  - If a valid **id** is given:
+    - Server response: _stores the new Planet in the database and a 200 status code_
+  - If the **_id is incorrect or was not given_**:
+    - Server response: _400 error_
+
+
 
 ## Build status
 
@@ -39,8 +56,12 @@ VScode
 
 - It uses Winston Logger to keep track of logs.
 - GET, POST, DELETE routes for newly discovered exo-planets
+- Uses Faker to fake information fo rtesting purposes
+- Tests populate the databse with 5 planets, then runs 7 tests to make sure all routes work and respond properly with good and bad inputs
 
 ## Code Example
+
+### Routes Example
 ```
 
 router.post('/api/planet', (request,response) => {
@@ -91,15 +112,46 @@ router.delete('/api/planet', (request, response) => {
 });
 
 ```
+###Storage Example
+
+```
+storage.fetchItem = (id) => {
+  logger.log('verbose', `STORAGE - fetching an item with id ${id}`);
+  
+  return storage.fetchAll()
+    .then(database => {
+      return database.find(planet => planet.id === id);
+    })
+    .then(planet => {
+      if (planet === undefined)
+        throw new Error('__STORAGE_ERROR_ item not found');
+      return planet;
+    });
+};
+
+
+storage.deleteItem = (id) => {
+  logger.log('verbose', `STORAGE - deleting an item with id ${id}`);
+  return storage.fetchAll()
+    .then(database => {
+      return [database.filter(item => item.id !== id),database.length];
+    })
+    .then(filteredItemsArr => {
+      if(filteredItemsArr[0].length !==  (filteredItemsArr[1]-1))
+        throw new Error('__STORAGE_ERROR_ item not found');
+      return fsExtra.writeJSON(process.env.STORAGE_PATH, filteredItemsArr[0]);
+    });
+};
+```
 
 ## Installation
-1. ) Get source code from github (https://github.com/SethDonohue/08-09-vanilla-rest-server/tree/seth-lab-8)
+1. ) Get source code from github (https://github.com/SethDonohue/08-09-vanilla-rest-server/tree/seth-lab-9)
 2. ) In terminal navigate to 'lab-seth' folder and run following commands:
 ```
 npm init -y
 npm install
 npm install -D jest eslint superagent
-npm install -s winston faker dotenv
+npm install -s winston faker dotenv uuid
 ```
 
 <!-- Provide step by step series of examples and explanations about how to get a development env running. -->
@@ -121,7 +173,8 @@ Docs in Progress
 
 #### To Run Tests, run these commands in terminal from lab-seth folder
 
-1. ) npm run test
+- npm run test
+  - this will populate the database with five examples first then run tests on on the routes
 
 ## How to use?
 
@@ -141,6 +194,7 @@ Docs in Progress
 - Faker
 - suepragent
 - jest
+- uuid
 - Classmates that helped me!
 <!-- Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project.
 
