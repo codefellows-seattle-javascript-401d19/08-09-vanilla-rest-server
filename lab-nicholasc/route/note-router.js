@@ -78,7 +78,7 @@ router.get('/api/notes', (request, response) => {
 
 router.delete('/api/notes', (request, response) => {
   if(request.url.query.id){
-    storage.delete(request.url.query.id)
+    storage.deleteItem(request.url.query.id)
       .then(() => {
         sendStatus(response, 204, 'successfully deleted');
         return;
@@ -87,7 +87,8 @@ router.delete('/api/notes', (request, response) => {
         sendStatus(response, 500, error);
         return;
       });
+  }else{
+    sendStatus(response, 404, 'id not found');
+    return;
   }
-  sendStatus(response, 404, 'id not found');
-  return;
 });
