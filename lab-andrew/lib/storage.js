@@ -27,7 +27,6 @@ storage.addItem = (cat) => {
 
   return storage.fetchAll()
     .then(database => {
-      console.log(database);
       return fsx.writeJSON(process.env.STORAGE_PATH,[...database, cat]);
     });
 };

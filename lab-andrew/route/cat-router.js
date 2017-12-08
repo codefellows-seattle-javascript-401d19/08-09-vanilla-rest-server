@@ -38,7 +38,6 @@ router.post('/api/cats', (request, response) => {
     return;
   }
   let cat = new Cat(request.body.name, request.body.says);
-  // cats.push(cat);
   storage.addItem(cat)
     .then(() => {
       sendJSON(response, 200, cat);
@@ -46,7 +45,6 @@ router.post('/api/cats', (request, response) => {
     .catch(error => {
       sendStatus(response, 500, error);
     });
-  // sendJSON(response, 200, cat);
 });
 
 router.get('/api/cats', (request, response) => {
@@ -74,22 +72,6 @@ router.delete('/api/cats', (request, response) => {
     sendStatus(response, 400, 'no id supplied');
     return;
   }
-  // let specificCat;
-  // let catIndex;
-  // for (let i in cats){
-  //   if (request.url.query.id === cats[i].id){
-  //     specificCat = cats[i];
-  //     catIndex = i;
-  //     break;
-  //   }
-  // }
-  // if (!specificCat){
-  //   sendStatus(response, 404, 'invalid id supplied');
-  //   return;
-  // } else {
-  //   cats.splice(catIndex, 1);
-  //   sendStatus(response, 204, 'deletion successful');
-  // }
   storage.deleteItem(request.url.query.id)
     .then(() => {
       sendStatus(response, 204, 'deletion successful');
