@@ -24,15 +24,6 @@ const sendJSON = (response, status, jsonData) => {
   return;
 };
 
-const findUserWithId = (querystring, users) => {
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].testId === querystring) {
-      return users[i];
-    }
-  }
-  return null;
-};
-
 router.get('/api/users', (request, response) => {
   const userId = request.url.query.id;
 
@@ -43,7 +34,7 @@ router.get('/api/users', (request, response) => {
         return;
       })
       .catch(error => {
-        sendStatus(response, 500, error);
+        sendStatus(response, 404, error);
         return;
       });
   } else {
@@ -53,29 +44,10 @@ router.get('/api/users', (request, response) => {
         return;
       })
       .catch(error => {
-        sendStatus(response, 500, error);
+        sendStatus(response, 404, error);
         return;
       });
   }
-
-  storage.fetchAll()
-    .then(allUsers => {
-      if (userId) {
-        const foundUserWithId = findUserWithId(userId, allUsers);
-
-        foundUserWithId ?
-          sendJSON(response, 200, foundUserWithId) :
-          sendStatus(response, 404, 'id not found');
-
-        return;
-      }
-      sendJSON(response, 200, allUsers);
-      return;
-    })
-    .catch(error => {
-      sendStatus(response, 500, error);
-      return;
-    });
 });
 
 router.post('/api/users', (request, response) => {
@@ -104,34 +76,18 @@ router.post('/api/users', (request, response) => {
     });
 });
 
-// router.delete('/api/users', (request, response) => {
-//   const userId = request.url.query.id;
-//
-//   storage.fetchAll()
-//     .then(allUsers => {
-//       if (userId) {
-//         const foundUserWithId = findUserWithId(userId, allUsers);
-//
-//         foundUserWithId ?
-//
-//       }
-//   })
-//
-//   if (request.url.query.id) {
-//     const userToBeRemoved = findUserWithId(request.url.query.id);
-//     if (userToBeRemoved) {
-//       const updatedUsers = users.filter(user => {
-//         console.log(userToBeRemoved.testId, user.testId);
-//         return userToBeRemoved.testId === user.testId;
-//       });
-//       users = updatedUsers;
-//       sendJSON(response, 204, users);
-//       return;
-//     } else {
-//       sendStatus(response, 404, 'id does not exit');
-//     }
-//   } else {
-//     sendStatus(response, 400, 'no id provided');
-//     return;
-//   }
-// });
+router.delete('/api/users', (request, response) => {
+  const userId = request.url.query.id;
+
+  if (userId) {
+    storage.deleteItem(userId)
+      .then(() => {
+        sendStatus(response, 204, 'user removed');
+      })
+      .catch(() => {
+        sendStatus(response, 400, 'no user found');
+      });
+  } else {
+    sendStatus(response, 404, 'no id provided');
+  }
+});

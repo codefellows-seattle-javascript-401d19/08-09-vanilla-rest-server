@@ -52,7 +52,15 @@ storage.deleteItem = id => {
 
   return storage.fetchAll()
     .then(database => {
-      return database.filter(item => item.id !== id);
+      const filteredDB = database.filter(item => {
+        return item.testId !== id;
+      });
+      console.log('filteredDB', filteredDB.length);
+      console.log('database', database.length);
+      if (filteredDB.length === database.length) {
+        throw new Error('__NO_SUCH_USER__');
+      }
+      return filteredDB;
     })
     .then(filteredItems => {
       return fsExtra.writeJSON(process.env.STORAGE_PATH, filteredItems);

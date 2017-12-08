@@ -67,13 +67,13 @@ describe('/api/users', () => {
         });
     });
 
-    test('GET should respond with a 500 if id is not found', () => {
+    test('GET should respond with a 404 if id is not found', () => {
       const url = 'http://localhost:3000/api/users?id=notexisting';
       return superagent.get(url)
         .set('content-type', 'application/json')
         .then(response => Promise.reject(response))
         .catch(response => {
-          expect(response.status).toEqual(500);
+          expect(response.status).toEqual(404);
         });
     });
   });
@@ -105,7 +105,7 @@ describe('/api/users', () => {
   });
 
   describe('DELETE requests', () => {
-    test.skip('DELETE should respond with a 204 status code and have the specified user removed', () => {
+    test('DELETE should respond with a 204 status code and have the specified user removed', () => {
       const url = 'http://localhost:3000/api/users';
 
       // POST requests for mock data
@@ -120,13 +120,13 @@ describe('/api/users', () => {
             .then(response => {
               console.log(response.body);
               expect(response.status).toEqual(204);
-              expect(response.body).toEqual('');
+              expect(response.body).toEqual({});
               expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
             });
         });
     });
 
-    test.skip('DELETE should respond with a 400 if id does not exist', () => {
+    test('DELETE should respond with a 400 if id does not exist', () => {
       const url = 'http://localhost:3000/api/users?id=notexisting';
 
       // POST requests for mock data
@@ -138,18 +138,19 @@ describe('/api/users', () => {
             .set('content-type', 'application/json')
             .then(response => Promise.reject(response))
             .catch(response => {
-              expect(response.status).toEqual(404);
+              console.log(response.body);
+              expect(response.status).toEqual(400);
             });
         });
     });
 
-    test.skip('DELETE should respond with a 400 if no id is provided', () => {
+    test('DELETE should respond with a 400 if no id is provided', () => {
       const url = 'http://localhost:3000/api/users';
       return superagent.delete(url)
         .set('content-type', 'application/json')
         .then(response => Promise.reject(response))
         .catch(response => {
-          expect(response.status).toEqual(400);
+          expect(response.status).toEqual(404);
         });
     });
   });
