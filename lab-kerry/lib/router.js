@@ -8,7 +8,6 @@ let routeHandlers = {
   PUT: {},
   POST: {},
   DELETE: {},
-  //more methods could be added
 };
 
 const router = module.exports = {};
@@ -19,8 +18,6 @@ let logUrlAndCallback = (httpMethod, url, callback) => {
   logger.log('info', callback.toString());
 };
 
-//url will be something like 'api/notes'
-//callback will be a function with the signature (request, response) =>
 router.get = (url, callback) => {
   logUrlAndCallback('GET', url, callback);
   routeHandlers.GET[url] = callback;
@@ -46,9 +43,7 @@ router.route = (request,response) => {
 
   requestParser.parse(request)
     .then(request => {
-      //in this line, the request has been parsed
       let handlerFound = routeHandlers[request.method][request.url.pathname];
-      //error checking could be expanded here
       logger.log('info', 'Found the following handler');
       logger.log('info', handlerFound.toString());
       if (handlerFound) {

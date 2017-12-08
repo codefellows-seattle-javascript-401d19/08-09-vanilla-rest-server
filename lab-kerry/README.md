@@ -1,5 +1,4 @@
-ab 07: Vanilla HTTP Server
-======
+# Lab 08: Persistence
 
 ## Motivation
 To build a RESTFUL API server which will use GET, POST, and DELETE paths to render data in the browser or respond to API calls.
@@ -39,6 +38,9 @@ The requestParser module is contained in this module, where it will hand request
 
 ### Mountain Module
 The mountain module exports an Object containing a randomly generated `unique id`, `name`, `location`, and `elevation`.  This can then be parsed depending on the requests from any number of routes.
+
+### Storage Module
+The storage module allows for data persistence whereby a series of functions work with CRUD operations to create, read, and update a JSON document with an array of instantiated Objects.
 
 ## Routes
 

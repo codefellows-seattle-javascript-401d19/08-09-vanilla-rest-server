@@ -28,23 +28,12 @@ describe('/api/mountains', () => {
       expect(response.body.elevation).toEqual('14,235');
       expect(response.body.id).toBeTruthy();
 
-    });
-    // .catch(error => {
-    //   console.error(error);
-    // })
+    })
+    .catch(error => {
+      console.error(error);
+    })
   });
 
-  // test('GET should respond with 200 status code and should contain a response body for a request made without an id', () => {
-  //   return superagent.get('http://localhost:3000/api/mountains')
-  //     .then(response => {
-  //       tempMountain = response.body
-  //       expect(response.status).toEqual(200);
-  //       expect(tempMountain.name).toEqual('Mt. Evans');
-  //       expect(tempMountain.location).toEqual('Colorado');
-  //       expect(tempMountain.elevation).toEqual('14,235');
-  //       expect(tempMountain.id).toBeTruthy();
-  //     });
-  // });
   test('GET should respond with 200 status code and should contain a response body for a request made with a valid id', () => {
     return superagent.get(`http://localhost:3000/api/mountains?id=${mountainId}`)
       .then(response => {

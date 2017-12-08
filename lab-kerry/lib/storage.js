@@ -13,8 +13,6 @@ fsExtra.pathExists(process.env.STORAGE_PATH)
 
 const storage = module.exports = {};
 
-//every method returns promises
-
 storage.fetchAll = () => {
 	logger.log('verbose', 'STORAGE - fetching all files');
 	return fsExtra.readJSON(process.env.STORAGE_PATH);
@@ -26,14 +24,11 @@ storage.addItem = (mountain) => {
 
 	if (!mountain.id)
 		return Promise.reject(new Error('__STORAGE_ERROR__', 'item must have an id'));
-	// here we could add more tests for validity
 
 	return storage.fetchAll()
 		.then(database => {
 			return fsExtra.writeJSON(process.env.STORAGE_PATH,
 				[...database, mountain]);
-			//simplified ES6 syntax that creates array like [database[0], database[1], database[0], mountain]
-			//placing the mountain object after '...database' appends where [mountain,...database] would prepend
 		});
 };
 
@@ -62,16 +57,3 @@ storage.deleteItem = (id) => {
 			return fsExtra.writeJSON(process.env.STORAGE_PATH, filteredItems);
 		});
 };
-
-
-//fetchAll
-// SELECT 
-
-//add item
-// INSERT
-
-//fetch item
-// SELECT
-
-//delete item
-// DELETE
