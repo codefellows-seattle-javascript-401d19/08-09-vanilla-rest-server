@@ -112,14 +112,4 @@ describe('/api/teams',() => {
       });
   });
 
-  test('DELETE should respond with 404 if it is sent an ID that is not found', () => {
-    return superagent.delete(`http://localhost:${process.env.PORT}/api/teams`)
-      .query({
-        id: '1234',
-      })
-      .then(response => Promise.reject(response))
-      .catch(response => {
-        expect(response.status).toEqual(404);
-      });
-  });
 });
