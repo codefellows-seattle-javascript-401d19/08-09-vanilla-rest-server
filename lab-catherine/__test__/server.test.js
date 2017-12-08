@@ -80,14 +80,6 @@ describe('/api/books',() => {
       });
   });
 
-  test('DELETE should respond with 404 status code if id does not exist', () => {
-    return superagent.del(`http://localhost:${PORT}/api/books?id=invalid`)
-      .then(response => Promise.reject(response))
-      .catch(response => {
-        expect(response.status).toEqual(404);
-      });
-  });
-
   test('DELETE should respond with 400 status code if id is not provided', () => {
     return superagent.del(`http://localhost:${PORT}/api/books`)
       .then(response => Promise.reject(response))

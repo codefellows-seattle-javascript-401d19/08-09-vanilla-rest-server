@@ -3,8 +3,7 @@
 const Book = require('../model/book');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
-
-let books = [];
+const storage = require('../lib/storage');
 
 let sendStatus = (response, status, message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
@@ -38,26 +37,33 @@ router.post('/api/books', (request, response) => {
     return;
   }
   let book = new Book(request.body.title, request.body.author);
-  books.push(book);
-  sendJSON(response, 200, book);
+  storage.addItem(book)
+    .then(() => {
+      sendJSON(response, 200, book);
+    })
+    .catch(error => {
+      sendStatus(response, 500, error);
+    });
 });
 
 router.get('/api/books', (request, response) => {
   if(request.url.query.id) {
-    let designatedBook;
-    books.forEach((book) => {
-      if(request.url.query.id === book['id']) {
-        designatedBook = book;
-        return;
-      }
-    });
-    if(!designatedBook) {
-      sendStatus(response, 404, 'ID Not Found');
-      return;
-    }
-    sendJSON(response, 200, designatedBook);
+    storage.fetchItem(request.url.query.id)
+      .then((result) => {
+        sendJSON(response, 200, result);
+      })
+      .catch(error => {
+        sendStatus(response, 404, error);
+      });
+ 
   } else {
-    sendJSON(response, 200, books);
+    storage.fetchAll()
+      .then((result) => {
+        sendJSON(response, 200, result);
+      })
+      .catch(error => {
+        sendStatus(response, 500, error);
+      });
   }
 });
 
@@ -66,20 +72,8 @@ router.delete('/api/books', (request, response) => {
     sendStatus(response, 400, 'ID Not Provided');
     return;
   }
-  let designatedBook;
-  let bookIndex;
-  books.forEach((book, index) => {
-    if(request.url.query.id === books[index]['id']) {
-      designatedBook = books[index];
-      bookIndex = index;
-      return;
-    }
-  });
-  if(!designatedBook) {
-    sendStatus(response, 404, 'Invalid ID');
-    return;
-  } else {
-    books.splice(bookIndex, 1);
-    sendStatus(response, 204, 'Book was successfully deleted');
-  }
+  storage.deleteItem(request.url.query.id)
+    .then((result) => {
+      sendJSON(response, 204, result);
+    });
 });
