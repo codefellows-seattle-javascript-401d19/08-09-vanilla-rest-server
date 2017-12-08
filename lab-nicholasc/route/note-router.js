@@ -3,8 +3,7 @@
 const Note = require('../model/note');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
-
-let notes = [];
+const storage = require('..lib/storage');
 
 let sendStatus = (response, status, message)=>{
   logger.log('info', `responding with a status code of ${status} due to ${message}`);
@@ -25,12 +24,15 @@ let sendJSON = (response, status, jsonData) => {
 };
 
 router.post('/api/notes', (request, response) => {
+//TODO: run console.trace(); track what happens
   if(!request.body){
     sendStatus(response, 400, 'body not found');
     return;
   }
-  if(!request.body.title){
-    sendStatus(response, 400, 'title not found');
+  // checking if values are present- instead we should check if values match type
+  // if typeof
+  if(typeof request.body.title !== 'string'){
+    sendStatus(response, 400, 'title must be a string');
     return;
   }
   if(!request.body.content){
@@ -39,12 +41,20 @@ router.post('/api/notes', (request, response) => {
   }
 
   let note = new Note(request.body.title, request.body.content);
-  notes.push(note);
-  sendJSON(response, 200, notes);
+  storage.addItem(note)
+    .then(() => {
+      sendJSON(response, 200, note);
+    })
+    .catch(error =>{
+      sendStatus(response, 500, error);
+    });
 });
 
 router.get('/api/notes', (request, response) => {
   if(request.url.query.id){
+    storage.addItem(request.url.query.id)
+      .then();
+    //TODO:finish this function
     let note=[];
     for(let index of notes){
       if(index.id === request.url.query.id){
