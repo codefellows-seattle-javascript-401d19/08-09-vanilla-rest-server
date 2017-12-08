@@ -118,7 +118,6 @@ describe('/api/users', () => {
             .set('content-type', 'application/json')
             .query({ id: `${querystring}` })
             .then(response => {
-              console.log(response.body);
               expect(response.status).toEqual(204);
               expect(response.body).toEqual({});
               expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
@@ -138,7 +137,6 @@ describe('/api/users', () => {
             .set('content-type', 'application/json')
             .then(response => Promise.reject(response))
             .catch(response => {
-              console.log(response.body);
               expect(response.status).toEqual(400);
             });
         });

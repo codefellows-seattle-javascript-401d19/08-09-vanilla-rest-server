@@ -55,8 +55,6 @@ storage.deleteItem = id => {
       const filteredDB = database.filter(item => {
         return item.testId !== id;
       });
-      console.log('filteredDB', filteredDB.length);
-      console.log('database', database.length);
       if (filteredDB.length === database.length) {
         throw new Error('__NO_SUCH_USER__');
       }
