@@ -13,7 +13,7 @@ describe('/api/planet',() => {
   for (let i = 0; i < fakeDatabaseLength; i++) {
 
     let testName = `K-${faker.random.alphaNumeric()}${faker.random.alphaNumeric()}${faker.random.alphaNumeric()}${faker.random.alphaNumeric()}`;
-    let testContent = `Longitude: ${faker.address.longitude}`;
+    let testContent = `Longitude: ${faker.address.longitude()}`;
     
     test('POST should respond with 200 status code and a body if there are no errors', () => {
       return superagent.post('http://localhost:3000/api/planet')
