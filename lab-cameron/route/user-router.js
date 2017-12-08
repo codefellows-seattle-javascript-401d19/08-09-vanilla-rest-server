@@ -3,8 +3,9 @@
 const User = require('../model/user');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
+const storage = require('../lib/storage');
 
-let users = [];
+//! let users = [];
 
 const sendStatus = (response, status, message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
@@ -63,8 +64,16 @@ router.post('/api/users', (request, response) => {
   }
 
   let user = new User(request.body.name, request.body.description);
-  users.push(user);
-  sendJSON(response, 200, user);
+  storage.addItem(user)
+    .then(() => {
+      sendJSON(response, 200, user);
+    })
+    .catch(error => {
+      console.log(error);
+      sendStatus(response, 500, error);
+    });
+  //! users.push(user);
+  //! sendJSON(response, 200, user);
 });
 
 router.delete('/api/users', (request, response) => {
@@ -72,7 +81,8 @@ router.delete('/api/users', (request, response) => {
     const userToBeRemoved = findUserWithId(request.url.query.id);
     if (userToBeRemoved) {
       const updatedUsers = users.filter(user => {
-        return userToBeRemoved.getId() === user.getId();
+        console.log(userToBeRemoved.testId, user.testId);
+        return userToBeRemoved.testId === user.testId;
       });
       users = updatedUsers;
       sendJSON(response, 204, users);

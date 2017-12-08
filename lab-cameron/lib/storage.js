@@ -9,20 +9,21 @@ fsExtra.pathExists(process.env.STORAGE_PATH)
   .then(result => {
     if (!result) {
       logger.log('verbose', 'STORAGE - creating an empty file');
-      fsExtra.writeJSON(process.env.STORAGE_PATH);
+      fsExtra.writeJSON(process.env.STORAGE_PATH, []);
     }
   });
 
 storage.fetchAll = () => {
+  console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
   logger.log('verbose', 'STORAGE - fetching all files');
   return fsExtra.readJSON(process.env.STORAGE_PATH);
 };
 
 storage.addItem = user => {
-  logger.log('verbose', 'STORAGE - adding the following note');
+  logger.log('verbose', 'STORAGE - adding the following user');
   logger.log('verbose', user);
 
-  if (!user.id) {
+  if (!user.testId) {
     return Promise.reject(new Error('__STORAGE_ERROR__ item must have an id'));
   }
 
@@ -36,14 +37,14 @@ storage.fetchItem = id => {
   logger.log('verbose', `STORAGE - fetching an item with an id ${id}`);
   return storage.fetchAll()
     .then(database => {
-      return database.find(note =>  note.id === id);
+      return database.find(user =>  user.testId === id);
     })
-    .then(note => {
-      if (note === undefined) {
+    .then(user => {
+      if (user === undefined) {
         throw new Error('__STORAGE_ERROR__ item not found');
       }
 
-      return note;
+      return user;
     });
 };
 
