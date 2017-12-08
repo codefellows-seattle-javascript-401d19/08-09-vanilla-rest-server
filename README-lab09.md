@@ -1,9 +1,13 @@
-![cf](https://i.imgur.com/7v5ASc8.png) Heroes RESTful API
+![cf](https://i.imgur.com/7v5ASc8.png) Heroes RESTful API with local storage
 ======
 
 ## Building Simple RESTful API
-* Basic RESTful API that is displaying data for users and is able to receive data from users using POST route as well as DELETE data using delete route.
-In this example user is able to send request to the server to add/delete heroes that will be displayed.
+* Basic RESTful API that will use GET, POST and DELETE methods to:
+
+  * display all data (GET method)
+  * display single object from database if correct id is passed to the request  (GET method)
+  * add object to database
+  * delete object from the database
 
 ## Code Style
 * Javascript + ES6
@@ -14,19 +18,20 @@ In this example user is able to send request to the server to add/delete heroes 
 * [npm package winston](https://www.npmjs.com/package/winston) as a logging library.
 * [npm package jest](http://facebook.github.io/jest/) used for TDD
 * [npm package dotenv](https://www.npmjs.com/package/dotenv) for loading env variables.
-* [npm package superagent](https://www.npmjs.com/package/cowsay) for testing http requests
+* [npm package superagent](https://www.npmjs.com/package/superagent) for testing http requests
+* [npm package fs-extra](https://www.npmjs.com/package/fs-extra) node js file system methods
 * [httpie](https://httpie.org/) to communicate with server using POST/DELETE method
 
 ## Installation and How To Use
 
-  * Fork and clone this repo to you computer.
+  * Fork || clone this repo to you computer.
 
   * Run `npm install`
 
-  * Make sure that env port is set to `3000` (add .env folder to repo and insert `PORT=3000`) and start your local server running `nmp start` command.
+  * Make sure that env port is set to `3000` (add .env folder to repo and insert `PORT=3000` as well as `STORAGE_PATH={repo file path/db.json}`) and start your local server running `nmp start` command.
 
 
-  * To ADD more heroes:
+  * To **ADD** more heroes:
 
      * When a client makes a POST request to /api/heroes it should send JSON that includes `'{"name" : "<name>", "superPower" : "<superPower>"}'`.
      Make sure that httpie is installed on your computer first. `brew install httpie` for MaxOS users.
@@ -37,7 +42,7 @@ In this example user is able to send request to the server to add/delete heroes 
 
    * Proceed to the browser to view all available heroes.
 
-* To DELETE a hero:
+* To **DELETE** a hero:
 
     * When a client makes a DELETE request to /api/heroes?id={id} API will check if hero's id is matching what's in database and if so DELETE that hero.
 
