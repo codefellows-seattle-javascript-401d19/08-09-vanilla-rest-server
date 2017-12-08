@@ -75,26 +75,6 @@ router.post('/api/mountains', (request, response) =>  {
 });
 
 router.get('/api/mountains', (request, response) =>  {
-  if(!request.body){
-    sendStatus(response,400,'body not found');
-    return;
-  }
-  if(!request.body.name){
-    sendStatus(response,400,'name not found');
-    return;
-  }
-  if(!request.body.state){
-    sendStatus(response,400,'state not found');
-    return;
-  }
-  if(!request.body.hiking){
-    sendStatus(response,400,'hiking info not found');
-    return;
-  }
-  if(!request.body.range){
-    sendStatus(response,400,'range name not found');
-    return;
-  }
   let id = request.url.query.id;
 
   if(id) {
