@@ -65,12 +65,16 @@ router.post('/api/users', (request, response) => {
 router.delete('/api/users', (request, response) => {
   if (request.url.query.id) {
     const userToBeRemoved = findUserWithId(request.url.query.id);
-    const updatedUsers = users.filter(user => {
-      return userToBeRemoved.getId() === user.getId();
-    });
-    users = updatedUsers;
-    sendJSON(response, 204, users);
-    return;
+    if (userToBeRemoved) {
+      const updatedUsers = users.filter(user => {
+        return userToBeRemoved.getId() === user.getId();
+      });
+      users = updatedUsers;
+      sendJSON(response, 204, users);
+      return;
+    } else {
+      sendStatus(response, 404, 'id does not exit');
+    }
   } else {
     sendStatus(response, 400, 'no id provided');
     return;

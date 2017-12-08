@@ -2,7 +2,6 @@
 
 const server = require('../lib/server');
 const superagent = require('superagent');
-// const User = require('../model/user');
 
 // data for testing
 const testUserData = { name: 'name', description: 'description' };
@@ -23,12 +22,23 @@ describe('/api/users', () => {
           expect(response.status).toEqual(200);
           expect(response.body.name).toEqual('name');
           expect(response.body.description).toEqual('description');
-          return superagent.get(url)
+          return superagent.post(url)
             .set('content-type', 'application/json')
+            .send(testUserData)
             .then(response => {
               expect(response.status).toEqual(200);
-              expect(response.body[0].name).toEqual(testUserData.name);
-              expect(response.body[0].description).toEqual(testUserData.description);
+              expect(response.body.name).toEqual('name');
+              expect(response.body.description).toEqual('description');
+              return superagent.get(url)
+                .set('content-type', 'application/json')
+                .then(response => {
+                  expect(response.status).toEqual(200);
+                  expect(response.body).toHaveLength(2);
+                  expect(response.body[0].name).toEqual(testUserData.name);
+                  expect(response.body[0].description).toEqual(testUserData.description);
+                  expect(response.body[1].name).toEqual(testUserData.name);
+                  expect(response.body[1].description).toEqual(testUserData.description);
+                });
             });
         });
     });
@@ -95,7 +105,7 @@ describe('/api/users', () => {
   });
 
   describe('DELETE requests', () => {
-    test('DELETE should respond with a 204 status code and have the specified use removed', () => {
+    test('DELETE should respond with a 204 status code and have the specified user removed', () => {
       const url = 'http://localhost:3000/api/users';
       return superagent.post(url)
         .set('content-type', 'application/json')
@@ -113,6 +123,24 @@ describe('/api/users', () => {
               expect(response.status).toEqual(204);
               expect(response.body).toEqual('');
               expect(response.req.path).toEqual(`/api/users?id=${querystring}`);
+            });
+        });
+    });
+
+    test('DELETE should respond with a 400 if no id is provided', () => {
+      const url = 'http://localhost:3000/api/users?id=notexisting';
+      return superagent.post(url)
+        .set('content-type', 'application/json')
+        .send(testUserData)
+        .then(response => {
+          expect(response.status).toEqual(200);
+          expect(response.body.name).toEqual('name');
+          expect(response.body.description).toEqual('description');
+          return superagent.delete(url)
+            .set('content-type', 'application/json')
+            .then(response => Promise.reject(response))
+            .catch(response => {
+              expect(response.status).toEqual(400);
             });
         });
     });

@@ -69,10 +69,10 @@ router.route = (request, response) => {
         response.end();
         return;
       }
-      // if (request.method === 'DELETE') {
-      //   response.writeHead(400, { 'Content-Type': 'application.json' });
-      //   response.end();
-      //   return;
-      // }
+      if (request.method === 'DELETE') {
+        response.writeHead(400, { 'Content-Type': 'application.json' });
+        response.end();
+        return;
+      }
     });
 };
