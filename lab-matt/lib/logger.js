@@ -21,7 +21,7 @@ const server = new (winston.Logger)({
   
   transports: [
     new (winston.transports.File)({
-      filename: './logs/routes.json',
+      filename: './logs/router.json',
       level: 'router',  // logs ALL
     }),
   ],
