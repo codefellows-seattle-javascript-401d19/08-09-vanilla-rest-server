@@ -72,20 +72,8 @@ router.delete('/api/books', (request, response) => {
     sendStatus(response, 400, 'ID Not Provided');
     return;
   }
-  let designatedBook;
-  let bookIndex;
-  books.forEach((book, index) => {
-    if(request.url.query.id === books[index]['id']) {
-      designatedBook = books[index];
-      bookIndex = index;
-      return;
-    }
-  });
-  if(!designatedBook) {
-    sendStatus(response, 404, 'Invalid ID');
-    return;
-  } else {
-    books.splice(bookIndex, 1);
-    sendStatus(response, 204, 'Book was successfully deleted');
-  }
+  storage.deleteItem(request.url.query.id)
+    .then((result) => {
+      sendJSON(response, 204, result);
+    });
 });
