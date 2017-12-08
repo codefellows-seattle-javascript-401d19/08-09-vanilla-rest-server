@@ -4,6 +4,7 @@ const server = require('../lib/server');
 const superagent = require('superagent');
 
 let tempMountain;
+let mountainId;
 
 describe('/api/mountains', () => {
   beforeAll(server.start);
@@ -19,37 +20,36 @@ describe('/api/mountains', () => {
       elevation: '14,235',
     }) // ** .send ** returns a promise
     .then(response => {
+      mountainId = response.body.id
+      tempMountain = response.body[0]
       expect(response.status).toEqual(200);
       expect(response.body.name).toEqual('Mt. Evans');
       expect(response.body.location).toEqual('Colorado');
       expect(response.body.elevation).toEqual('14,235');
       expect(response.body.id).toBeTruthy();
+
     });
+    // .catch(error => {
+    //   console.error(error);
+    // })
   });
 
-  test('GET should respond with 200 status code and should contain a response body for a request made without an id', () => {
-    return superagent.get('http://localhost:3000/api/mountains')
-      .then(response => {
-        tempMountain = response.body[0]
-        expect(response.status).toEqual(200);
-        expect(tempMountain.name).toEqual('Mt. Evans');
-        expect(tempMountain.location).toEqual('Colorado');
-        expect(tempMountain.elevation).toEqual('14,235');
-        expect(tempMountain.id).toBeTruthy();
-      });
-  });
-
+  // test('GET should respond with 200 status code and should contain a response body for a request made without an id', () => {
+  //   return superagent.get('http://localhost:3000/api/mountains')
+  //     .then(response => {
+  //       tempMountain = response.body
+  //       expect(response.status).toEqual(200);
+  //       expect(tempMountain.name).toEqual('Mt. Evans');
+  //       expect(tempMountain.location).toEqual('Colorado');
+  //       expect(tempMountain.elevation).toEqual('14,235');
+  //       expect(tempMountain.id).toBeTruthy();
+  //     });
+  // });
   test('GET should respond with 200 status code and should contain a response body for a request made with a valid id', () => {
-    return superagent.get('http://localhost:3000/api/mountains?id=${mountainId}')
+    return superagent.get(`http://localhost:3000/api/mountains?id=${mountainId}`)
       .then(response => {
-        console.log(tempMountain);
-        tempMountain = response.body[0]
-        let mountainId = response.body[0].id
         expect(response.status).toEqual(200);
-        expect(tempMountain.name).toEqual('Mt. Evans');
-        expect(tempMountain.location).toEqual('Colorado');
-        expect(tempMountain.elevation).toEqual('14,235');
-        expect(tempMountain.id).toEqual(mountainId);
+        expect(response.body[0]).toEqual(tempMountain);
       });
   });
 
@@ -65,20 +65,22 @@ describe('/api/mountains', () => {
   });
 
   test('DELETE should respond with 204 status code and should not contain a response body for a request made with a valid id', () => {
-    return superagent.delete('http://localhost:3000/api/mountains?id=${mountainId}')
+    return superagent.delete(`http://localhost:3000/api/mountains?id=${mountainId}`)
       .then(response => {
         expect(response.status).toEqual(204);
+        expect(response.body).toBe('');
       });
   });
 
-  test('DELETE should respond with 400 status code if no id was sent', () => {
+  test('DELETE should respond with 404 status code if no id was sent', () => {
     return superagent.delete('http://localhost:3000/api/mountains')
       .set('Content-Type', 'application/json')
       .then(response => {
-        Promise.reject(response)
+          Promise.reject(response)
+          console.log(response.status);
       })
-      .catch(response => {
-        expect(response.status).toEqual(400);
+      .catch(error => {
+        expect(response.status).toEqual(404);
       });
   });
 });

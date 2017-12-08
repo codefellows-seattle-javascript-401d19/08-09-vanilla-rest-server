@@ -51,9 +51,9 @@ router.route = (request,response) => {
       //error checking could be expanded here
       logger.log('info', 'Found the following handler');
       logger.log('info', handlerFound.toString());
-      if (handlerFound)
+      if (handlerFound) {
         return handlerFound(request, response);
-      else {
+       } else {
         response.writeHead(404);
         response.end();
         return;
