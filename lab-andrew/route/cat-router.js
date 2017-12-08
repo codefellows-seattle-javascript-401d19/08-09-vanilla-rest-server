@@ -3,12 +3,13 @@
 const Cat = require('../model/cat');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
+const storage = require('../lib/storage');
 
-let cats = [];
+// let cats = storage.fetchAll();
+// console.log(cats);
 
 let sendStatus = (response, status, message) => {
   logger.log('info', `Responding with a ${status} code due to ${message}`);
-
   response.writeHead(status);
   response.end();
 };
@@ -40,26 +41,48 @@ router.post('/api/cats', (request, response) => {
     return;
   }
   let cat = new Cat(request.body.name, request.body.says);
-  cats.push(cat);
-  sendJSON(response, 200, cat);
+  // cats.push(cat);
+  storage.addItem(cat)
+    .then(() => {
+      sendJSON(response, 200, cat);
+    })
+    .catch(error => {
+      sendStatus(response, 500, error);
+    });
+  // sendJSON(response, 200, cat);
 });
 
 router.get('/api/cats', (request, response) => {
   if (request.url.query.id){
-    let specificCat;
-    for (let cat of cats){
-      if (request.url.query.id === cat.id){
-        specificCat = cat;
-        break;
-      }
-    }
-    if (!specificCat){
-      sendStatus(response, 404, 'id not found');
-      return;
-    }
-    sendJSON(response, 200, specificCat);
+    storage.fetchItem(request.url.query.id)
+      .then(result => {
+        sendJSON(response, 200, result);
+      })
+      .catch(error => {
+        sendStatus(response, 404, error);
+      });
+  //   let specificCat;
+  //   for (let cat of cats){
+  //     if (request.url.query.id === cat.id){
+  //       specificCat = cat;
+  //       break;
+  //     }
+  //   }
+  //   if (!specificCat){
+  //     sendStatus(response, 404, 'id not found');
+  //     return;
+  //   }
+  //   sendJSON(response, 200, specificCat);
+  //
   } else {
-    sendJSON(response, 200, cats);
+  // sendJSON(response, 200, cats);
+    storage.fetchAll()
+      .then(result => {
+        sendJSON(response, 200, result);
+      })
+      .catch(error => {
+        sendStatus(response, 400, error);
+      });
   }
 });
 
