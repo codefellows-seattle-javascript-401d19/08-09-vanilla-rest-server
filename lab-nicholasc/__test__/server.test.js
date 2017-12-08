@@ -57,40 +57,41 @@ describe('api/notes', () => {
         expect(response.status).toEqual(204);
       });
   });
-  //---------------------------------------errors
+  //--------------------------------------------
+  //errors
   // superagent is catching these errors
   test('post route should respond with a 400 status code on a bad request', () => {
-    return superagent.post('http://localhost:3000/api/notes')
+    return superagent.post(`${headUrl}/notes`)
       .set('content-type', 'application/json')
       .send()
       .catch(response => {
-        console.log(response.status);
         expect(response.status).toEqual(400);
       });
   });
 
-  //
-  // test('get route /api/notes should respond with a 200 status code and notes if there is no error', () => {
-  //   expect(()=>{return superagent.get('http://localhost:3000/api/noteadsfafd/asdf')
-  //     .then(response => {
-  //     });
-  //   }).toThrow();
-  // });
-  // });
-  // test('get route /api/notes?id should respond with a 200 status code and a note if there is no error', () => {
-  //   return superagent.get(`http://localhost:3000/api/notes?id=${idToCheck}`)
-  //     .then(response => {
-  //       expect(response.status).toEqual(200);
-  //       expect(response.body[0].title).toEqual('food that sounds yummy');
-  //       expect(response.body[0].content).toEqual('eggs and steak');
-  //       expect(response.body[0].timestamp).toBeTruthy();
-  //       expect(response.body[0].id).toEqual(idToCheck);
-  //     });
-  // });
-  // test('should respond with a 200 status code and confirmation if there is no error', () => {
-  //   return superagent.delete(`http://localhost:3000/api/notes?id=${idToCheck}`)
-  //     .then(response => {
-  //       expect(response.status).toEqual(204);
-  //     });
-  // });
+
+  test('get route /api/notes should respond with a 400 status code if there is a bad route', () => {
+    return superagent.get(`${headUrl}/badroute`)
+      .catch(response => {
+        expect(response.status).toEqual(400);
+      });
+  });
+  test('get route /api/notes?id should  respond with a 500 status code if there is a bad id', () => {
+    return superagent.get(`${headUrl}/notes?id=badid`)
+      .catch(response => {
+        expect(response.status).toEqual(500);
+      });
+  });
+  test('delete should respond with a 400 status code if there is an error', () => {
+    return superagent.delete(`${headUrl}/badroute?id=${idToCheck}`)
+      .catch(response => {
+        expect(response.status).toEqual(400);
+      });
+  });
+  test('delete should respond with a 500 status code if there is abad id', () => {
+    return superagent.delete(`${headUrl}/notes?id=badid`)
+      .catch(response => {
+        expect(response.status).toEqual(500);
+      });
+  });
 });
