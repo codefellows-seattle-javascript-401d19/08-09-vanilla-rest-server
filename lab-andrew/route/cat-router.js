@@ -5,9 +5,6 @@ const router = require('../lib/router');
 const logger = require('../lib/logger');
 const storage = require('../lib/storage');
 
-// let cats = storage.fetchAll();
-// console.log(cats);
-
 let sendStatus = (response, status, message) => {
   logger.log('info', `Responding with a ${status} code due to ${message}`);
   response.writeHead(status);
@@ -61,21 +58,7 @@ router.get('/api/cats', (request, response) => {
       .catch(error => {
         sendStatus(response, 404, error);
       });
-  //   let specificCat;
-  //   for (let cat of cats){
-  //     if (request.url.query.id === cat.id){
-  //       specificCat = cat;
-  //       break;
-  //     }
-  //   }
-  //   if (!specificCat){
-  //     sendStatus(response, 404, 'id not found');
-  //     return;
-  //   }
-  //   sendJSON(response, 200, specificCat);
-  //
   } else {
-  // sendJSON(response, 200, cats);
     storage.fetchAll()
       .then(result => {
         sendJSON(response, 200, result);
@@ -91,21 +74,25 @@ router.delete('/api/cats', (request, response) => {
     sendStatus(response, 400, 'no id supplied');
     return;
   }
-  let specificCat;
-  let catIndex;
-  for (let i in cats){
-    if (request.url.query.id === cats[i].id){
-      specificCat = cats[i];
-      catIndex = i;
-      break;
-    }
-  }
-  if (!specificCat){
-    sendStatus(response, 404, 'invalid id supplied');
-    return;
-  } else {
-    cats.splice(catIndex, 1);
-    sendStatus(response, 204, 'deletion successful');
-  }
+  // let specificCat;
+  // let catIndex;
+  // for (let i in cats){
+  //   if (request.url.query.id === cats[i].id){
+  //     specificCat = cats[i];
+  //     catIndex = i;
+  //     break;
+  //   }
+  // }
+  // if (!specificCat){
+  //   sendStatus(response, 404, 'invalid id supplied');
+  //   return;
+  // } else {
+  //   cats.splice(catIndex, 1);
+  //   sendStatus(response, 204, 'deletion successful');
+  // }
+  storage.deleteItem(request.url.query.id)
+    .then(() => {
+      sendStatus(response, 204, 'deletion successful');
+    });
 
 });
