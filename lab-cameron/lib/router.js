@@ -70,7 +70,7 @@ router.route = (request, response) => {
         return;
       }
       if (request.method === 'DELETE') {
-        response.writeHead(400, { 'Content-Type': 'application.json' });
+        response.writeHead(404, { 'Content-Type': 'application.json' });
         response.end();
         return;
       }

@@ -76,6 +76,16 @@ describe('/api/users', () => {
           expect(response.status).toEqual(404);
         });
     });
+
+    test('GET should respond with a 404 if id is not found', () => {
+      const url = 'http://localhost:3000/api/users?id=notexisting';
+      return superagent.get(url)
+        .set('content-type', 'application/json')
+        .then(response => Promise.reject(response))
+        .catch(response => {
+          expect(response.status).toEqual(404);
+        });
+    });
   });
 
   describe('POST requests', () => {
@@ -127,7 +137,7 @@ describe('/api/users', () => {
         });
     });
 
-    test('DELETE should respond with a 400 if no id is provided', () => {
+    test('DELETE should respond with a 400 if id does not exit', () => {
       const url = 'http://localhost:3000/api/users?id=notexisting';
       return superagent.post(url)
         .set('content-type', 'application/json')
@@ -140,7 +150,7 @@ describe('/api/users', () => {
             .set('content-type', 'application/json')
             .then(response => Promise.reject(response))
             .catch(response => {
-              expect(response.status).toEqual(400);
+              expect(response.status).toEqual(404);
             });
         });
     });

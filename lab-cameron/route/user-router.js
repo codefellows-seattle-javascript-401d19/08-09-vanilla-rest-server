@@ -31,13 +31,18 @@ const findUserWithId = querystring => {
       return users[i];
     }
   }
-  return [];
+  return null;
 };
 
 router.get('/api/users', (request, response) => {
   if (request.url.query.id) {
+    console.log(request.url.query.id);
     const foundUserWithId = findUserWithId(request.url.query.id);
-    sendJSON(response, 200, foundUserWithId);
+    if (foundUserWithId) {
+      sendJSON(response, 200, foundUserWithId);
+      return;
+    }
+    sendStatus(response, 404, 'id not found');
     return;
   }
   sendJSON(response, 200, users);
