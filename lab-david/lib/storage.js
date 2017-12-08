@@ -26,7 +26,7 @@ storage.addItem = (mountain) => {
   
   return storage.fetchAll()
     .then(database => {
-      return fsExtra.writeJSON(process.env.STORAGE_PATH,[...database,note]);
+      return fsExtra.writeJSON(process.env.STORAGE_PATH,[...database,mountain]);
     });
 };
 
