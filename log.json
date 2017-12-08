@@ -200,3 +200,660 @@
 {"level":"info","message":"Routing a GET request without query parameters","timestamp":"2017-12-07T17:15:53.962Z"}
 {"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T17:15:53.962Z"}
 {"level":"info","timestamp":"2017-12-07T17:15:53.962Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:00:47.336Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:00:47.387Z"}
+{"level":"info","message":"Here is the request.url: [object Object]","timestamp":"2017-12-07T23:00:47.387Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T23:00:47.388Z"}
+{"message":"sweet is not defined","stack":"ReferenceError: sweet is not defined\n    at Object.<anonymous>.router.post (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:41:9)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-07T23:00:47.388Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:00:47.396Z"}
+{"level":"info","message":"Here is the request.url: [object Object]","timestamp":"2017-12-07T23:00:47.396Z"}
+{"level":"info","message":"Sending JSON! ","timestamp":"2017-12-07T23:00:47.396Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:01:13.374Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:01:13.388Z"}
+{"level":"info","message":"Here is the request.url: [object Object]","timestamp":"2017-12-07T23:01:13.388Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T23:01:13.390Z"}
+{"message":"sweet is not defined","stack":"ReferenceError: sweet is not defined\n    at Object.<anonymous>.router.post (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:41:9)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-07T23:01:13.390Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:01:13.396Z"}
+{"level":"info","message":"Here is the request.url: [object Object]","timestamp":"2017-12-07T23:01:13.396Z"}
+{"level":"info","message":"Sending JSON! ","timestamp":"2017-12-07T23:01:13.397Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:01:58.411Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:01:58.460Z"}
+{"level":"info","message":"Here is the request.url: [object Object]","timestamp":"2017-12-07T23:01:58.461Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T23:01:58.462Z"}
+{"message":"sweet is not defined","stack":"ReferenceError: sweet is not defined\n    at Object.<anonymous>.router.post (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:41:9)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-07T23:01:58.462Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:01:58.470Z"}
+{"level":"info","message":"Here is the request.url: [object Object]","timestamp":"2017-12-07T23:01:58.470Z"}
+{"level":"info","message":"Sending JSON! ","timestamp":"2017-12-07T23:01:58.471Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:03:05.984Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:03:06.034Z"}
+{"level":"info","message":"Here is the request from requestParser.parse: [object Object]","timestamp":"2017-12-07T23:03:06.035Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T23:03:06.037Z"}
+{"message":"sweet is not defined","stack":"ReferenceError: sweet is not defined\n    at Object.<anonymous>.router.post (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:41:9)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-07T23:03:06.037Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:03:06.044Z"}
+{"level":"info","message":"Here is the request from requestParser.parse: [object Object]","timestamp":"2017-12-07T23:03:06.044Z"}
+{"level":"info","message":"Sending JSON! ","timestamp":"2017-12-07T23:03:06.044Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:04:18.261Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:04:18.313Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T23:04:18.317Z"}
+{"message":"sweet is not defined","stack":"ReferenceError: sweet is not defined\n    at Object.<anonymous>.router.post (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:41:9)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-07T23:04:18.317Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:04:18.324Z"}
+{"level":"info","message":"Sending JSON! ","timestamp":"2017-12-07T23:04:18.325Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:04:31.230Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:04:31.279Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T23:04:31.283Z"}
+{"message":"sweet is not defined","stack":"ReferenceError: sweet is not defined\n    at Object.<anonymous>.router.post (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:41:9)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-07T23:04:31.283Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:04:31.290Z"}
+{"level":"info","message":"Sending JSON! ","timestamp":"2017-12-07T23:04:31.290Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:05:06.813Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:05:06.871Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T23:05:06.874Z"}
+{"message":"sweet is not defined","stack":"ReferenceError: sweet is not defined\n    at Object.<anonymous>.router.post (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:41:9)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-07T23:05:06.875Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:05:06.883Z"}
+{"level":"info","message":"Sending JSON! ","timestamp":"2017-12-07T23:05:06.884Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:06:11.079Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:06:11.133Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T23:06:11.135Z"}
+{"message":"sweet is not defined","stack":"ReferenceError: sweet is not defined\n    at Object.<anonymous>.router.post (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:41:9)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-07T23:06:11.135Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:06:11.142Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:06:11.142Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:11:46.613Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:11:46.628Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T23:11:46.630Z"}
+{"message":"sweet is not defined","stack":"ReferenceError: sweet is not defined\n    at Object.<anonymous>.router.post (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:41:9)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-07T23:11:46.630Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:11:46.636Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:11:46.637Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:15:18.212Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:15:18.270Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:15:18.273Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:15:18.282Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:15:18.282Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:17:45.234Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:17:45.284Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:17:45.287Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:17:45.295Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:17:45.295Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:19:36.206Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:19:36.255Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:19:36.258Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:19:36.265Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:19:36.266Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:20:33.563Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:20:33.614Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:20:33.617Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:20:33.625Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:20:33.626Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:20:46.257Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:20:46.308Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:20:46.311Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:20:46.319Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:20:46.320Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:20:55.214Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:20:55.266Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:20:55.269Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:20:55.279Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:20:55.280Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:21:30.040Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:21:30.092Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:21:30.095Z"}
+{"level":"info","message":"The new sweet's id is :5b00b7f0-dba5-11e7-906f-ada7383d3fd2","timestamp":"2017-12-07T23:21:30.096Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:21:30.104Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:21:30.104Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:25:55.611Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:25:55.661Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:25:55.664Z"}
+{"level":"info","message":"The new sweet's id is :f94b5500-dba5-11e7-9f9b-d18b18d90b5f","timestamp":"2017-12-07T23:25:55.665Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:25:55.673Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:25:55.674Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:26:28.105Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:26:28.157Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:26:28.161Z"}
+{"level":"info","message":"The new sweet's id is :0ca9fb10-dba6-11e7-98c4-8935deeb9c6d","timestamp":"2017-12-07T23:26:28.161Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:26:28.169Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:26:28.170Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:28:29.955Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:28:30.009Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:28:30.011Z"}
+{"level":"info","message":"The new sweet's id is :554ad0b0-dba6-11e7-9ea1-f3a604fb0ad8","timestamp":"2017-12-07T23:28:30.012Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:28:30.020Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:28:30.021Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:31:27.507Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:31:27.557Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:31:27.559Z"}
+{"level":"info","message":"The new sweet's id is :bf1e7d70-dba6-11e7-8784-73e3d65b32ae","timestamp":"2017-12-07T23:31:27.560Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:31:27.569Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T23:31:27.570Z"}
+{"message":"Cannot read property 'url' of undefined","stack":"TypeError: Cannot read property 'url' of undefined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:50:148)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:50:26)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-07T23:31:27.570Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:31:38.743Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:31:38.795Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:31:38.797Z"}
+{"level":"info","message":"The new sweet's id is :c5d11ec0-dba6-11e7-a80a-5f95ce80c304","timestamp":"2017-12-07T23:31:38.797Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:31:38.805Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-07T23:31:38.806Z"}
+{"message":"Cannot read property 'url' of undefined","stack":"TypeError: Cannot read property 'url' of undefined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:50:203)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:50:81)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-07T23:31:38.806Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:32:03.689Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:32:03.740Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:32:03.742Z"}
+{"level":"info","message":"The new sweet's id is :d4af93e0-dba6-11e7-9d15-51da625ba470","timestamp":"2017-12-07T23:32:03.743Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:32:03.753Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:32:03.754Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:32:24.483Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:32:24.532Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:32:24.534Z"}
+{"level":"info","message":"The new sweet's id is :e1142f60-dba6-11e7-b6f1-914833f0b7d7","timestamp":"2017-12-07T23:32:24.535Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:32:24.543Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:32:24.545Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:32:33.446Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:32:33.499Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:32:33.501Z"}
+{"level":"info","message":"The new sweet's id is :e66c70d0-dba6-11e7-b427-23beb55e79ae","timestamp":"2017-12-07T23:32:33.502Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:32:33.511Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:32:33.512Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:36:05.689Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:36:05.743Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:36:05.745Z"}
+{"level":"info","message":"The new sweet's id is :64ee4e10-dba7-11e7-a36c-a9d015595e22","timestamp":"2017-12-07T23:36:05.746Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:36:05.756Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:36:05.757Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:36:05.757Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:38:21.786Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:38:21.836Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:21.838Z"}
+{"level":"info","message":"The new sweet's id is :b60c72e0-dba7-11e7-af89-c3d3db36782b","timestamp":"2017-12-07T23:38:21.838Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:38:21.846Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:21.847Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:21.847Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:38:33.828Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:38:33.876Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:33.878Z"}
+{"level":"info","message":"The new sweet's id is :bd399b60-dba7-11e7-a72c-9fe66c32f69a","timestamp":"2017-12-07T23:38:33.878Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:38:33.886Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:33.886Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:33.886Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:38:43.086Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:38:43.134Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:43.136Z"}
+{"level":"info","message":"The new sweet's id is :c2be4400-dba7-11e7-92dd-39590b3dd1b6","timestamp":"2017-12-07T23:38:43.136Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:38:43.144Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:43.145Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:43.145Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:38:49.116Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:38:49.167Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:49.169Z"}
+{"level":"info","message":"The new sweet's id is :c656ad00-dba7-11e7-84dd-f579b0aad3c4","timestamp":"2017-12-07T23:38:49.169Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:38:49.178Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:49.179Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:49.179Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:38:56.679Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:38:56.730Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:56.731Z"}
+{"level":"info","message":"The new sweet's id is :cad8b2b0-dba7-11e7-8fbd-771e0c5d8964","timestamp":"2017-12-07T23:38:56.732Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:38:56.739Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:56.740Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:38:56.741Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:39:07.699Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:39:07.714Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:07.715Z"}
+{"level":"info","message":"The new sweet's id is :d164b930-dba7-11e7-959c-6bf69b8b350a","timestamp":"2017-12-07T23:39:07.716Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:39:07.723Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:07.724Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:07.724Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:39:17.870Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:39:17.923Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:17.925Z"}
+{"level":"info","message":"The new sweet's id is :d77aa550-dba7-11e7-9d6a-b19687f6f87a","timestamp":"2017-12-07T23:39:17.925Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:39:17.933Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:17.935Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:17.935Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:39:27.741Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:39:27.793Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:27.795Z"}
+{"level":"info","message":"The new sweet's id is :dd5cb030-dba7-11e7-a5e5-d39182f2d219","timestamp":"2017-12-07T23:39:27.796Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:39:27.805Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:27.806Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:27.806Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:39:52.226Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:39:52.275Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:52.277Z"}
+{"level":"info","message":"The new sweet's id is :ebf45850-dba7-11e7-b42a-455df7861db7","timestamp":"2017-12-07T23:39:52.277Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:39:52.285Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:52.286Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:39:59.373Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:39:59.425Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:59.427Z"}
+{"level":"info","message":"The new sweet's id is :f0375930-dba7-11e7-be68-15d7a841b532","timestamp":"2017-12-07T23:39:59.428Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:39:59.436Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:39:59.437Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:44:07.413Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:44:07.463Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:44:07.465Z"}
+{"level":"info","message":"The new sweet's id is :840ef190-dba8-11e7-abb0-2d88f0fbff02","timestamp":"2017-12-07T23:44:07.465Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:44:07.473Z"}
+{"level":"info","message":"Sending status: 400","timestamp":"2017-12-07T23:44:07.473Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:44:07.476Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:44:07.477Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:44:52.362Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:44:52.414Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:44:52.416Z"}
+{"level":"info","message":"The new sweet's id is :9ed9ec00-dba8-11e7-859e-db45700a8ede","timestamp":"2017-12-07T23:44:52.416Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:44:52.425Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-07T23:44:52.426Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:44:52.429Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:44:52.430Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:45:48.846Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:45:48.897Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:45:48.899Z"}
+{"level":"info","message":"The new sweet's id is :c0848b30-dba8-11e7-bc99-1fb3ae73bcbb","timestamp":"2017-12-07T23:45:48.899Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:45:48.907Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-07T23:45:48.907Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:45:48.910Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:45:48.911Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:46:09.362Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:46:09.413Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:46:09.416Z"}
+{"level":"info","message":"The new sweet's id is :ccbf3080-dba8-11e7-be93-692658a286e6","timestamp":"2017-12-07T23:46:09.416Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:46:09.425Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-07T23:46:09.426Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:46:09.429Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:46:09.429Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:46:41.107Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:46:41.161Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:46:41.163Z"}
+{"level":"info","message":"The new sweet's id is :dfab65b0-dba8-11e7-b3fe-87c8526e65ab","timestamp":"2017-12-07T23:46:41.164Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:46:41.171Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-07T23:46:41.172Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:46:41.175Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:46:41.175Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:47:29.972Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:47:30.022Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:47:30.024Z"}
+{"level":"info","message":"The new sweet's id is :fccafe80-dba8-11e7-96e3-51d92a70793f","timestamp":"2017-12-07T23:47:30.025Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:47:30.034Z"}
+{"level":"info","message":"${message}","timestamp":"2017-12-07T23:47:30.034Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-07T23:47:30.034Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:47:30.037Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:47:30.038Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:47:57.834Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:47:57.887Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:47:57.889Z"}
+{"level":"info","message":"The new sweet's id is :0d66b400-dba9-11e7-aa40-099f9e904769","timestamp":"2017-12-07T23:47:57.889Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:47:57.897Z"}
+{"level":"info","message":"Could not find the temperature of the sweet :(","timestamp":"2017-12-07T23:47:57.898Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-07T23:47:57.898Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:47:57.900Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:47:57.901Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:48:24.071Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:48:24.121Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:48:24.124Z"}
+{"level":"info","message":"The new sweet's id is :1d09ffc0-dba9-11e7-8afd-d3b2e8f7b750","timestamp":"2017-12-07T23:48:24.125Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:48:24.133Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-07T23:48:24.133Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-07T23:48:24.133Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:48:24.136Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:48:24.137Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:54:20.592Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:54:20.644Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:54:20.646Z"}
+{"level":"info","message":"The new sweet's id is :f18ac950-dba9-11e7-9139-e947324357c8","timestamp":"2017-12-07T23:54:20.646Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:54:20.654Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-07T23:54:20.654Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-07T23:54:20.654Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:54:20.657Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:54:20.658Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-07T23:57:11.534Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:57:11.582Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:57:11.585Z"}
+{"level":"info","message":"The new sweet's id is :576e0200-dbaa-11e7-8c0d-d7e8d5bec7c5","timestamp":"2017-12-07T23:57:11.585Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:57:11.593Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-07T23:57:11.593Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-07T23:57:11.593Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-07T23:57:11.596Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-07T23:57:11.597Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:02:21.873Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:02:21.922Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:02:21.924Z"}
+{"level":"info","message":"The new sweet's id is :10682240-dbab-11e7-bef4-3d20a409eb38","timestamp":"2017-12-08T00:02:21.925Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:02:21.933Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:02:21.933Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:02:21.934Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:02:21.937Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:02:21.937Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:02:21.940Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:02:21.940Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:02:52.774Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:02:52.789Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:02:52.791Z"}
+{"level":"info","message":"The new sweet's id is :22ce1070-dbab-11e7-8f8d-1b8faac70df4","timestamp":"2017-12-08T00:02:52.792Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:02:52.799Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:02:52.800Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:02:52.800Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:02:52.802Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:02:52.803Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:02:52.805Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:02:52.805Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:03:26.363Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:03:26.412Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:03:26.414Z"}
+{"level":"info","message":"The new sweet's id is :36d886e0-dbab-11e7-8e6a-dd0a4979654e","timestamp":"2017-12-08T00:03:26.415Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:03:26.423Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:03:26.423Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:03:26.423Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:03:26.426Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:03:26.427Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:03:26.430Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:03:26.430Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:03:48.580Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:03:48.628Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:03:48.630Z"}
+{"level":"info","message":"The new sweet's id is :44166b60-dbab-11e7-b94e-d32af4a1b711","timestamp":"2017-12-08T00:03:48.630Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:03:48.639Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:03:48.640Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:03:48.640Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:03:48.643Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:03:48.644Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:03:48.647Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:03:48.647Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:04:23.076Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:04:23.124Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:04:23.126Z"}
+{"level":"info","message":"The new sweet's id is :58a61760-dbab-11e7-8bc2-d10e5c41626a","timestamp":"2017-12-08T00:04:23.127Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:04:23.136Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:04:23.136Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:04:23.136Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:04:23.139Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:04:23.140Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:04:23.142Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:04:23.143Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:04:34.839Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:04:34.891Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:04:34.894Z"}
+{"level":"info","message":"The new sweet's id is :5fa997d0-dbab-11e7-af24-55944391b751","timestamp":"2017-12-08T00:04:34.894Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:04:34.903Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:04:34.903Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:04:34.903Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:04:34.906Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:04:34.907Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:04:34.910Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:04:34.910Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:04:42.066Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:04:42.116Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:04:42.118Z"}
+{"level":"info","message":"The new sweet's id is :63f7e350-dbab-11e7-b163-e15ededbb107","timestamp":"2017-12-08T00:04:42.118Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:04:42.127Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:04:42.128Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:04:42.128Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:04:42.131Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:04:42.131Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:04:42.134Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:04:42.134Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:11:26.976Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:11:27.026Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:11:27.028Z"}
+{"level":"info","message":"The new sweet's id is :55506740-dbac-11e7-bfa7-e9f5d4dcfb27","timestamp":"2017-12-08T00:11:27.029Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:11:27.039Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:11:27.039Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:11:27.039Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:11:27.042Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:11:27.043Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:51:184)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:51:83)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:11:27.043Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:11:27.045Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:11:27.045Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:11:40.416Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:11:40.466Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:11:40.467Z"}
+{"level":"info","message":"The new sweet's id is :5d530830-dbac-11e7-8185-f1365902f7a7","timestamp":"2017-12-08T00:11:40.468Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:11:40.477Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:11:40.478Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:11:40.478Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:11:40.481Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:11:40.481Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:51:184)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:51:83)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:11:40.481Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:11:40.483Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:11:40.483Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:11:50.951Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:11:51.002Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:11:51.004Z"}
+{"level":"info","message":"The new sweet's id is :639ad9c0-dbac-11e7-990d-b3b68b1e58d6","timestamp":"2017-12-08T00:11:51.005Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:11:51.014Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:11:51.014Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:11:51.014Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:11:51.017Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:11:51.018Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:51:184)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:51:83)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:11:51.018Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:11:51.020Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:11:51.020Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:12:12.150Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:12:12.199Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:12:12.201Z"}
+{"level":"info","message":"The new sweet's id is :703d4190-dbac-11e7-97ab-eb273096705e","timestamp":"2017-12-08T00:12:12.201Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:12:12.209Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:12:12.209Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:12:12.209Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:12:12.212Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:12:12.213Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:184)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:83)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:12:12.213Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:12:12.215Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:12:12.216Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:12:25.114Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:12:25.165Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:12:25.167Z"}
+{"level":"info","message":"The new sweet's id is :77f78ee0-dbac-11e7-8a84-5bb657ce3a88","timestamp":"2017-12-08T00:12:25.167Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:12:25.175Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:12:25.175Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:12:25.175Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:12:25.178Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:12:25.179Z"}
+{"message":"matchingSweet is not defined","stack":"ReferenceError: matchingSweet is not defined\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:51:15)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:12:25.179Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:12:25.181Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:12:25.181Z"}
+{"message":"matchingSweet is not defined","stack":"ReferenceError: matchingSweet is not defined\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:51:15)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:12:25.181Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:12:54.732Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:12:54.782Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:12:54.783Z"}
+{"level":"info","message":"The new sweet's id is :899ec0f0-dbac-11e7-acfb-7fba9ecaf111","timestamp":"2017-12-08T00:12:54.784Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:12:54.793Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:12:54.794Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:12:54.794Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:12:54.797Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:12:54.798Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:53:184)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:53:83)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:12:54.798Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:12:54.800Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:12:54.800Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:19:10.335Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:10.385Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:19:10.387Z"}
+{"level":"info","message":"The new sweet's id is :697f6030-dbad-11e7-8466-ad3088020d14","timestamp":"2017-12-08T00:19:10.388Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:10.395Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:19:10.396Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:19:10.396Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:10.399Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:19:10.400Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:182)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:81)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:19:10.400Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:10.402Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:19:10.402Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:182)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:81)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:19:10.402Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:19:30.592Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:30.644Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:19:30.646Z"}
+{"level":"info","message":"The new sweet's id is :7592a760-dbad-11e7-a6b1-13ca6786f44a","timestamp":"2017-12-08T00:19:30.646Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:30.654Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:19:30.655Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:19:30.655Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:30.658Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:19:30.659Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:182)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:81)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:19:30.659Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:30.662Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:19:30.662Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:182)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:81)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:19:30.662Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:19:52.763Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:52.813Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:19:52.815Z"}
+{"level":"info","message":"The new sweet's id is :82c938e0-dbad-11e7-ad5c-3ddc0571be77","timestamp":"2017-12-08T00:19:52.815Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:52.823Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:19:52.823Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:19:52.823Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:52.826Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:19:52.827Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:53:182)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:53:81)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:19:52.827Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:52.829Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:19:52.829Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:53:182)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:53:81)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:19:52.829Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:19:58.866Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:58.881Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:19:58.883Z"}
+{"level":"info","message":"The new sweet's id is :86672020-dbad-11e7-a2bd-cdb1f44b69b9","timestamp":"2017-12-08T00:19:58.883Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:58.890Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:19:58.890Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:19:58.890Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:58.893Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:19:58.894Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:182)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:81)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:19:58.894Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:19:58.896Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:19:58.897Z"}
+{"message":"id is not defined","stack":"ReferenceError: id is not defined\n    at sweets.filter.sweet (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:182)\n    at Array.filter (<anonymous>)\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:52:81)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:19:58.897Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:20:24.020Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:20:24.072Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:20:24.074Z"}
+{"level":"info","message":"The new sweet's id is :956b1ea0-dbad-11e7-ad69-9b9752eba151","timestamp":"2017-12-08T00:20:24.075Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:20:24.083Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:20:24.083Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:20:24.083Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:20:24.086Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:20:24.087Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:20:24.089Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:20:24.090Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:21:34.061Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:21:34.114Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:21:34.116Z"}
+{"level":"info","message":"The new sweet's id is :bf2aae40-dbad-11e7-94bf-85aa9f8185ec","timestamp":"2017-12-08T00:21:34.116Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:21:34.126Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:21:34.126Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:21:34.126Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:21:34.129Z"}
+{"level":"info","message":"There was an error handling the request","timestamp":"2017-12-08T00:21:34.130Z"}
+{"message":"matchingSweet is not defined","stack":"ReferenceError: matchingSweet is not defined\n    at Object.<anonymous>.router.get (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/route/sweet-router.js:56:5)\n    at requestParser.parse.then.request (/Users/shannondillon/codefellows/401js/lab/day8-9/lab-shannon/08-09-vanilla-rest-server/lib/router.js:34:14)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)","level":"info","timestamp":"2017-12-08T00:21:34.130Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:21:34.132Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:21:34.132Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:25:54.361Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:25:54.412Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:25:54.414Z"}
+{"level":"info","message":"The new sweet's id is :5a5100e0-dbae-11e7-90b0-c77a7e95d4fd","timestamp":"2017-12-08T00:25:54.415Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:25:54.422Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:25:54.422Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:25:54.423Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:25:54.425Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:25:54.428Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:25:54.430Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:25:54.431Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:28:28.783Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:28:28.797Z"}
+{"level":"info","message":"ERROR: A sweet has no name","timestamp":"2017-12-08T00:28:28.798Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:28:28.798Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:28:28.804Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:28:28.805Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:28:28.805Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:28:28.807Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:28:28.809Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:28:28.814Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:28:28.814Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:28:52.765Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:28:52.821Z"}
+{"level":"info","message":"ERROR: A sweet has no name","timestamp":"2017-12-08T00:28:52.822Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:28:52.823Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:28:52.829Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:28:52.830Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:28:52.830Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:28:52.832Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:28:52.834Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:28:52.838Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:28:52.838Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:30:29.280Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:30:29.328Z"}
+{"level":"info","message":"ERROR: A sweet has no name","timestamp":"2017-12-08T00:30:29.330Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:30:29.330Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:30:29.337Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:30:29.338Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:30:29.338Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:30:29.340Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:30:29.342Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:30:29.347Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:30:29.347Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:31:48.048Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:31:48.063Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:31:48.064Z"}
+{"level":"info","message":"The new sweet's id is :2d1bb600-dbaf-11e7-acf6-df3f84f00a05","timestamp":"2017-12-08T00:31:48.065Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:31:48.072Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:31:48.072Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:31:48.072Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:31:48.075Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:31:48.078Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:31:48.079Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:31:48.080Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:32:58.970Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:32:58.985Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:32:58.987Z"}
+{"level":"info","message":"The new sweet's id is :57618ca0-dbaf-11e7-b354-5760523abc84","timestamp":"2017-12-08T00:32:58.987Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:32:58.994Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:32:58.995Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:32:58.995Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:32:58.998Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:32:59.000Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:32:59.003Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:32:59.003Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:46:28.578Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:46:28.625Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:46:28.626Z"}
+{"level":"info","message":"The new sweet's id is :39f6cf20-dbb1-11e7-871b-25d4c9525448","timestamp":"2017-12-08T00:46:28.627Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:46:28.634Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:46:28.634Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:46:28.634Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:46:28.637Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:46:28.639Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:46:28.641Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:46:28.642Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:47:57.419Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:47:57.433Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:47:57.435Z"}
+{"level":"info","message":"The new sweet's id is :6ee5fcb0-dbb1-11e7-8da3-05b2030ec885","timestamp":"2017-12-08T00:47:57.435Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:47:57.443Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:47:57.443Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:47:57.443Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:47:57.446Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:47:57.449Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:47:57.451Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:47:57.452Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:53:08.622Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:53:08.637Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:53:08.639Z"}
+{"level":"info","message":"The new sweet's id is :2863cbe0-dbb2-11e7-bd17-8549c07ca1b4","timestamp":"2017-12-08T00:53:08.639Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:53:08.647Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:53:08.648Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:53:08.648Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:53:08.651Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:53:08.654Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:53:29.574Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:53:29.589Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:53:29.591Z"}
+{"level":"info","message":"The new sweet's id is :34e0d160-dbb2-11e7-937b-934b25be6034","timestamp":"2017-12-08T00:53:29.591Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:53:29.599Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:53:29.600Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:53:29.600Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:53:29.603Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:53:29.605Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:53:46.517Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:53:46.532Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:53:46.533Z"}
+{"level":"info","message":"The new sweet's id is :3efa1d50-dbb2-11e7-8ace-6f9ebe25b60f","timestamp":"2017-12-08T00:53:46.534Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:53:46.542Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:53:46.542Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:53:46.542Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:53:46.546Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:53:46.548Z"}
+{"level":"info","message":"The server is now running on port 3000","timestamp":"2017-12-08T00:54:04.012Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:54:04.062Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:54:04.064Z"}
+{"level":"info","message":"The new sweet's id is :496d2200-dbb2-11e7-83a7-b937914b14aa","timestamp":"2017-12-08T00:54:04.064Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:54:04.073Z"}
+{"level":"info","message":"ERROR: Could not find the temperature of the sweet :(","timestamp":"2017-12-08T00:54:04.073Z"}
+{"level":"info","message":"Sending status: 404","timestamp":"2017-12-08T00:54:04.073Z"}
+{"level":"info","message":"Router is routing a request","timestamp":"2017-12-08T00:54:04.077Z"}
+{"level":"info","message":"Sending JSON!","timestamp":"2017-12-08T00:54:04.080Z"}
