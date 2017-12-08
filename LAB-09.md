@@ -22,4 +22,5 @@ Finish your tests from LAB-08
 Document all of your server endpoints. Explain expected HTTP request input and the corresponding server responses. Also explain server responses for bad requests and server errors.
 
 ## Extra credit (1 point)
+
 Add tests for DELETE methods
