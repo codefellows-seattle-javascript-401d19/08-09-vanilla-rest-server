@@ -3,8 +3,7 @@
 const Team = require('../model/team');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
-
-let teams = [];
+const storage = require('../lib/storage');
 
 let sendStatus = (response, status, message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
@@ -45,32 +44,38 @@ router.post('/api/teams', (request, response) => {
   }
 
   let team = new Team(request.body.sport, request.body.city, request.body.nickname);
-  teams.push(team);
-  sendJSON(response, 200, team);
+  storage.addItem(team)
+    .then( () => {
+      sendJSON(response, 200, team);
+    })
+    .catch(error => {
+      sendStatus(response, 500, error);
+    });
 });
 
 router.get('/api/teams', (request, response) => {
   if(request.url.query.id) {
-    let teamById = teams.find(team => team.id === request.url.query.id);
-    if(teamById === undefined) {
-      sendStatus(response, 404, 'id not found');
-    } else {
-      sendJSON(response, 200, teamById);
-    }
+    storage.fetchItem(request.url.query.id)
+      .then(team => sendJSON(response, 200, team))
+      .catch(error => {
+        sendStatus(response, 404, error);
+      });
   } else {
-    sendJSON(response, 200, teams);
+    storage.fetchAll()
+      .then(teams => sendJSON(response, 200, teams))
+      .catch(error => {
+        sendStatus(response, 500, error);
+      });
   }
 });
 
 router.delete('/api/teams', (request, response) => {
   if(request.url.query.id){
-    let teamIndex= teams.findIndex(team => team.id === request.url.query.id);
-    if(teamIndex < 0) {
-      sendStatus(response, 404);
-    } else {
-      teams.splice(teamIndex, 1);
-      sendStatus(response, 204);
-    }
+    storage.deleteItem(request.url.query.id)
+      .then(sendStatus(response, 204))
+      .catch(error => {
+        sendStatus(response, 404, error);
+      }); //TODO;
   } else {
     sendStatus(response, 400);
   }

@@ -11,3 +11,24 @@ To delete a team from the array, send a DELETE request with the body ```{id: '<i
 
 ## Running the Server
 To run the server, download the repo.  Install dependencies via ```npm install```.  Create a folder called '.env' in the root directory of this project and enter ```PORT=<yourport>``` on the first line.  3000 is a typical choice.  Then, ```npm start```.
+
+## Endpoints
+
+### GET ('/api/teams')
+Sent without a query.  
+* Returns status 200 and an array of all the objects on the database.
+
+### GET ('api/teams?{id:"<id>"}')
+Sent with the query of an object with the key "id".  
+* If the id is found on the database, returns status 200 and the object that matches that id.  
+* If the id is not found on the database, returns status 404 and an error message.
+
+### POST ('api/teams?{sport:"<sport>", city: "<city>", nickname: "<nickname>"}')
+Sent with the query of an object with the keys sport, city, and nickname.
+* If all keys are there, returns status 200 and the body of the object it just created with your data.  Will also include a unique id created by uuid.
+* If any key is missing or misspelled or no body is sent, returns status 400 and an error message.
+
+### DELETE ('api/teams?{id:"<id>"}')
+Sent with the query of an object with the key "id".
+* If sent correctly, returns with status 200.
+* If no body is sent, returns with status 400 and an error message.
