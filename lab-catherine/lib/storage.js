@@ -24,7 +24,6 @@ storage.addItem = (book) => {
 
   if(!book.id)
     return Promise.reject(new Error('__STORAGE_ERROR__ item must have an id'));
-  //  add more tests
   
   return storage.fetchAll()
     .then(database => {
@@ -45,7 +44,6 @@ storage.fetchItem = (id) => {
       return book;
     });
 };
-
 
 storage.deleteItem = (id) => {
   logger.log('verbose', `STORAGE - deleting an item with id ${id}`);

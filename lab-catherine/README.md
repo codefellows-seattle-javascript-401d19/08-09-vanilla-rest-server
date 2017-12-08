@@ -8,9 +8,19 @@
 
 ### Motivation
 
-In this project, I built a RESTful (Hypertext Transfer Protocol) HTTP server. This server handles GET, POST, and DELETE requests/responses.
+In this project, I built a RESTful (Hypertext Transfer Protocol) HTTP server. This server handles GET, POST, and DELETE requests/responses. This API uses fsExtra to write data to a db.json file for persistence. 
 
 ### Build
+
+#### Storage Module
+
+The storage module requires in logger and fsExtra and exports the storage module. The storage module has the following methods attached: ```fetchAll```, ```fetchItem```, ```addItem``` and ```deleteItem```. 
+* The ```storage.fetchAll``` method serves to retrieve all books.
+* The ```storage.fetchItem``` method accepts the parameter ( id ) and sets up functionality to retrieve one book if a user sends a request for that specific book's id.
+* The ```storage.addItem``` method accepts the parameter ( book ) and sets up functionality for posting a book.
+* The ```storage.deleteItem``` method accepts the parameter ( id ) and sets up functionality to delete one book if a user specifies that book's id.
+
+The storage module also includes a function ```fsExtra.pathExists``` that writes to the db.json file.
 
 #### Request Parser Module
 
@@ -42,7 +52,7 @@ In this module, our logger winston is required in and exported as logger. This w
 
 #### Test Module
 
-server.test.js contains three tests for each method: ```POST```, ```GET``` and ```DELETE``` for a total of nine tests. 
+server.test.js contains three tests each for the ```POST``` and ```GET``` methods and two tests for the ```DELETE``` method for a total of eight tests.
 
 ### Limitations
 
@@ -70,8 +80,9 @@ Standard JavaScript with ES6
 * Step 1. Fork and Clone the Repository.
 * Step 2. ```npm install```.
 * Step 3. ```touch .env``` and add ```PORT=3000```
-* Step 4. ```npm run start``` (to start the server).
-* Step 5. to test the API run the command ```npm run test```. (Make sure that a server is not already running)
+* Step 4. In the ```.env``` file add ```STORAGE_PATH=${path-to-root}/db.json``` where ```${path-to-root}``` is the root directory of the project. To find that path you can type ```pwd```  in terminal.
+* Step 5. ```npm run start``` (to start the server).
+* Step 6. to test the API run the command ```npm run test```. (Make sure that a server is not already running)
 
 #### Post Request
 
@@ -85,7 +96,6 @@ Standard JavaScript with ES6
 ### Credits
 
 * Code Fellows / Vinicio Vladimir Sanchez Trejo for providing the starter code.
-* Andrew Bloom and I worked through the lab together.
 
 ### License
 
