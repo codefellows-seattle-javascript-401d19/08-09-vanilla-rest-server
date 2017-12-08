@@ -11,6 +11,7 @@ describe('/api/dogs', () => {
 
   let id;
 
+  // ====================== POST TESTS ====================== 
   test('POST should respond with 200 status code and a body if no errors', () => {
     let dog = {legs: 4, isPoodle: true};
 
@@ -43,6 +44,7 @@ describe('/api/dogs', () => {
       });
   });
 
+  // ====================== GET TESTS ====================== 
   test('GET should respond with 200 status code and an array of dogs if no id input', () => {
     return superagent.get(`http://localhost:${PORT}/api/dogs`)
       .then(response => {
@@ -72,6 +74,7 @@ describe('/api/dogs', () => {
       });
   });
 
+  // ====================== DELETE TESTS ====================== 
   test('DELETE should return 204 status code if there is an object with the given id', () => {
     return superagent.delete(`http://localhost:${PORT}/api/dogs?id=${id}`)
       .then(response => {

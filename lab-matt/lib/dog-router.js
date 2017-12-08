@@ -71,7 +71,7 @@ router.delete('/api/dogs', (request, response) => {
         if (dogFound.deleted.id === dogId) {
           log('info', `DOG DELETED: ${JSON.stringify(dogFound.deleted)}`);
           response.writeHead(204);
-          response.write(JSON.stringify(dogId));
+          response.write(dogFound.deleted.id);
           response.end();    
         } else {
           sendStatus(response, 404, dogFound);
