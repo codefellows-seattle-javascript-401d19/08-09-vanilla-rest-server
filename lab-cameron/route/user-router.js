@@ -5,9 +5,6 @@ const router = require('../lib/router');
 const logger = require('../lib/logger');
 
 let users = [];
-// data for testing
-users.push(new User('test_name_1', 'test_description_1'));
-users.push(new User('test_name_2', 'test_description_2'));
 
 const sendStatus = (response, status, message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
@@ -30,8 +27,7 @@ const sendJSON = (response, status, jsonData) => {
 
 const findUserWithId = querystring => {
   for (let i = 0; i < users.length; i++) {
-    console.log('one of these should match', users[i].getId(), querystring);
-    if (users[i].getId() === querystring) {
+    if (users[i].testId === querystring) {
       return users[i];
     }
   }
@@ -70,7 +66,6 @@ router.delete('/api/users', (request, response) => {
   if (request.url.query.id) {
     const userToBeRemoved = findUserWithId(request.url.query.id);
     const updatedUsers = users.filter(user => {
-      console.log(user.name, user.getId());
       return userToBeRemoved.getId() === user.getId();
     });
     users = updatedUsers;

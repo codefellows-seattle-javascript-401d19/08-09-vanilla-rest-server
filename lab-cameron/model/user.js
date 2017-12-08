@@ -10,6 +10,8 @@ const User = (() => {
     constructor(name, description) {
       this.name = name;
       this.description = description;
+      this.testId = uuidv1();
+
       id.set(this, uuidv1());
       timestamp.set(this, new Date());
     }
