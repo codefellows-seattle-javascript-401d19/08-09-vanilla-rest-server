@@ -1,5 +1,6 @@
 'use strict';
 
+const StarTrek = require('../model/star-trek-episodes')
 const server = require('../lib/server');
 const superagent = require('superagent');
 
@@ -24,8 +25,9 @@ describe('/api/starTrekEpisodes',() => {
         expect(response.body.id).toBeTruthy();
       });
   });
+
   test('Should update memory with POST, and check new JSON object of a Star Trek episode then respond with 200 if there no errors ', () => {
-    return superagent.get('http://localhost:3000/api/starTrekEpisodes')
+    return superagent.get(`http://localhost:3000/api/starTrekEpisodes?${StarTrek.id}`)
       .set('Content-Type','application/json')
       .send({
         'episode' : '2',
@@ -41,8 +43,9 @@ describe('/api/starTrekEpisodes',() => {
         expect(response.body.id).toBeTruthy();
       });
   });
+
   test('Should check for an instance of an Object and not find it if no errors', () => {
-    return superagent.delete('http://localhost:3000/api/starTrekEpisodes')
+    return superagent.delete(`http://localhost:3000/api/starTrekEpisodes?${StarTrek.id}`)
       .set('Content-Type','application/json')
       .send({
         'episode' : '2',
@@ -56,6 +59,8 @@ describe('/api/starTrekEpisodes',() => {
         expect(response.body.episodeDescription).toEqual(null);
         expect(response.body.episode).toEqual(null);
         expect(response.body.id).toBeFalsey();
+        
       });
+      
   });
 });

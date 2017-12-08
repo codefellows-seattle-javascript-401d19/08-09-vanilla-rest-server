@@ -5,7 +5,7 @@ const router = require('../lib/router');
 const logger = require('../lib/logger');
 
 let starTrekEpisodesArr = [];
-
+  
 let sendStatus = (response,status,message) => {
   logger.log('info',`Responding with a ${status} code due to ${message}`);
 
@@ -24,6 +24,7 @@ let sendJSON = (response,status,jsonData) => {
   response.end();
   return;
 };
+
 
 router.post('/api/starTrekEpisodes', (request,response) => {
 
@@ -44,7 +45,41 @@ router.post('/api/starTrekEpisodes', (request,response) => {
     return;
   }
 
-  let starTrekEpisodes = new StarTrek(request.body.episode,request.body.episodeTitle,request.body.episodeDescription);
+  const starTrekGetById = episodeGet => {
+    return episodeGet.filter(elementEpisode => StarTrek.id === elementEpisode)[0];
+  };
+  
+  const starTrekRemoveById = episodeRemove => {
+    return episodeRemove.filter(id => StarTrek.id !== id);
+  };
+
+  let starTrekEpisodes = new StarTrek(
+    request.body.episode,
+    request.body.episodeTitle,
+    request.body.episodeDescription);
   starTrekEpisodesArr.push(starTrekEpisodes);
   sendJSON(response,200,starTrekEpisodes);
+
+  router.get(`/api/starTrekEpisodes`, (request, response) => {
+    let id = req.url.query.id;
+    if(id){
+      let getEpisode = starTrekGetById(id);
+      if(getEpisode) sendJSON(response, 200, getEpisode);
+      else 
+        sendStatus(response, 404, `Missing Episode ${id}`); 
+    }
+  }); 
+
+  router.delete(`/api/starTrekEpisodes`, (request, response) =>{
+    let id = req.url.query.id;
+    if(id){
+      let removeEpisode = starTrekRemoveById(id);
+      if(removeEpisode)
+        logger.log('info', `Episode with ${id} Removed from memory`);
+    }else
+      sendStatus(response, 404, `No Episode with ${id}`)
+  });
+  
+
+  
 });

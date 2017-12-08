@@ -6,6 +6,7 @@ const logger = require('./logger');
 let routeHandlers = {
   POST :{},
   GET :{},
+  DELETE : {},
 };
 
 const router = module.exports = {};
@@ -22,6 +23,11 @@ router.get = (url,callback) => {
 };
 
 router.post = (url,callback) => {
+  logUrlAndCallback('POST',url,callback);
+  routeHandlers.POST[url] = callback;
+};
+
+router.delete = (url,callback) => {
   logUrlAndCallback('POST',url,callback);
   routeHandlers.POST[url] = callback;
 };
