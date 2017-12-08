@@ -48,11 +48,9 @@ router.post(`/api/sweets`, (request, response) => {
 
 router.get(`/api/sweets`, (request, response) => {
   let id = request.url.query.id;
-  console.log(request.url.query.id, `is the id`);
-  console.log(sweets, `are the sweets`);
-
-  let matchingSweet = sweets.filter(sweet => sweet[id] === id);
-  console.log(matchingSweet, `is the matching sweet`);
+  
+  let matchingSweet = sweets.filter(sweet => sweet.id === id);
+  logger.log(`info`, `${matchingSweet} is the matching sweet`);
 
   if(request.url.query.id){
     //if none of the objects in sweets array has the id, return an error
@@ -64,3 +62,18 @@ router.get(`/api/sweets`, (request, response) => {
 
   sendJSON(response, 200, sweets);
 });
+
+router.delete(`/api/sweets`, (request, response) => {
+  let id = request.url.query.id;
+  let matchingSweet = sweets.filter(sweet => sweet.id === id);
+
+  if(id.length < 1)
+    return sendStatus(response, 400, `You must specify which sweet to delete by providing an id`);
+
+  if(matchingSweet.length < 1)
+    return sendStatus(response, 404, `A sweet with that id does not exist`);
+
+  matchingSweet = {};
+  let deletedSweet = matchingSweet;
+  sendJSON(response, 204, deletedSweet);
+})

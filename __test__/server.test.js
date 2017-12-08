@@ -28,7 +28,6 @@ describe(`/api/sweets`, () => {
     .send(sweetSuccess)
     .then(response => {
       id = response.body.id;
-      console.log(response.body.id, `is the response body id`);
       expect(response.status).toEqual(200);
     })
   })
