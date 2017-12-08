@@ -49,30 +49,31 @@ router.post('/api/planet', (request,response) => {
 
 router.get('/api/planet', (request,response) => {
   if(!request.url.query.id){
-    console.log(storage.fetchAll());
-    sendJSON(response, 200, storage.fetchAll());
-    return;
-  }
-  if (!(planets.find(planet => planet.id === request.url.query.id))) {
-    sendStatus(response, 404, 'Planet ID not found');
-    return;
-  } else {
-    sendJSON(response, 200, storage.fetchItem(request.url.query.id));
-    return;
+    storage.fetchAll()
+      .then((planets) => {
+        sendJSON(response, 200, planets);
+      })
+      .catch(error => {
+        sendStatus(response, 500, error);
+      });
+  }else {
+    storage.fetchItem(request.url.query.id)
+      .then((planet) => {
+        console.log('Specific Planet: ', planet);
+        sendJSON(response, 200, planet);
+      })
+      .catch(error => {
+        sendStatus(response, 404, error);
+      });
   }
 });
 
 router.delete('/api/planet', (request, response) => {
-  if (!request.url.query.id) {
-    sendStatus(response, 400, 'NO request id found');
-    return;
-  }
-  if (!(planets.find(planet => planet.id === request.url.query.id))) {
-    sendStatus(response, 404, 'Planet not found in database');
-    return;
-  } else {
-    planets.filter(planet => planet.id !== request.url.query.id);
-    sendJSON(response, 204, 'Planet removed succesfully');
-    return;
-  }
+  storage.deleteItem(request.url.query.id)
+    .then((filteredPlanets) => {
+      sendJSON(response, 204, filteredPlanets);
+    })
+    .catch(error => {
+      sendStatus(response, 404, error);
+    });
 });

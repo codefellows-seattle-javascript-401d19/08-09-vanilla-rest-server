@@ -24,7 +24,6 @@ storage.addItem = (planet) => {
 
   if (!planet.id)
     return Promise.reject(new Error('__STORAGE_ERROR__ item must have an id'));
-  // vinicio - here we could add many more tests
 
   return storage.fetchAll()
     .then(database => {
@@ -34,6 +33,7 @@ storage.addItem = (planet) => {
 
 storage.fetchItem = (id) => {
   logger.log('verbose', `STORAGE - fetching an item with id ${id}`);
+  
   return storage.fetchAll()
     .then(database => {
       return database.find(planet => planet.id === id);
@@ -41,7 +41,6 @@ storage.fetchItem = (id) => {
     .then(planet => {
       if (planet === undefined)
         throw new Error('__STORAGE_ERROR_ item not found');
-
       return planet;
     });
 };
@@ -49,12 +48,13 @@ storage.fetchItem = (id) => {
 
 storage.deleteItem = (id) => {
   logger.log('verbose', `STORAGE - deleting an item with id ${id}`);
-
   return storage.fetchAll()
     .then(database => {
-      return database.filter(item => item.id !== id);
+      return [database.filter(item => item.id !== id),database.length];
     })
-    .then(filteredItems => {
-      return fsExtra.writeJSON(process.env.STORAGE_PATH, filteredItems);
+    .then(filteredItemsArr => {
+      if(filteredItemsArr[0].length !==  (filteredItemsArr[1]-1))
+        throw new Error('__STORAGE_ERROR_ item not found');
+      return fsExtra.writeJSON(process.env.STORAGE_PATH, filteredItemsArr[0]);
     });
 };
