@@ -6,6 +6,15 @@ require('dotenv').config();
 
 const PORT = process.env.PORT;
 
+describe('server.js', () => {
+  test('server should not be able to stop if it is not on', () => {
+    server.stop()
+      .catch(err => {
+        expect(err.message).toEqual('__SERVER_ERROR__ Server is not running, cannot stop.');
+      });
+  });
+});
+
 describe('/api/trials-bikes', () => {
   beforeAll(server.start);
   afterAll(server.stop);
@@ -141,6 +150,13 @@ describe('/api/trials-bikes', () => {
       .catch(res => {
         expect(res.status).toEqual(404);
         expect(JSON.parse(res.response.res.text).error).toEqual('No bike with id "hotdogs".');
+      });
+  });
+
+  test('The server should respond with a 404 status code if a bad endpoint is hit.', () => {
+    return superagent.get(`http://localhost:${PORT}/api/ice-cream`)
+      .catch(res => {
+        expect(res.status).toEqual(404);
       });
   });
 });
