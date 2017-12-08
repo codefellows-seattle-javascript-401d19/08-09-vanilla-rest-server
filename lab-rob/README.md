@@ -1,7 +1,7 @@
 # Code Fellows: Code 401d19: Full-Stack JavaScript
 
 ## Lab 08: RESTful HTTP Server
-A RESTful HTTP server with GET, POST, and DELETE routes. Users can POST trials bike objects to the server, GET trials bike objects back, and DELETE trials bike objects.
+A RESTful HTTP server with GET, POST, and DELETE routes. Users can POST trials bike objects to the server, GET trials bike objects back, and DELETE trials bike objects. POSTed items are stored locally in a JSON file.
 
 ## Tech/frameworks/packages
 
