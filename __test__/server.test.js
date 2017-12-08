@@ -3,6 +3,8 @@
 const server = require(`../lib/server`);
 const superagent = require(`superagent`);
 
+let id = '';
+
 let sweetSuccess =
   {
     name: 'Lemon Meringue Pie',
@@ -25,6 +27,8 @@ describe(`/api/sweets`, () => {
     .set('Content-type', 'application/json')
     .send(sweetSuccess)
     .then(response => {
+      id = response.body.id;
+      console.log(response.body.id, `is the response body id`);
       expect(response.status).toEqual(200);
     })
   })

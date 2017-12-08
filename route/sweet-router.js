@@ -50,16 +50,16 @@ router.get(`/api/sweets`, (request, response) => {
   let id = request.url.query.id;
   console.log(request.url.query.id, `is the id`);
   console.log(sweets, `are the sweets`);
-  // let matchingSweet = the object in the sweets that has an id property with a value that matched 'id';
+
   let matchingSweet = sweets.filter(sweet => sweet[id] === id);
   console.log(matchingSweet, `is the matching sweet`);
 
   if(request.url.query.id){
     //if none of the objects in sweets array has the id, return an error
-    if(!matchingSweet){
+    if(matchingSweet.length < 1){
       return sendStatus(response, 404, `There is no sweet with that id`);
     }
-    return sendJSON(response, 200, matchingSweet);  //if there is a match, give me that
+    return sendJSON(response, 200, matchingSweet[0]);  //if there is a match, give me that (it's the first element in the array of matchingSweets)
   }
 
   sendJSON(response, 200, sweets);
