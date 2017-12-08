@@ -3,7 +3,7 @@
 const Note = require('../model/note');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
-const storage = require('..lib/storage');
+const storage = require('../lib/storage');
 
 let sendStatus = (response, status, message)=>{
   logger.log('info', `responding with a status code of ${status} due to ${message}`);
@@ -44,42 +44,50 @@ router.post('/api/notes', (request, response) => {
   storage.addItem(note)
     .then(() => {
       sendJSON(response, 200, note);
+      return;
     })
     .catch(error =>{
       sendStatus(response, 500, error);
+      return;
     });
 });
 
 router.get('/api/notes', (request, response) => {
   if(request.url.query.id){
-    storage.addItem(request.url.query.id)
-      .then();
-    //TODO:finish this function
-    let note=[];
-    for(let index of notes){
-      if(index.id === request.url.query.id){
-        note.push(index);
+    storage.fetchItem(request.url.query.id)
+      .then(note => {
         sendJSON(response, 200, note);
         return;
-      }
-    }
+      })
+      .catch(error =>{
+        sendStatus(response, 500, error);
+        return;
+      });
+  }else{
+    storage.fetchAll()
+      .then(notes => {
+        sendJSON(response, 200, notes);
+        return;
+      })
+      .catch(error =>{
+        sendStatus(response, 500, error);
+        return;
+      });
   }
-  sendJSON(response, 200, notes);
 });
+
 router.delete('/api/notes', (request, response) => {
   if(request.url.query.id){
-    for(let i = 0; i< notes.length; i++){
-      if(notes[i].id === request.url.query.id){
-        notes.splice(i, 1);
-        response.writeHead(204, {'Content-Type' : 'text/plain'});
-        response.write('deleted');
-        response.end();
+    storage.delete(request.url.query.id)
+      .then(() => {
+        sendStatus(response, 204, 'successfully deleted');
         return;
-      }
-    }
+      })
+      .catch(error =>{
+        sendStatus(response, 500, error);
+        return;
+      });
   }
-  response.writeHead(404, {'Content-Type' : 'text/plain'});
-  response.write('not found');
-  response.end();
+  sendStatus(response, 404, 'id not found');
   return;
 });
