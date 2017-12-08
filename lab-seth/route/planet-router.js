@@ -49,14 +49,15 @@ router.post('/api/planet', (request,response) => {
 
 router.get('/api/planet', (request,response) => {
   if(!request.url.query.id){
-    sendJSON(response,200,planets);
+    console.log(storage.fetchAll());
+    sendJSON(response, 200, storage.fetchAll());
     return;
   }
   if (!(planets.find(planet => planet.id === request.url.query.id))) {
     sendStatus(response, 404, 'Planet ID not found');
     return;
   } else {
-    sendJSON(response, 200, planets[0]);
+    sendJSON(response, 200, storage.fetchItem(request.url.query.id));
     return;
   }
 });
