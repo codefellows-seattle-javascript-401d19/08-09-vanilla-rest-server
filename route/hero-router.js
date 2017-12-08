@@ -84,6 +84,6 @@ router.delete('/api/heroes', (request, response) => {
 
   storage.deleteItem(request.url.query.id)
     .then((result) => {
-      sendJSON(response, 200, result);
+      sendJSON(response, 204, result);
     });
 });
