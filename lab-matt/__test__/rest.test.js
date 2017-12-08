@@ -72,31 +72,33 @@ describe('/api/dogs', () => {
       });
   });
 
-  // test('DELETE should return 204 status code if there is an object with the given id', () => {
-  //   return superagent.delete(`http://localhost:3000/api/dogs?id=${id}`)
-  //     .then(response => {
-  //       expect(response.status).toEqual(204);
-  //       expect(response.body).toEqual({});
-  //     });
-  // });
+  test('DELETE should return 204 status code if there is an object with the given id', () => {
+    return superagent.delete(`http://localhost:3000/api/dogs?id=${id}`)
+      .then(response => {
+        
+        expect(id).toEqual(response.req.path.match(/\?id=(.+)/)[1]);
+        expect(response.status).toEqual(204);
+        expect(response.body).toEqual({});
+      });
+  });
 
-  // test('DELETE should return 400 status code if there is no id given', () => {
-  //   return superagent.delete(`http://localhost:3000/api/dogs`)
-  //     .then(response => {
-  //       console.log('this should not show', response);
-  //     })
-  //     .catch(error => {
-  //       expect(error.status).toEqual(400);
-  //     });
-  // });
+  test('DELETE should return 400 status code if there is no id given', () => {
+    return superagent.delete(`http://localhost:3000/api/dogs`)
+      .then(response => {
+        console.log('this should not show', response);
+      })
+      .catch(error => {
+        expect(error.status).toEqual(400);
+      });
+  });
 
-  // test('DELETE should return 404 status code if there is no dog matching id', () => {
-  //   return superagent.delete(`http://localhost:3000/api/dogs?id=1234`)
-  //     .then(response => {
-  //       console.log('this should not show', response);
-  //     })
-  //     .catch(error => {
-  //       expect(error.status).toEqual(404);
-  //     });
-  // });
+  test('DELETE should return 404 status code if there is no dog matching id', () => {
+    return superagent.delete(`http://localhost:3000/api/dogs?id=1234`)
+      .then(response => {
+        console.log('this should not show', response);
+      })
+      .catch(error => {
+        expect(error.status).toEqual(404);
+      });
+  });
 });

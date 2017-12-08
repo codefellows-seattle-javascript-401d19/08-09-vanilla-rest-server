@@ -34,6 +34,7 @@ storage.addItem = (item) => {
       fsPlus.writeJSON(STORAGE_PATH, [...database, item]);
       return item;
     });
+  
 };
 
 // ============= GET ONE ITEM =============

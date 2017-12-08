@@ -28,6 +28,9 @@ router.post('/api/dogs', (request, response) => {
     .then(dogAdded => {
       log('verbose', `DOG ADDED: ${JSON.stringify(dogAdded)}`);
       sendJSON(response, 200, dogAdded);
+    })
+    .catch(error => {
+      sendStatus(response,500,error);
     });
 });
 
@@ -43,6 +46,9 @@ router.get('/api/dogs', (request, response) => {
         } else {
           sendStatus(response, 404, `no dog with matching id: ${dogId}`);
         }
+      })
+      .catch(error => {
+        sendStatus(response,500,error);
       });
 
   } else {
@@ -60,15 +66,21 @@ router.get('/api/dogs', (request, response) => {
 router.delete('/api/dogs', (request, response) => {
   let dogId = request.url.query.id;
   if (dogId) {
-    let dogFound = storage.deleteItem(dogId);
-
-    if(dogFound.deleted) {
-      log('info', `DOG DELETED: ${dogFound.deleted}`);
-      response.writeHead(204);
-      response.end();   
-    } else { // mattL - here, dogFound === new Error (storage.js: line68)
-      sendStatus(response, 404, dogFound);
-    }
+    storage.deleteItem(dogId)
+      .then(dogFound => {
+        if (dogFound.deleted.id === dogId) {
+          log('info', `DOG DELETED: ${JSON.stringify(dogFound.deleted)}`);
+          response.writeHead(204);
+          response.write(JSON.stringify(dogId));
+          response.end();    
+        } else {
+          sendStatus(response, 404, dogFound);
+        }
+      }) // mattL - here, if there is no dogfound.deleted === new Error (storage.js: line68)
+      .catch(error => {
+        sendStatus(response, 404, error);        
+      }); 
+    return;
   } else {
     sendStatus(response, 400, `no id given`);
   }
