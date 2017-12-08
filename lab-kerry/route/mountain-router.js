@@ -3,8 +3,8 @@
 const Mountain = require('../model/mountain');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
+const mountainStorage = require('../lib/mountainStorage')
 
-let mountains = [];
 
 let sendStatus = (response, status, message) => {
   logger.log('info', `Responding with a ${status} code due to ${message}.`);
@@ -47,8 +47,13 @@ router.post('/api/mountains', (request, response) => {
   }
 
   let mountain = new Mountain(request.body.name, request.body.location, request.body.elevation);
-  mountains.push(mountain);
-  sendJSON(response, 200, mountain);
+  mountainStorage.addItem(mountain)
+    .then( () => {
+      sendJSON(response, 200, mountain);
+    })
+    .catch(error => {
+      sendStatus(response, 500, error)
+    });
 });
 
 

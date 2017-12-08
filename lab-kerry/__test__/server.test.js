@@ -10,13 +10,13 @@ describe('/api/mountains', () => {
   afterAll(server.stop);
 
   
-  test('should respond with 200 status code and a body if there are no errors', () => {
+  test('POST - should respond with 200 status code and a body if there are no errors', () => {
     return superagent.post('http://localhost:3000/api/mountains')
     .set('Content-Type', 'application/json')
     .send({
       name: 'Mt. Evans',
       location: 'Colorado',
-      elevation: '14,235'
+      elevation: '14,235',
     }) // ** .send ** returns a promise
     .then(response => {
       expect(response.status).toEqual(200);
@@ -27,7 +27,7 @@ describe('/api/mountains', () => {
     });
   });
 
-  test('should respond with 200 status code and should contain a response body for a request made without an id', () => {
+  test('GET should respond with 200 status code and should contain a response body for a request made without an id', () => {
     return superagent.get('http://localhost:3000/api/mountains')
       .then(response => {
         tempMountain = response.body[0]
@@ -39,9 +39,10 @@ describe('/api/mountains', () => {
       });
   });
 
-  test('should respond with 200 status code and should contain a response body for a request made with a valid id', () => {
+  test('GET should respond with 200 status code and should contain a response body for a request made with a valid id', () => {
     return superagent.get('http://localhost:3000/api/mountains?id=${mountainId}')
       .then(response => {
+        console.log(tempMountain);
         tempMountain = response.body[0]
         let mountainId = response.body[0].id
         expect(response.status).toEqual(200);
@@ -52,7 +53,7 @@ describe('/api/mountains', () => {
       });
   });
 
-  test('should respond with 400 status code and bad request if no request body was provided or the body was invalid', () => {
+  test('POST should respond with 400 status code and bad request if no request body was provided or the body was invalid', () => {
     return superagent.post('http://localhost:3000/api/mountains')
       .set('Content-Type', 'application/json')
       .then(response => {
@@ -63,14 +64,14 @@ describe('/api/mountains', () => {
       });
   });
 
-  test('should respond with 204 status code and should not contain a response body for a request made with a valid id', () => {
+  test('DELETE should respond with 204 status code and should not contain a response body for a request made with a valid id', () => {
     return superagent.delete('http://localhost:3000/api/mountains?id=${mountainId}')
       .then(response => {
         expect(response.status).toEqual(204);
       });
   });
 
-  test('should respond with 400 status code if no id was sent', () => {
+  test('DELETE should respond with 400 status code if no id was sent', () => {
     return superagent.delete('http://localhost:3000/api/mountains')
       .set('Content-Type', 'application/json')
       .then(response => {
