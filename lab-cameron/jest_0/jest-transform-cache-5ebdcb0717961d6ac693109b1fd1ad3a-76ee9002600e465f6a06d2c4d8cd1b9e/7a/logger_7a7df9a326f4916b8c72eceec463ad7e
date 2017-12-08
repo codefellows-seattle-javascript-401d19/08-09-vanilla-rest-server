@@ -1,0 +1,17 @@
+9f2863798a7b7695ea568134de414af0
+'use strict'; /* istanbul ignore next */var cov_1djeekel1w = function () {var path = '/home/cameron/Programming/CodeFellows/401/labs/08-09-vanilla-rest-server/lab-cameron/lib/logger.js',hash = 'e8ac522cb5af640a15389bf50a430476092b18a1',global = new Function('return this')(),gcv = '__coverage__',coverageData = { path: '/home/cameron/Programming/CodeFellows/401/labs/08-09-vanilla-rest-server/lab-cameron/lib/logger.js', statementMap: { '0': { start: { line: 3, column: 16 }, end: { line: 3, column: 34 } }, '1': { start: { line: 4, column: 22 }, end: { line: 4, column: 75 } }, '2': { start: { line: 6, column: 15 }, end: { line: 13, column: 2 } }, '3': { start: { line: 15, column: 0 }, end: { line: 15, column: 24 } } }, fnMap: {}, branchMap: {}, s: { '0': 0, '1': 0, '2': 0, '3': 0 }, f: {}, b: {}, _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c' },coverage = global[gcv] || (global[gcv] = {});if (coverage[path] && coverage[path].hash === hash) {return coverage[path];}coverageData.hash = hash;return coverage[path] = coverageData;}();
+
+const winston = /* istanbul ignore next */(cov_1djeekel1w.s[0]++, require('winston'));
+const winstonLevels = /* istanbul ignore next */(cov_1djeekel1w.s[1]++, { error: 0, warn: 1, info: 2, verbose: 3, debug: 4 });
+
+const logger = /* istanbul ignore next */(cov_1djeekel1w.s[2]++, new winston.Logger({
+  transports: [
+  new winston.transports.File({
+    filename: 'log.json',
+    levels: winstonLevels })] })); /* istanbul ignore next */cov_1djeekel1w.s[3]++;
+
+
+
+
+module.exports = logger;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxvZ2dlci5qcyJdLCJuYW1lcyI6WyJ3aW5zdG9uIiwicmVxdWlyZSIsIndpbnN0b25MZXZlbHMiLCJlcnJvciIsIndhcm4iLCJpbmZvIiwidmVyYm9zZSIsImRlYnVnIiwibG9nZ2VyIiwiTG9nZ2VyIiwidHJhbnNwb3J0cyIsIkZpbGUiLCJmaWxlbmFtZSIsImxldmVscyIsIm1vZHVsZSIsImV4cG9ydHMiXSwibWFwcGluZ3MiOiJBQUFBLGE7O0FBRUEsTUFBTUEsNERBQVVDLFFBQVEsU0FBUixDQUFWLENBQU47QUFDQSxNQUFNQyxrRUFBZ0IsRUFBQ0MsT0FBTyxDQUFSLEVBQVdDLE1BQU8sQ0FBbEIsRUFBcUJDLE1BQU8sQ0FBNUIsRUFBK0JDLFNBQVMsQ0FBeEMsRUFBNENDLE9BQU8sQ0FBbkQsRUFBaEIsQ0FBTjs7QUFFQSxNQUFNQywyREFBUyxJQUFLUixRQUFRUyxNQUFiLENBQXFCO0FBQ2xDQyxjQUFhO0FBQ1gsTUFBS1YsUUFBUVUsVUFBUixDQUFtQkMsSUFBeEIsQ0FBOEI7QUFDNUJDLGNBQVcsVUFEaUI7QUFFNUJDLFlBQVNYLGFBRm1CLEVBQTlCLENBRFcsQ0FEcUIsRUFBckIsQ0FBVCxDQUFOLEM7Ozs7O0FBU0FZLE9BQU9DLE9BQVAsR0FBaUJQLE1BQWpCIiwiZmlsZSI6ImxvZ2dlci5qcyIsInNvdXJjZXNDb250ZW50IjpbIid1c2Ugc3RyaWN0JztcblxuY29uc3Qgd2luc3RvbiA9IHJlcXVpcmUoJ3dpbnN0b24nKTtcbmNvbnN0IHdpbnN0b25MZXZlbHMgPSB7ZXJyb3I6IDAsIHdhcm4gOiAxLCBpbmZvIDogMiwgdmVyYm9zZTogMyAsIGRlYnVnOiA0fTtcblxuY29uc3QgbG9nZ2VyID0gbmV3ICh3aW5zdG9uLkxvZ2dlcikoe1xuICB0cmFuc3BvcnRzIDogW1xuICAgIG5ldyAod2luc3Rvbi50cmFuc3BvcnRzLkZpbGUpKHtcbiAgICAgIGZpbGVuYW1lIDogJ2xvZy5qc29uJyxcbiAgICAgIGxldmVscyA6IHdpbnN0b25MZXZlbHMsXG4gICAgfSksXG4gIF0sXG59KTtcblxubW9kdWxlLmV4cG9ydHMgPSBsb2dnZXI7XG4iXX0=
