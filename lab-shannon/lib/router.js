@@ -26,11 +26,11 @@ router.delete = (url, callback) => {
 
 router.route = (request, response) => {
   logger.log(`info`, `Router is routing a request`);
-  requestParser.parse(request)  //parse the response .THEN we'll do something with the stuff from the parsed request
+  requestParser.parse(request)
     .then(request => {
       let handlerFromRequest = routeHandlers[request.method][request.url.pathname];
 
-      if(handlerFromRequest){   //if you find a handler, do something using that handler
+      if(handlerFromRequest){
         return handlerFromRequest(request, response);
         logger.log(`info`, `The method found was: ${request.method}`);
         logger.log(`info`, `The url pathname found was: ${request.url.pathname}`);
