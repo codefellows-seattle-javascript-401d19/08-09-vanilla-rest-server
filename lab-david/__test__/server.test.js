@@ -32,7 +32,6 @@ describe('api/mountains',() => {
         expect(response.body.state).toEqual('Washington');
         expect(response.body.hiking).toEqual('Yes');
         expect(response.body.range).toEqual('Cascades');
-        console.log(response.body.id);
       });
   });
 
@@ -46,7 +45,6 @@ describe('api/mountains',() => {
         range : 'Cascades',
       })
       .then(response => {
-        console.log(response.status);
         expect(response.status).toEqual(200);
         superagent.get(`http://localhost:3000/api/mountains?id=$33333`)
           .set('Content-Type','application/json') 
@@ -54,10 +52,7 @@ describe('api/mountains',() => {
             Promise.reject(response);
           })
           .catch(response => {
-            console.log('we are here');  
-            console.log(response.status);                        
             expect(response.status).toEqual(404);
-            console.log(response.status);            
           });
       });
   });
