@@ -25,23 +25,6 @@ let sendJSON = (response,status,jsonData) => {
   return;
 };
 
-let getMountainById = id => {
-  return storage.fetchItem(id);
-};
-
-let deleteMountainById = id => {
-  let indexOfId = storage
-    .map(mountain => mountain.id)
-    .indexOf(id);
-
-  if(indexOfId < 0)
-    return false;
-  else {
-    indexOfId = storage.slice(0, indexOfId).concat(storage.splice(indexOfId + 1));
-    return true;
-  }
-};
-
 router.post('/api/mountains', (request, response) =>  {
   if(!request.body){
     sendStatus(response,400,'body not found');
