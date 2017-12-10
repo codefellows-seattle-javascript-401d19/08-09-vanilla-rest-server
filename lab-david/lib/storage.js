@@ -39,6 +39,7 @@ storage.fetchItem = (id) => {
     .then(mountain => {
       if(mountain === undefined)
         throw new Error(`---->STORAGE_ERROR<---- item not found`);
+        
       return mountain;
     });
 };

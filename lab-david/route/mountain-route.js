@@ -26,7 +26,7 @@ let sendJSON = (response,status,jsonData) => {
 };
 
 let getMountainById = id => {
-  return storage.filter(mountains => mountains.id === id)[0];
+  return storage.fetchItem(id);
 };
 
 let deleteMountainById = id => {
@@ -37,7 +37,7 @@ let deleteMountainById = id => {
   if(indexOfId < 0)
     return false;
   else {
-    mountains = mountains.slice(0, indexOfId).concat(mountains.splice(indexOfId + 1));
+    indexOfId = storage.slice(0, indexOfId).concat(storage.splice(indexOfId + 1));
     return true;
   }
 };
@@ -83,26 +83,32 @@ router.post('/api/mountains', (request, response) =>  {
 router.get('/api/mountains', (request, response) =>  {
   let id = request.url.query.id;
 
-  if(id) {
-    let requestMountain = getMountainById(id);
-    if(requestMountain){
-      sendJSON(response, 200, requestMountain);
-    } else
-      sendStatus(response, 404, `no mountain found with the id of ${id}`);
-  } else
-    sendJSON(response, 200, storage);
+  if(!id) {
+    storage.fetchAll()
+      .then((mountains) => {
+        sendJSON(response, 200, mountains);
+      })
+      .catch(error => {
+        sendStatus(response, 500, error);
+      });
+  } else {
+    storage.fetchItem(id)
+      .then((mountain) => {
+        sendJSON(response, 200, mountain);
+      })
+      .catch(error => {
+        sendStatus(response, 404, error);
+      });
+  }
 });
 
 router.delete('/api/mountains', (request, response) => {
   let id = request.url.query.id;
-  if(id) {
-    let deletedMountain = deleteMountainById(id);
-    if (deletedMountain) {
-      logger.log('info', `Mountain deleted, responding with a 200 success code`);
-      response.writeHead(200);
-      response.end();
-    } else
-      sendStatus(response, 404, `No mountain was found with an id ${id}`);
-  } else 
-    sendStatus(response, 400, `something else occurred - bad request.`);
+  storage.deleteItem(id)
+    .then((filteredMountains) => {
+      sendJSON(response, 200, filteredMountains);
+    })
+    .catch(error => {
+      sendStatus(response, 404, error);
+    });
 });

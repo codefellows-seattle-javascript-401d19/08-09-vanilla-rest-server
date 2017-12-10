@@ -37,11 +37,28 @@ describe('api/mountains',() => {
   });
 
   test(`GET should respond with a 404, not found, for valid requests with an id that was not found`, () => {
-    return superagent.get(`http://localhost:3000/api/mountains?id=$333-33`)
-      .set('Content-Type','application/json') 
-      .then(response => Promise.reject(response))
-      .catch(response => {
-        expect(response.status).toEqual(404);
+    return superagent.post(`http://localhost:3000/api/mountains`)
+      .set('Content-Type','application/json')
+      .send({
+        name : 'Shuksan',
+        state : 'Washington',
+        hiking : 'Yes',
+        range : 'Cascades',
+      })
+      .then(response => {
+        console.log(response.status);
+        expect(response.status).toEqual(200);
+        superagent.get(`http://localhost:3000/api/mountains?id=$33333`)
+          .set('Content-Type','application/json') 
+          .then(response => { 
+            Promise.reject(response);
+          })
+          .catch(response => {
+            console.log('we are here');  
+            console.log(response.status);                        
+            expect(response.status).toEqual(404);
+            console.log(response.status);            
+          });
       });
   });
 
@@ -50,7 +67,6 @@ describe('api/mountains',() => {
       .set('Content-Type','application/json')
       .then(response => {
         expect(response.status).toEqual(200);
-        console.log('id', `${dummyData.id}`);
       });
   });
 
