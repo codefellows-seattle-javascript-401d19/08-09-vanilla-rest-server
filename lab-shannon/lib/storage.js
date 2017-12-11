@@ -6,11 +6,12 @@ const fsExtra = require(`fs-extra`);
 const storage = module.exports = {};
 
 fsExtra.pathExists(process.env.STORAGE_PATH)
-  .then((result) => {
+  .then(result => {
     if(!result){
+      logger.log(`info`, `Creating a new storage file`);
       fsExtra.writeJSON(process.env.STORAGE_PATH, []);
     }
-  })
+  });
 
 storage.showAllSweets = () => {
   logger.log(`info`, `All sweets are being retrieved!`);
@@ -29,7 +30,7 @@ storage.showSweet = (id) => {
         throw new Error(`STORAGE_ERROR: nothing found with that id`);
 
       return sweet;
-    })
+    });
 };
 
 storage.addSweet = (sweet) => {
@@ -40,8 +41,8 @@ storage.addSweet = (sweet) => {
 
   return storage.showAllSweets()
     .then(database => {
-      return fsExtra.writeJSON(process.env.STORAGE_PATH, [...databse, sweet]);
-    })
+      return fsExtra.writeJSON(process.env.STORAGE_PATH, [...database, sweet]);
+    });
 };
 
 storage.removeSweet = (id) => {
@@ -49,7 +50,9 @@ storage.removeSweet = (id) => {
 
   return storage.showAllSweets()
     .then(database => {
-      return database.filter(sweet => {sweet.id !== id});
+      return database.filter(sweet => sweet.id !== id);
     })
-    .then(filteredDB => fsExtra.writeJSON(process.env.STORAGE_PATH, filteredDB);
+    .then(filteredDB => {
+      return fsExtra.writeJSON(process.env.STORAGE_PATH, filteredDB);
+    });
 };

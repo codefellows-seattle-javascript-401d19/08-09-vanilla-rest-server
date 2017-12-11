@@ -3,6 +3,7 @@
 const Sweet = require(`../model/sweet`);
 const router = require(`../lib/router`);
 const logger = require(`../lib/logger`);
+const storage = require(`../lib/storage`);
 
 let sweets = [];
 
@@ -15,13 +16,13 @@ let sendStatus = (response, status, message) => {
   return;
 };
 
-let sendJSON = (response, status, jsonData) => {
+let sendJSON = (response, status, sweetsFile) => {
   logger.log(`info`, `Sending JSON!`);
 
   response.writeHead(status, {
-    'Content-Type' : 'application/json'
+    'Content-Type' : 'application/json',
   });
-  response.write(JSON.stringify(jsonData));
+  response.write(sweetsFile);
   response.end();
   return;
 };
@@ -59,7 +60,7 @@ router.get(`/api/sweets`, (request, response) => {
     return sendJSON(response, 200, matchingSweet[0]);
   }
 
-  sendJSON(response, 200, sweets);
+  sendJSON(response, 200, storage.showAllSweets());
 });
 
 router.delete(`/api/sweets`, (request, response) => {
@@ -75,4 +76,4 @@ router.delete(`/api/sweets`, (request, response) => {
   matchingSweet = {};
   let deletedSweet = matchingSweet;
   sendJSON(response, 204, deletedSweet);
-})
+});

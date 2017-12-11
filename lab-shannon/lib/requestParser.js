@@ -32,6 +32,6 @@ requestParser.parse = (request) => {
         logger.log(`info`, `There was an error: ${error}`);
         return reject(error);
       }
-    })
+    });
   });
 };

@@ -31,10 +31,10 @@ router.route = (request, response) => {
       let handlerFromRequest = routeHandlers[request.method][request.url.pathname];
 
       if(handlerFromRequest){
-        return handlerFromRequest(request, response);
         logger.log(`info`, `The method found was: ${request.method}`);
         logger.log(`info`, `The url pathname found was: ${request.url.pathname}`);
         logger.log(`info`, `The handler found from the request was: ${handlerFromRequest.toString()}`);
+        return handlerFromRequest(request, response);
       }else{
         response.writeHead(404);
         response.end();

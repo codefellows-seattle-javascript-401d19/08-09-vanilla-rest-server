@@ -1,10 +1,10 @@
 ## Purpose
 
-This program creates a RESTful HTTP server which stores resources (sweets) in memory. Users can access, add, or remove sweets via the sweets router.
+This program creates a RESTful HTTP server which stores resources (sweets) in a JSON file. Users can access, add, or remove sweets via the sweets router.
 
 ## How To Use
 * From your command line run "npm install" to install all of the dependencies.
-* Install jest for testing run "npm i -s jest". You will then be able to use the command npm test to start the server and execute all tests in the test files.
+* To install jest for testing run "npm i -s jest". You will then be able to use the command 'npm test' to start the server and execute all tests in the test files.
 
 ## Route Operations
 * router.get: The url may include a query with a uuid. If no id is provided the entire collection of sweet objects is returned. If an id is provided only the sweet with the matching id is returned. If no sweet is found with the specified id a 404 error will occur.
