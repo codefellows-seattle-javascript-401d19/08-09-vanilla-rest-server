@@ -30,11 +30,12 @@ storage.getSweet = (id) => {
         sweet.id === id;
       });
     })
-    .then(sweet => {
-      if(sweet === undefined)
+    .then(filteredDB => {
+      if(filteredDB === undefined) {
         throw new Error(`STORAGE_ERROR: nothing found with that id`);
+      }
 
-      return sweet;
+      return filteredDB;
     });
 };
 
