@@ -4,7 +4,11 @@
 const log = require('./lib/logger');
 const http = require('http');
 const router = require('./route/router');
+const fs = require('fs');
 
+if (!fs.existsSync('./logs')) {
+  fs.mkdir('./logs');
+}
 require('dotenv').config();
 require('./lib/dog-router');
 
