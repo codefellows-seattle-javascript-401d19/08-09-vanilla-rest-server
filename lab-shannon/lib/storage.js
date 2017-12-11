@@ -13,17 +13,22 @@ fsExtra.pathExists(process.env.STORAGE_PATH)
     }
   });
 
-storage.showAllSweets = () => {
+storage.getAllSweets = () => {
+
   logger.log(`info`, `All sweets are being retrieved!`);
+  console.log(`allSweets ran`);
   return fsExtra.readJSON(process.env.STORAGE_PATH);
 };
 
-storage.showSweet = (id) => {
+storage.getSweet = (id) => {
+  console.log(`getSweet ran`);
   logger.log(`info`, `Getting the sweet with id: ${id}`);
 
-  return storage.showAllSweets()
+  return storage.getAllSweets()
     .then(database => {
-      return database.filter((sweet) => {sweet.id === id});
+      return database.filter(sweet => {
+        sweet.id === id;
+      });
     })
     .then(sweet => {
       if(sweet === undefined)
@@ -34,21 +39,23 @@ storage.showSweet = (id) => {
 };
 
 storage.addSweet = (sweet) => {
+  console.log(`addSweet ran`);
   logger.log(`info`, `We're going to add a sweet! It's ${sweet}`);
 
   if(!sweet.id)
     return Promise.reject(new Error(`The sweet must have an id`));
 
-  return storage.showAllSweets()
+  return storage.getAllSweets()
     .then(database => {
       return fsExtra.writeJSON(process.env.STORAGE_PATH, [...database, sweet]);
     });
 };
 
 storage.removeSweet = (id) => {
+  console.log(`removeSweet ran`);
   logger.log(`info`, `Deleting a sweet with the id ${id}`);
 
-  return storage.showAllSweets()
+  return storage.getAllSweets()
     .then(database => {
       return database.filter(sweet => sweet.id !== id);
     })

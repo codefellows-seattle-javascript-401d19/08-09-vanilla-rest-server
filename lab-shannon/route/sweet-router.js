@@ -5,7 +5,7 @@ const router = require(`../lib/router`);
 const logger = require(`../lib/logger`);
 const storage = require(`../lib/storage`);
 
-let sweets = [];
+// let sweets = [];
 
 let sendStatus = (response, status, message) => {
   logger.log(`info`, `ERROR: ${message}`);
@@ -17,6 +17,7 @@ let sendStatus = (response, status, message) => {
 };
 
 let sendJSON = (response, status, sweetsFile) => {
+  // console.log(sweetsFile, `is the sweetsFile from getAll`);
   logger.log(`info`, `Sending JSON!`);
 
   response.writeHead(status, {
@@ -41,8 +42,8 @@ router.post(`/api/sweets`, (request, response) => {
   }
 
   let sweet = new Sweet(request.body.name, request.body.hasChocolate, request.body.temperature);
-  sweets.push(sweet);
-  sendJSON(response, 200, sweet);
+  // sweets.push(sweet);
+  sendJSON(response, 200, storage.addSweet(sweet));
   logger.log(`info`, `The new sweet's id is :${sweet.id}`);
 });
 
@@ -50,30 +51,26 @@ router.post(`/api/sweets`, (request, response) => {
 router.get(`/api/sweets`, (request, response) => {
   let id = request.url.query.id;
 
-  let matchingSweet = sweets.filter(sweet => sweet.id === id);
-  logger.log(`info`, `${matchingSweet} is the matching sweet`);
-
-  if(request.url.query.id){
-    if(matchingSweet.length < 1){
-      return sendStatus(response, 404, `There is no sweet with that id`);
-    }
-    return sendJSON(response, 200, matchingSweet[0]);
+  if(id){
+    // if(there is no matching sweet){
+    //   return sendStatus(response, 404, `There is no sweet with that id`);
+    // }
+    return sendJSON(response, 200, storage.getSweet(id));
   }
-
-  sendJSON(response, 200, storage.showAllSweets());
+  sendJSON(response, 200, storage.getAllSweets());
 });
 
 router.delete(`/api/sweets`, (request, response) => {
   let id = request.url.query.id;
-  let matchingSweet = sweets.filter(sweet => sweet.id === id);
+  // let matchingSweet = sweets.filter(sweet => sweet.id === id);
 
   if(id.length < 1)
     return sendStatus(response, 400, `You must specify which sweet to delete by providing an id`);
 
-  if(matchingSweet.length < 1)
-    return sendStatus(response, 404, `A sweet with that id does not exist`);
+  // if(matchingSweet.length < 1)
+  //   return sendStatus(response, 404, `A sweet with that id does not exist`);
 
-  matchingSweet = {};
-  let deletedSweet = matchingSweet;
-  sendJSON(response, 204, deletedSweet);
+  // matchingSweet = {};
+  // let deletedSweet = matchingSweet;
+  sendJSON(response, 204, storage.removeSweet(id));
 });
