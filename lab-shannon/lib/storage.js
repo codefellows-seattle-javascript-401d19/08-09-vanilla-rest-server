@@ -16,31 +16,27 @@ fsExtra.pathExists(process.env.STORAGE_PATH)
 storage.getAllSweets = () => {
 
   logger.log(`info`, `All sweets are being retrieved!`);
-  console.log(`allSweets ran`);
   return fsExtra.readJSON(process.env.STORAGE_PATH);
 };
 
 storage.getSweet = (id) => {
-  console.log(`getSweet ran`);
   logger.log(`info`, `Getting the sweet with id: ${id}`);
+  console.log(`logging sweet with id ${id}`);
 
   return storage.getAllSweets()
     .then(database => {
-      return database.filter(sweet => {
-        sweet.id === id;
-      });
+      return database.find(sweet => sweet.id === id);
     })
-    .then(filteredDB => {
-      if(filteredDB === undefined) {
+    .then(sweet => {
+      if(sweet === undefined) {
         throw new Error(`STORAGE_ERROR: nothing found with that id`);
       }
 
-      return filteredDB;
+      return sweet;
     });
 };
 
 storage.addSweet = (sweet) => {
-  console.log(`addSweet ran`);
   logger.log(`info`, `We're going to add a sweet! It's ${sweet}`);
 
   if(!sweet.id)
@@ -53,7 +49,6 @@ storage.addSweet = (sweet) => {
 };
 
 storage.removeSweet = (id) => {
-  console.log(`removeSweet ran`);
   logger.log(`info`, `Deleting a sweet with the id ${id}`);
 
   return storage.getAllSweets()

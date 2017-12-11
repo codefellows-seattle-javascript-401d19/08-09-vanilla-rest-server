@@ -42,7 +42,7 @@ router.post(`/api/sweets`, (request, response) => {
 
   storage.addSweet(sweet)
     .then(data => {
-      console.log(`the data we go is ${data}`)
+      console.log(sweet, `is the sweet`);
       sendJSON(response, 200, sweet)
     });
   logger.log(`info`, `The new sweet's id is :${sweet.id}`);
