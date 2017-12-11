@@ -1,0 +1,43 @@
+{
+  "name": "lab-cameron",
+  "version": "1.0.0",
+  "description": "vanilla REST server",
+  "main": "lib/server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest -i --coverage",
+    "lint": "eslint */.js */**.js",
+    "start": "node ndex.js",
+    "startDev": "nodemon index.js --ignore 'log.json'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CameronMoorehead/08-09-vanilla-rest-server.git"
+  },
+  "keywords": [
+    "REST",
+    "RESTful",
+    "API",
+    "codefellows",
+    "401"
+  ],
+  "author": "Cameron Moorehead",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/CameronMoorehead/08-09-vanilla-rest-server/issues"
+  },
+  "homepage": "https://github.com/CameronMoorehead/08-09-vanilla-rest-server#readme",
+  "devDependencies": {
+    "jest": "^21.2.1",
+    "nodemon": "^1.12.5",
+    "superagent": "^3.8.1"
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "fs-extra": "^4.0.3",
+    "uuid": "^3.1.0",
+    "winston": "^2.4.0"
+  }
+}
