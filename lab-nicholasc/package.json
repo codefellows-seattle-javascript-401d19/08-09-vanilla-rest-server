@@ -1,0 +1,26 @@
+{
+  "name": "04-test-bitmap-bmp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest -i --coverage",
+    "lint": "eslint .",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "jest": "^21.2.1",
+    "superagent": "^3.8.1"
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "faker": "^4.1.0",
+    "fs-extra": "^4.0.3",
+    "superagent": "^3.8.1",
+    "uuid": "^3.1.0",
+    "winston": "^2.4.0"
+  }
+}
