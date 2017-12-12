@@ -25,6 +25,35 @@ let sendJSON = (response,status,jsonData) => {
   return;
 };
 
+const starTrekGetById = episodeGet => {
+  return episodeGet.filter(elementEpisode => StarTrek.id === elementEpisode)[0];
+};
+
+const starTrekRemoveById = episodeRemove => {
+  return episodeRemove.filter(id => StarTrek.id !== id);
+};
+
+router.get(`/api/starTrekEpisodes`, (request, response) => {
+  let id = request.url.query.id;
+  if(id){
+    let getEpisode = starTrekGetById(id);
+    if(getEpisode) sendJSON(response, 200, getEpisode);
+    else 
+      sendStatus(response, 404, `Missing Episode ${id}`); 
+  }
+}); 
+
+router.delete(`/api/starTrekEpisodes`, (request, response) =>{
+  let id = request.url.query.id;
+  if(id){
+    let removeEpisode = starTrekRemoveById(id);
+    if(removeEpisode)
+      logger.log('info', `Episode with ${id} Removed from memory`);
+  }else
+    sendStatus(response, 404, `No Episode with ${id}`);
+});
+
+
 
 router.post('/api/starTrekEpisodes', (request,response) => {
 
@@ -45,13 +74,6 @@ router.post('/api/starTrekEpisodes', (request,response) => {
     return;
   }
 
-  const starTrekGetById = episodeGet => {
-    return episodeGet.filter(elementEpisode => StarTrek.id === elementEpisode)[0];
-  };
-  
-  const starTrekRemoveById = episodeRemove => {
-    return episodeRemove.filter(id => StarTrek.id !== id);
-  };
 
   let starTrekEpisodes = new StarTrek(
     request.body.episode,
@@ -60,26 +82,6 @@ router.post('/api/starTrekEpisodes', (request,response) => {
   starTrekEpisodesArr.push(starTrekEpisodes);
   sendJSON(response,200,starTrekEpisodes);
 
-  router.get(`/api/starTrekEpisodes`, (request, response) => {
-    let id = req.url.query.id;
-    if(id){
-      let getEpisode = starTrekGetById(id);
-      if(getEpisode) sendJSON(response, 200, getEpisode);
-      else 
-        sendStatus(response, 404, `Missing Episode ${id}`); 
-    }
-  }); 
-
-  router.delete(`/api/starTrekEpisodes`, (request, response) =>{
-    let id = req.url.query.id;
-    if(id){
-      let removeEpisode = starTrekRemoveById(id);
-      if(removeEpisode)
-        logger.log('info', `Episode with ${id} Removed from memory`);
-    }else
-      sendStatus(response, 404, `No Episode with ${id}`)
-  });
-  
 
   
 });

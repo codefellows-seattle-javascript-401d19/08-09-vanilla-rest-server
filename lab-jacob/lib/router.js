@@ -11,24 +11,24 @@ let routeHandlers = {
 
 const router = module.exports = {};
 
-let logUrlAndCallback = (httpMethod,url,callback) => {
+let urlAndCallbackLogger = (httpMethod,url,callback) => {
   logger.log('info',`Adding a ${httpMethod} url and callback`);
   logger.log('info',url);
   logger.log('info',callback.toString());
 };
 
 router.get = (url,callback) => {
-  logUrlAndCallback('GET',url,callback);
+  urlAndCallbackLogger('GET',url,callback);
   routeHandlers.GET[url] = callback;
 };
 
 router.post = (url,callback) => {
-  logUrlAndCallback('POST',url,callback);
+  urlAndCallbackLogger('POST',url,callback);
   routeHandlers.POST[url] = callback;
 };
 
 router.delete = (url,callback) => {
-  logUrlAndCallback('POST',url,callback);
+  urlAndCallbackLogger('POST',url,callback);
   routeHandlers.POST[url] = callback;
 };
 
@@ -52,7 +52,6 @@ router.route = (request,response) => {
     .catch(error => {
       logger.log('info', '___REQUEST_ERROR___');
       logger.log('info', error);
-
       response.writeHead(400);
       response.end();
       return;
