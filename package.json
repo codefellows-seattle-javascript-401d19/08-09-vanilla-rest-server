@@ -4,7 +4,9 @@
   "description": "Lab 08, REST",
   "main": "index.js",
   "scripts": {
-    "test": "jest -i --coverage"
+    "test": "jest -i --coverage",
+    "lint": "eslint .",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

@@ -3,6 +3,7 @@
 const Wizard = require('../model/wizard');
 const router = require('../lib/router');
 const logger = require('../lib/logger');
+const storage = require('../lib/storage');
 
 let wizards = [];
 
@@ -44,3 +45,36 @@ let sendStatus = (response,status,message) => {
     wizards.push(wizard);
     sendJSON(response,200,wizard);
   });
+
+
+router.get('/api/wizards', (request, response) => {
+  if(request.url.query.id) {
+    storage.fetchItem(request.url.query.id)
+      .then((result) => {
+        sendJSON(response, 200, result);
+      })
+      .catch(error => {
+        sendStatus(response, 404, error);
+      });
+ 
+  } else {
+    storage.fetchAll()
+      .then((result) => {
+        sendJSON(response, 200, result);
+      })
+      .catch(error => {
+        sendStatus(response, 500, error);
+      });
+  }
+});
+
+router.delete('/api/wizards', (request, response) => {
+  if(!request.url.query.id) {
+    sendStatus(response, 400, 'ID Not Provided');
+    return;
+  }
+  storage.deleteItem(request.url.query.id)
+    .then((result) => {
+      sendJSON(response, 204, result);
+    });
+});

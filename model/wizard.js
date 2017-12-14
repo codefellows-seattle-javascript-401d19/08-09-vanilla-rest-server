@@ -3,7 +3,7 @@
 const uuid = require('uuid/v1');
 
 class Wizard {
-    constructor(name,spells,origin){
+    constructor(name,origin){
         this.id = uuid();
         this.timestamp = new Date();
         this.name = name;
