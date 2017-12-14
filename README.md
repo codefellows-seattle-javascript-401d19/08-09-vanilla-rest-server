@@ -1,60 +1,55 @@
-![cf](https://i.imgur.com/7v5ASc8.png) Lab 08: REST API
-======
 
-## Submission Instructions
-* Work in a fork of this repository
-* Work in a branch on your fork
-* Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-susan`
-* Open a pull request to this repository
-* Submit on canvas a question and observation, how long you spent, and a link to your pull request
 
-## Resources
-* [node uuid docs](https://github.com/kelektiv/node-uuid)
+##  Lab 08: REST API
 
-## Configuration 
-Configure the root of your repository with the following files and directories. Thoughtfully name and organize any additional configuration or module files.
-* **README.md** - contains documentation
-* **.env** - contains env variables **(should be git ignored)**
-* **.gitignore** - contains a [robust](http://gitignore.io) `.gitignore` file 
-* **.eslintrc.json** - contains the course linter configuration
-* **.eslintignore** - contains the course linter ignore configuration
-* **package.json** - contains npm package config
-  * create a `lint` script for running eslint
-  * create a `test` script for running tests
-  * create a `start` script for running your server
-* **lib/** - contains module definitions
-* **model/** - contains module definitions
-* **route/** - contains module definitions
-* **\_\_test\_\_/** - contains test modules
+### Author:
+Dalton Carr
 
-## Feature Tasks  
-For this assignment you will be building a RESTful HTTP server. The server will store all resources in memory.
 
-#### Request Parser
-The request parser module should return a promise that parses the request url, querystring, and  POST or PUT body (as JSON).
+#### Request Parser Module
 
-#### Model
-In the model/ directory create a constructor for a resource (that is different from the class lecture resource). The model must include 4 properties, including an `id` property generated using node uuid.
+The request parser module returns a promise that parses the request url, querystring, and POST body (as JSON). The request parser module then exports an object containing an instantiated Promise and parsed request.body data.
 
-#### Server Endpoints
-Create the following routes for performing CRUD operations on your resource
-* `POST /api/<resource-name>` 
-  * pass data as stringifed JSON in the body of a **POST** request to create a new resource
-  * on success respond with a 200 status code and the created note 
-  * on failure due to a bad request send a 400 status code
-* `GET /api/<resource-name>` and `GET /api/<resource-name>?id={id}` 
-  * with no id in the query string it should respond with an array of all of your resources
-  * with an id in the query string it should respond with the details of a specifc resource (as JSON)
-    * if the id is not found respond with a 404
-* `DELETE /api/<resource-name?id={id}>` 
-  * the route should delete a note with the given id 
-  * on success this should return a 204 status code with no content in the body
-  * on failure due to lack of id in the query respond with a 400 status code
-  * on failure due to a resource with that id not existing respond with a 404 status code
+#### Server Module
 
-## Tests
-* Write tests to ensure the `/api/resource-name` endpoint responds as described for each condition below:
-  * `GET`: test 404, it should respond with 'not found' for valid requests made with an id that was not found
-  * `GET`: test 200, it should contain a response body for a request made with a valid id
-  * `POST`: test 400, it should respond with 'bad request' if no request body was provided or the body was invalid
-  * `POST`: test 200, it should respond with the body content for a post request with a valid body
+The server module is creating an http server, defining route behavior and exporting an interface for starting and stopping the server. The server module exports an object containing start and stop methods. 
+
+The server module requires in http, logger, router, dotenv, and the wizard-router.js file. The server.start and stop methods return a new Promise with resolve and reject parameters. The start method contains an app.listen function that listens for the server start. The server.stop method has an app.close that turns the server off by setting the isServerOn variable to false.
+
+#### Model Module
+
+The model module contains a wizard.js file containing a Wizard class constructor with the properties: id, timestamp, name and origin.
+
+#### Route Module
+
+##### ```wizard-router.js```
+
+wizard-router.js requires in the Wizard object, router module, and the logger module. Inside the module, there are functions declared for sendStatus and for sendJSON to be used as success/failure statuses. There are three router methods: ```router.post```, ```router.get``` and ```router.delete```.
+
+##### ```router.js```
+
+router.js requires in requestParser and logger. In this file an object called routeHandlers is declared containing four properties: ```POST```, ```GET```, ```DELETE``` and ```PUT```. 
+
+#### Logger Module
+
+In this module, our logger winston is required in and exported as logger, making it a seperate module and easy to access for logging.
+
+#### Test Module
+
+server.test.js contains three tests for each method: ```POST```, ```GET``` and ```DELETE```. 
+
+
+### Tech/Framework used
+
+* JavaScript / ES6
+* Node.js
+* Jest
+* Eslint
+* Winston
+* Superagent
+* uuid
+* dotenv
+
+### License
+
+MIT © Dalton Carr
