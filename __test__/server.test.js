@@ -2,6 +2,8 @@
 
 const server = require('../lib/server');
 const superagent = require('superagent');
+const PORT = process.env.PORT;
+let wizardId;
 
 describe('/api/wizards',() => {
   beforeAll(server.start);
@@ -66,4 +68,3 @@ describe('/api/wizards',() => {
 });
 
 
-});
